@@ -139,7 +139,7 @@
     "crew_id": "M-1011",
     "name": "Capt. Karin Nakamura",
     "rank": "Captain",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -220,7 +220,7 @@
     "crew_id": "M-1017",
     "name": "Capt. Sofia Kovalev",
     "rank": "Captain",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -301,7 +301,7 @@
     "crew_id": "M-1023",
     "name": "Capt. Valeria Rostova",
     "rank": "Captain",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -382,7 +382,7 @@
     "crew_id": "M-1029",
     "name": "Capt. Liam Larsson",
     "rank": "Captain",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -463,7 +463,7 @@
     "crew_id": "M-1035",
     "name": "Capt. Bj\u00f6rn Vance",
     "rank": "Captain",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -544,7 +544,7 @@
     "crew_id": "M-1041",
     "name": "Capt. Sven MacLeod",
     "rank": "Captain",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -625,7 +625,7 @@
     "crew_id": "M-1047",
     "name": "Capt. Aris Volkov",
     "rank": "Captain",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -706,7 +706,7 @@
     "crew_id": "M-1053",
     "name": "Chief Mate Viktor Andersen",
     "rank": "First Officer",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -787,7 +787,7 @@
     "crew_id": "M-1059",
     "name": "Chief Mate Amina Rossi",
     "rank": "First Officer",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -868,7 +868,7 @@
     "crew_id": "M-1065",
     "name": "Chief Mate Irina Ivanova",
     "rank": "First Officer",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -949,7 +949,7 @@
     "crew_id": "M-1071",
     "name": "Chief Mate Chiara Patel",
     "rank": "First Officer",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -1030,7 +1030,7 @@
     "crew_id": "M-1077",
     "name": "Chief Mate Hanna Sokolov",
     "rank": "First Officer",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -1111,7 +1111,7 @@
     "crew_id": "M-1083",
     "name": "Chief Mate Nikolai Papadopoulos",
     "rank": "First Officer",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -1192,7 +1192,7 @@
     "crew_id": "M-1089",
     "name": "Chief Mate Stavros Holm",
     "rank": "First Officer",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -1273,7 +1273,7 @@
     "crew_id": "M-1095",
     "name": "Chief Eng. Marcus Lindberg",
     "rank": "First Officer",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -1354,7 +1354,7 @@
     "crew_id": "M-1101",
     "name": "Chief Eng. Gunnar Kostas",
     "rank": "First Officer",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -1435,7 +1435,7 @@
     "crew_id": "M-1107",
     "name": "Chief Eng. Elena Petrova",
     "rank": "First Officer",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -1516,7 +1516,7 @@
     "crew_id": "M-1113",
     "name": "Chief Eng. Natalia Larsen",
     "rank": "First Officer",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"
@@ -1597,7 +1597,7 @@
     "crew_id": "M-1119",
     "name": "Chief Eng. Maya Svensson",
     "rank": "First Officer",
-    "base": "SGP",
+    "base": "ZEE",
     "ratings": [
       "BULK_CAPESIZE",
       "ECDIS_FURUNO"

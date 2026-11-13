@@ -3110,7 +3110,7 @@ input, select { font: inherit; color: inherit; }
                     <div class="wave-monitor-header">
                         <div style="display:flex; align-items:center; gap:8px;">
                             <span style="font-size:0.78rem; font-weight:700; color:var(--ink-primary); display:flex; align-items:center; gap:6px;">
-                                <i class="fa-solid fa-plane-tail" style="color:var(--brand-green-strong)"></i> Operational Flight Wave Monitor
+                                <i class="fa-solid fa-plane-tail" id="waveMonitorHeaderIcon" style="color:var(--brand-green-strong)"></i> <span id="waveMonitorHeaderTitle">Operational Flight Wave Monitor</span>
                             </span>
                             <span class="threat-pill red" id="waveDisruptionCountPill"><i class="fa-solid fa-triangle-exclamation"></i> 3 Uncrewed</span>
                         </div>
@@ -3122,12 +3122,12 @@ input, select { font: inherit; color: inherit; }
                         <table class="data-table-main compact-wave-table">
                             <thead>
                                 <tr>
-                                    <th>Flight</th>
-                                    <th>Sector</th>
-                                    <th>Tail</th>
-                                    <th>Block</th>
-                                    <th>Assigned PIC</th>
-                                    <th>Assigned FO</th>
+                                    <th id="thWaveUnit">Flight</th>
+                                    <th id="thWaveSector">Sector</th>
+                                    <th id="thWaveTail">Tail</th>
+                                    <th id="thWaveBlock">Block</th>
+                                    <th id="thWavePic">Assigned PIC</th>
+                                    <th id="thWaveFo">Assigned FO</th>
                                     <th>Status</th>
                                     <th>OCC Action</th>
                                 </tr>
@@ -3278,13 +3278,13 @@ input, select { font: inherit; color: inherit; }
                     <!-- Communication Channel Tabs -->
                     <div class="channel-pill-tabs">
                         <button class="ch-tab-btn active" id="btnChAcars" onclick="setOutreachChannel('acars')">
-                            <i class="fa-solid fa-plane-departure"></i> ACARS (ARINC-620)
+                            <i class="fa-solid fa-satellite-dish" id="iconCh1"></i> <span id="labelCh1">ACARS (ARINC-620)</span>
                         </button>
                         <button class="ch-tab-btn" id="btnChSms" onclick="setOutreachChannel('sms')">
-                            <i class="fa-solid fa-message"></i> SMS Carrier
+                            <i class="fa-solid fa-message" id="iconCh2"></i> <span id="labelCh2">SMS Carrier</span>
                         </button>
                         <button class="ch-tab-btn" id="btnChVoice" onclick="setOutreachChannel('voice')">
-                            <i class="fa-solid fa-phone"></i> Voice Briefing
+                            <i class="fa-solid fa-phone" id="iconCh3"></i> <span id="labelCh3">Voice Briefing</span>
                         </button>
                     </div>
 
@@ -3419,18 +3419,18 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
             <div id="flightTimelineWrapper" class="flight-timeline-view-card">
                 <!-- Timeline Time Ruler Header -->
                 <div class="timeline-ruler-header" id="timelineRulerHeader">
-                    <div class="ruler-tail-col">AIRCRAFT TAIL</div>
+                    <div class="ruler-tail-col" id="rulerColTitle">AIRCRAFT TAIL</div>
                     <div class="ruler-hours-track" id="rulerHoursTrack"></div>
                 </div>
                 <!-- Timeline Swimlanes Container -->
                 <div class="timeline-swimlanes-container" id="timelineSwimlanesContainer"></div>
                 <!-- Timeline Legend Bar -->
-                <div class="timeline-legend-bar">
-                    <span class="legend-item"><span class="legend-box scheduled-a320"></span> A320 Scheduled</span>
-                    <span class="legend-item"><span class="legend-box turboprop"></span> ATR72 Turboprop</span>
+                <div class="timeline-legend-bar" id="timelineLegendBar">
+                    <span class="legend-item"><span class="legend-box scheduled-a320"></span> <span id="legendBoxType1">A320 Scheduled</span></span>
+                    <span class="legend-item"><span class="legend-box turboprop"></span> <span id="legendBoxType2">ATR72 Turboprop</span></span>
                     <span class="legend-item"><span class="legend-box disrupted"></span> Disrupted / Uncrewed</span>
                     <span class="legend-item"><span class="legend-box covered"></span> Covered / Standby Assigned</span>
-                    <span style="margin-left:auto; font-size:0.7rem; color:var(--ink-muted);"><i class="fa-solid fa-hand-pointer"></i> Click any flight bar to view crew details or dispatch recovery</span>
+                    <span style="margin-left:auto; font-size:0.7rem; color:var(--ink-muted);"><i class="fa-solid fa-hand-pointer"></i> <span id="legendHintText">Click any flight bar to view crew details or dispatch recovery</span></span>
                 </div>
             </div>
 
@@ -3439,13 +3439,13 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
                 <table class="data-table-main">
                     <thead>
                         <tr>
-                            <th>Flight</th>
-                            <th>Sector</th>
-                            <th>Pairing ID</th>
-                            <th>Aircraft</th>
-                            <th>Block Time</th>
-                            <th>Assigned PIC</th>
-                            <th>Assigned FO</th>
+                            <th id="thTableUnit">Flight</th>
+                            <th id="thTableSector">Sector</th>
+                            <th id="thTablePairing">Pairing ID</th>
+                            <th id="thTableAsset">Aircraft</th>
+                            <th id="thTableBlock">Block Time</th>
+                            <th id="thTablePic">Assigned PIC</th>
+                            <th id="thTableFo">Assigned FO</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -4004,7 +4004,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         const cStation = document.getElementById('crewFilterFlightStation');
         const tStation = document.getElementById('filterFlightStation');
         const stations = isMaritime
-            ? [{val: '', label: 'Port: All Ports'}, {val: 'ROT', label: 'ROT (Rotterdam Maasvlakte)'}, {val: 'HAM', label: 'HAM (Hamburg Elbe)'}, {val: 'ANT', label: 'ANT (Antwerp)'}, {val: 'SGP', label: 'SGP (Singapore)'}, {val: 'DXB', label: 'DXB (Jebel Ali)'}]
+            ? [{val: '', label: 'Port: All Ports'}, {val: 'ROT', label: 'ROT (Rotterdam Maasvlakte)'}, {val: 'HAM', label: 'HAM (Hamburg Elbe)'}, {val: 'ANT', label: 'ANT (Antwerp)'}, {val: 'FLX', label: 'FLX (Felixstowe)'}, {val: 'BRV', label: 'BRV (Bremerhaven)'}, {val: 'ZEE', label: 'ZEE (Zeebrugge)'}]
             : [{val: '', label: 'Hub: All Stations'}, {val: 'DEL', label: 'DEL (Delhi Hub)'}, {val: 'BLR', label: 'BLR (Bengaluru Hub)'}, {val: 'BOM', label: 'BOM (Mumbai)'}, {val: 'CCU', label: 'CCU (Kolkata)'}, {val: 'HYD', label: 'HYD (Hyderabad)'}];
 
         [cStation, tStation].forEach(sel => {
@@ -4015,7 +4015,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         const cFleet = document.getElementById('crewFilterFlightFleet');
         const tFleet = document.getElementById('filterFlightFleet');
         const fleets = isMaritime
-            ? [{val: '', label: 'Vessel: All Types'}, {val: 'ULCV_CONTAINER', label: 'ULCV (20k TEU Container)'}, {val: 'LNG_CARRIER', label: 'LNG Carrier (174k m³)'}, {val: 'FEEDER_CONTAINER', label: 'Feeder Container'}, {val: 'DP2_OFFSHORE', label: 'DP2 Support Vessel'}, {val: 'BULK_CAPESIZE', label: 'Capesize Bulk Carrier'}]
+            ? [{val: '', label: 'Vessel: All Types'}, {val: 'ULCV_CONTAINER', label: 'ULCV (20k TEU Container)'}, {val: 'LNG_CARRIER', label: 'LNG Coastal Carrier'}, {val: 'FEEDER_CONTAINER', label: 'Feeder Container'}, {val: 'DP2_OFFSHORE', label: 'DP2 Support Vessel'}, {val: 'BULK_CAPESIZE', label: 'Capesize Bulk Carrier'}]
             : [{val: '', label: 'Fleet: All'}, {val: 'A320', label: 'Fleet: A320 Jet'}, {val: 'ATR72', label: 'Fleet: ATR72 Turboprop'}];
 
         [cFleet, tFleet].forEach(sel => {
@@ -4036,7 +4036,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         const rBase = document.getElementById('filterRosterBase');
         if (rBase) {
             const rBaseOpts = isMaritime
-                ? [{val: '', label: 'All Ports'}, {val: 'ROT', label: 'ROT (Rotterdam)'}, {val: 'HAM', label: 'HAM (Hamburg)'}, {val: 'ANT', label: 'ANT (Antwerp)'}, {val: 'SGP', label: 'SGP (Singapore)'}]
+                ? [{val: '', label: 'All Ports'}, {val: 'ROT', label: 'ROT (Rotterdam Maasvlakte)'}, {val: 'HAM', label: 'HAM (Hamburg Elbe)'}, {val: 'ANT', label: 'ANT (Antwerp)'}, {val: 'FLX', label: 'FLX (Felixstowe)'}]
                 : [{val: '', label: 'All Bases'}, {val: 'BLR', label: 'BLR (Bengaluru)'}, {val: 'DEL', label: 'DEL (Delhi)'}];
             rBase.innerHTML = rBaseOpts.map(b => `<option value="${b.val}">${b.label}</option>`).join('');
         }
@@ -4048,6 +4048,173 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
                 ? [{val: '', label: 'All Ranks'}, {val: 'Master Mariner', label: 'Master Mariner'}, {val: 'Chief Mate', label: 'Chief Mate'}, {val: 'Chief Engineer', label: 'Chief Engineer'}, {val: 'Second Mate', label: 'Second Mate'}, {val: 'Second Engineer', label: 'Second Engineer'}]
                 : [{val: '', label: 'All Ranks'}, {val: 'Captain', label: 'Captain'}, {val: 'First Officer', label: 'First Officer'}, {val: 'Senior Cabin Crew', label: 'Senior Cabin Crew'}, {val: 'Cabin Crew', label: 'Cabin Crew'}];
             rRank.innerHTML = rRankOpts.map(r => `<option value="${r.val}">${r.label}</option>`).join('');
+        }
+
+        // Timeline Ruler Header Column
+        const rulerCol = document.getElementById('rulerColTitle');
+        if (rulerCol) rulerCol.textContent = isMaritime ? 'VESSEL HULL' : 'AIRCRAFT TAIL';
+
+        // Timeline Legend Bar
+        const l1 = document.getElementById('legendBoxType1');
+        if (l1) l1.textContent = isMaritime ? 'ULCV Container' : 'A320 Scheduled';
+        const l2 = document.getElementById('legendBoxType2');
+        if (l2) l2.textContent = isMaritime ? 'Feeder / Specialized' : 'ATR72 Turboprop';
+        const lHint = document.getElementById('legendHintText');
+        if (lHint) lHint.textContent = isMaritime ? 'Click any voyage bar to view watchkeeper details or dispatch recovery' : 'Click any flight bar to view crew details or dispatch recovery';
+
+        // Search Input Placeholders
+        const s1 = document.getElementById('filterFlightSearch');
+        if (s1) s1.placeholder = isMaritime ? 'Search voyage #, pairing, mariner...' : 'Search flight #, pairing, crew...';
+        const s2 = document.getElementById('crewFilterFlightSearch');
+        if (s2) s2.placeholder = isMaritime ? 'Search voyage #, pairing, mariner...' : 'Search flight #, pairing, crew...';
+
+        // Table View Headers
+        const thTU = document.getElementById('thTableUnit');
+        if (thTU) thTU.textContent = isMaritime ? 'Voyage' : 'Flight';
+        const thTS = document.getElementById('thTableSector');
+        if (thTS) thTS.textContent = isMaritime ? 'Port Leg' : 'Sector';
+        const thTP = document.getElementById('thTablePairing');
+        if (thTP) thTP.textContent = isMaritime ? 'Voyage Pairing' : 'Pairing ID';
+        const thTA = document.getElementById('thTableAsset');
+        if (thTA) thTA.textContent = isMaritime ? 'Vessel Hull' : 'Aircraft';
+        const thTB = document.getElementById('thTableBlock');
+        if (thTB) thTB.textContent = isMaritime ? 'Transit Time' : 'Block Time';
+        const thTPic = document.getElementById('thTablePic');
+        if (thTPic) thTPic.textContent = isMaritime ? 'Master Mariner' : 'Assigned PIC';
+        const thTFo = document.getElementById('thTableFo');
+        if (thTFo) thTFo.textContent = isMaritime ? 'Chief Mate' : 'Assigned FO';
+
+        // Wave Monitor Headers
+        const thWU = document.getElementById('thWaveUnit');
+        if (thWU) thWU.textContent = isMaritime ? 'Voyage' : 'Flight';
+        const thWS = document.getElementById('thWaveSector');
+        if (thWS) thWS.textContent = isMaritime ? 'Port Leg' : 'Sector';
+        const thWT = document.getElementById('thWaveTail');
+        if (thWT) thWT.textContent = isMaritime ? 'Vessel' : 'Tail';
+        const thWB = document.getElementById('thWaveBlock');
+        if (thWB) thWB.textContent = isMaritime ? 'Transit' : 'Block';
+        const thWPic = document.getElementById('thWavePic');
+        if (thWPic) thWPic.textContent = isMaritime ? 'Master Mariner' : 'Assigned PIC';
+        const thWFo = document.getElementById('thWaveFo');
+        if (thWFo) thWFo.textContent = isMaritime ? 'Chief Mate' : 'Assigned FO';
+        const wHeadTitle = document.getElementById('waveMonitorHeaderTitle');
+        if (wHeadTitle) wHeadTitle.textContent = isMaritime ? 'Operational Voyage & Watch Monitor' : 'Operational Flight Wave Monitor';
+        const wHeadIcon = document.getElementById('waveMonitorHeaderIcon');
+        if (wHeadIcon) wHeadIcon.className = isMaritime ? 'fa-solid fa-ship' : 'fa-solid fa-plane-tail';
+
+        // Right Dispatch Metadata & Channel Labels
+        const lCh1 = document.getElementById('labelCh1');
+        if (lCh1) lCh1.textContent = isMaritime ? 'Inmarsat-C Telex' : 'ACARS (ARINC-620)';
+        const dispPair = document.getElementById('dispMetaPairing');
+        if (dispPair) dispPair.textContent = isMaritime ? 'V-4101 (EFF 15 Sep)' : 'P-2291 (EFF 15 Sep)';
+        const dispLegs = document.getElementById('dispMetaLegs');
+        if (dispLegs) dispLegs.textContent = isMaritime ? 'VOY-8813/VOY-8814 (MV-NORDICA)' : 'DX412/DX413 (A320)';
+        const dispRep = document.getElementById('dispMetaReport');
+        if (dispRep) dispRep.textContent = isMaritime ? '04:00Z @ Harbor Pilot Station' : '06:00Z @ Station Ops';
+
+        // Update Review Stream Queue
+        renderUncrewedReviewList(vert);
+    }
+
+    function renderUncrewedReviewList(vert) {
+        const isMaritime = vert === 'maritime';
+        const list = document.getElementById('uncrewedReviewList');
+        if (!list) return;
+
+        if (isMaritime) {
+            list.innerHTML = `
+                <!-- Route 1: VOY-8813 M-1001 sick call -->
+                <div class="threat-event-item" onclick="onSelectUncrewedRoute('V-4101', 'VOY-8813', 'M-1001')">
+                    <div class="threat-badge-row">
+                        <span class="route-tag">ROT → FLX</span>
+                        <span class="threat-pill red"><i class="fa-solid fa-bell"></i> Awaiting Review</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;">
+                        <strong style="color:var(--ink-primary); font-size:0.8rem;">⚓ VOY-8813 · V-4101</strong>
+                        <span style="font-size:0.68rem; font-family:var(--font-mono); color:var(--ink-muted);">05:00 - 15:00Z</span>
+                    </div>
+                    <div style="color:var(--ink-secondary); font-size:0.7rem; margin-top:2px;">
+                        <span style="color:var(--status-critical); font-weight:700;">Sick Call M-1001</span> · ULCV (MV-NORDICA) · 20k TEU
+                    </div>
+                </div>
+
+                <!-- Route 2: VOY-8819 M-1014 swap check -->
+                <div class="threat-event-item" onclick="onSelectUncrewedRoute('V-4107', 'VOY-8819', 'M-1014')">
+                    <div class="threat-badge-row">
+                        <span class="route-tag">HAM → BRV</span>
+                        <span class="threat-pill amber"><i class="fa-solid fa-clock"></i> Awaiting Review</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;">
+                        <strong style="color:var(--ink-primary); font-size:0.8rem;">⚓ VOY-8819 · V-4107</strong>
+                        <span style="font-size:0.68rem; font-family:var(--font-mono); color:var(--ink-muted);">07:00 - 12:30Z</span>
+                    </div>
+                    <div style="color:var(--ink-secondary); font-size:0.7rem; margin-top:2px;">
+                        <span style="color:var(--status-warning); font-weight:700;">Approaching 91h Cap</span> · M-1014 at 84.0h Duty
+                    </div>
+                </div>
+
+                <!-- Route 3: Maasvlakte Fog -->
+                <div class="threat-event-item" onclick="submitCustomPrompt('Rotterdam Maasvlakte fog lock delay on 2026-09-16 - what is the watchkeeper pilot impact?')">
+                    <div class="threat-badge-row">
+                        <span class="route-tag">ROT PORT HOLD</span>
+                        <span class="threat-pill red"><i class="fa-solid fa-ban"></i> Awaiting Review</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;">
+                        <strong style="color:var(--ink-primary); font-size:0.8rem;">Maasvlakte Fog Delay</strong>
+                        <span style="font-size:0.68rem; font-family:var(--font-mono); color:var(--ink-muted);">16 Sep 04:00-10:00Z</span>
+                    </div>
+                    <div style="color:var(--ink-secondary); font-size:0.7rem; margin-top:2px;">
+                        <span style="color:var(--status-critical); font-weight:700;">Tide & Lock Delay</span> · 4 Voyages at Risk
+                    </div>
+                </div>
+            `;
+        } else {
+            list.innerHTML = `
+                <!-- Route 1: DX412 C-1042 sick call -->
+                <div class="threat-event-item" onclick="onSelectUncrewedRoute('P-2291', 'DX412', 'C-1042')">
+                    <div class="threat-badge-row">
+                        <span class="route-tag">BLR → BOM</span>
+                        <span class="threat-pill red"><i class="fa-solid fa-bell"></i> Awaiting Review</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;">
+                        <strong style="color:var(--ink-primary); font-size:0.8rem;">✈ DX412 · P-2291</strong>
+                        <span style="font-size:0.68rem; font-family:var(--font-mono); color:var(--ink-muted);">07:00 - 08:45Z</span>
+                    </div>
+                    <div style="color:var(--ink-secondary); font-size:0.7rem; margin-top:2px;">
+                        <span style="color:var(--status-critical); font-weight:700;">Sick Call C-1042</span> · A320 (VT-DXC) · 486 Pax
+                    </div>
+                </div>
+
+                <!-- Route 2: DX421 C-2087 swap check -->
+                <div class="threat-event-item" onclick="onSelectUncrewedRoute('P-2287', 'DX421', 'C-2087')">
+                    <div class="threat-badge-row">
+                        <span class="route-tag">BLR → CCU</span>
+                        <span class="threat-pill amber"><i class="fa-solid fa-clock"></i> Awaiting Review</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;">
+                        <strong style="color:var(--ink-primary); font-size:0.8rem;">✈ DX421 · P-2287</strong>
+                        <span style="font-size:0.68rem; font-family:var(--font-mono); color:var(--ink-muted);">03:00 - 05:30Z</span>
+                    </div>
+                    <div style="color:var(--ink-secondary); font-size:0.7rem; margin-top:2px;">
+                        <span style="color:var(--status-warning); font-weight:700;">Approaching 60h Cap</span> · C-2087 at 51.5h Duty
+                    </div>
+                </div>
+
+                <!-- Route 3: BLR Closure S4 -->
+                <div class="threat-event-item" onclick="submitCustomPrompt('BLR is closed 08:00 to 14:00 on 2026-09-17 - what is the crew impact?')">
+                    <div class="threat-badge-row">
+                        <span class="route-tag">BLR HUB STOP</span>
+                        <span class="threat-pill red"><i class="fa-solid fa-ban"></i> Awaiting Review</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:4px;">
+                        <strong style="color:var(--ink-primary); font-size:0.8rem;">BLR Ground Stop (S4)</strong>
+                        <span style="font-size:0.68rem; font-family:var(--font-mono); color:var(--ink-muted);">17 Sep 08:00-14:00Z</span>
+                    </div>
+                    <div style="color:var(--ink-secondary); font-size:0.7rem; margin-top:2px;">
+                        <span style="color:var(--status-critical); font-weight:700;">Fuel Farm Outage</span> · 6 Sectors at Risk
+                    </div>
+                </div>
+            `;
         }
     }
 
@@ -4167,8 +4334,13 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
             triggerScenario('S1');
         } else if (sickCrewId === 'C-2087') {
             triggerScenario('S2');
+        } else if (sickCrewId === 'M-1001') {
+            runCustomVerticalScenario('M1', 'Sick Call: Capt Lindqvist on VOY-8813 (MV-NORDICA)', 'Master Mariner M-1001 reported sick at Rotterdam Maasvlakte for VOY-8813 (ROT→FLX 10h transit). Elena Rostova (M-1002) is on harbor standby relief with 100% legal STCW rest.');
         } else {
-            submitCustomPrompt(`Flight ${flightNo} (Pairing ${pairingId}) is uncrewed due to ${sickCrewId}. Recommend legal replacement pilot under CAR Section 7.`);
+            const isMaritime = STATE.activeVertical === 'maritime';
+            const unitWord = isMaritime ? 'Voyage' : 'Flight';
+            const ruleWord = isMaritime ? 'IMO STCW 2010 Manila Amendments' : 'CAR Section 7';
+            submitCustomPrompt(`${unitWord} ${flightNo} (Pairing ${pairingId}) is uncrewed due to ${sickCrewId}. Recommend legal replacement under ${ruleWord}.`);
         }
     }
 
@@ -5655,10 +5827,12 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         }
 
         // Update count badge
+        const isMaritime = STATE.activeVertical === 'maritime';
+        const unitWord = isMaritime ? 'Voyages' : 'Flights';
         const badge = document.getElementById('crewFlightFilterBadge');
         if (badge) {
             const dateLabel = dateVal ? `on ${dateVal}` : 'all 7 days';
-            badge.textContent = `Showing ${list.length} Flights (${dateLabel})`;
+            badge.textContent = `Showing ${list.length} ${unitWord} (${dateLabel})`;
         }
 
         // Update wave monitor label
@@ -5671,6 +5845,9 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         // Disruption identification
         const disruptedFlights = list.filter(f => {
             const fltNo = f.flight_no || f.flight_number || '';
+            if (isMaritime) {
+                return ((fltNo === 'VOY-8813' || f.pairing_id === 'V-4101') && !STATE.s1Covered) || (fltNo === 'VOY-8819');
+            }
             return (fltNo === 'DX412' && !STATE.s1Covered) || fltNo === 'DX421' || (f.date === '2026-09-17' && (f.dep_station === 'BLR' || f.arr_station === 'BLR'));
         });
 
@@ -5686,34 +5863,44 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         }
 
         if (list.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:2rem; color:var(--ink-muted);">No flights match the active filters in this wave block.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding:2rem; color:var(--ink-muted);">No ${unitWord.toLowerCase()} match the active filters in this wave block.</td></tr>`;
             return;
         }
 
         const displayList = list.slice(0, 35);
         tbody.innerHTML = displayList.map(f => {
-            const fltNo = f.flight_no || f.flight_number || 'DX---';
+            const fltNo = f.flight_no || f.flight_number || (isMaritime ? 'VOY----' : 'DX---');
             const sector = `${f.dep_station || f.origin} → ${f.arr_station || f.destination}`;
-            const tail = f.aircraft || f.aircraft_tail || 'VT-DXA';
+            const tail = f.aircraft || f.aircraft_tail || (isMaritime ? 'MV-NORDICA' : 'VT-DXA');
             const depTime = (f.dep_utc || '').substring(11, 16) || '07:00';
             const arrTime = (f.arr_utc || '').substring(11, 16) || '08:45';
             const block = `${depTime} - ${arrTime}Z`;
-            const capt = f.captain || f.captain_id || 'C-1042';
-            const fo = f.first_officer || f.first_officer_id || 'C-2087';
-            const pairingId = f.pairing_id || 'P-2291';
+            const capt = f.captain || f.captain_id || (isMaritime ? 'M-1001' : 'C-1042');
+            const fo = f.first_officer || f.first_officer_id || (isMaritime ? 'M-1003' : 'C-2087');
+            const pairingId = f.pairing_id || (isMaritime ? 'V-4101' : 'P-2291');
 
             let isUncrewed = false;
             let actionHandler = '';
 
-            if (fltNo === 'DX412' && !STATE.s1Covered) {
-                isUncrewed = true;
-                actionHandler = `onSelectUncrewedRoute('P-2291', 'DX412', 'C-1042');`;
-            } else if (fltNo === 'DX421') {
-                isUncrewed = true;
-                actionHandler = `onSelectUncrewedRoute('P-2287', 'DX421', 'C-2087');`;
-            } else if (f.date === '2026-09-17' && (f.dep_station === 'BLR' || f.arr_station === 'BLR')) {
-                isUncrewed = true;
-                actionHandler = `submitCustomPrompt('BLR is closed 08:00 to 14:00 on 2026-09-17 - what is the crew impact?');`;
+            if (isMaritime) {
+                if ((fltNo === 'VOY-8813' || pairingId === 'V-4101') && !STATE.s1Covered) {
+                    isUncrewed = true;
+                    actionHandler = `onSelectUncrewedRoute('V-4101', 'VOY-8813', 'M-1001');`;
+                } else if (fltNo === 'VOY-8819') {
+                    isUncrewed = true;
+                    actionHandler = `onSelectUncrewedRoute('V-4107', 'VOY-8819', 'M-1014');`;
+                }
+            } else {
+                if (fltNo === 'DX412' && !STATE.s1Covered) {
+                    isUncrewed = true;
+                    actionHandler = `onSelectUncrewedRoute('P-2291', 'DX412', 'C-1042');`;
+                } else if (fltNo === 'DX421') {
+                    isUncrewed = true;
+                    actionHandler = `onSelectUncrewedRoute('P-2287', 'DX421', 'C-2087');`;
+                } else if (f.date === '2026-09-17' && (f.dep_station === 'BLR' || f.arr_station === 'BLR')) {
+                    isUncrewed = true;
+                    actionHandler = `submitCustomPrompt('BLR is closed 08:00 to 14:00 on 2026-09-17 - what is the crew impact?');`;
+                }
             }
 
             let statusBadge = '';
@@ -5745,13 +5932,19 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
     }
 
     function selectFlightForCockpit(fltNo, pairingId, tail, capt) {
+        const isMaritime = STATE.activeVertical === 'maritime';
         const metaPairing = document.getElementById('dispMetaPairing');
         const metaLegs = document.getElementById('dispMetaLegs');
         if (metaPairing) metaPairing.textContent = `${pairingId} (Active)`;
         if (metaLegs) metaLegs.textContent = `${fltNo} (${tail})`;
 
-        const isA320 = tail.includes('DXA') || tail.includes('DXB') || tail.includes('DXC') || tail.includes('DXD');
-        const candidateId = isA320 ? 'C-3310' : 'C-3305';
+        let candidateId = 'C-3310';
+        if (isMaritime) {
+            candidateId = 'M-1002'; // Capt Elena Rostova (Rotterdam Maasvlakte Harbor Relief)
+        } else {
+            const isA320 = tail.includes('DXA') || tail.includes('DXB') || tail.includes('DXC') || tail.includes('DXD');
+            candidateId = isA320 ? 'C-3310' : 'C-3305';
+        }
         bindCandidateToRightPane(candidateId);
         showToast(`Loaded ${fltNo} [${pairingId}] into Risk Radar & Dispatch Deck`);
     }
@@ -5867,10 +6060,12 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
             );
         }
 
+        const isMaritime = STATE.activeVertical === 'maritime';
+        const unitWord = isMaritime ? 'Voyages' : 'Flights';
         const badge = document.getElementById('flightFilterBadge');
         if (badge) {
             const dateLabel = dateVal ? `on ${dateVal}` : 'across all 7 days';
-            badge.textContent = `Showing ${list.length} of ${STATE.flights.length} Flights (${dateLabel})`;
+            badge.textContent = `Showing ${list.length} of ${STATE.flights.length} ${unitWord} (${dateLabel})`;
         }
 
         if (STATE.flightViewMode === 'timeline') {
@@ -5920,7 +6115,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
                 const leftPct = ((cStart - blk.startMin) / duration) * 100;
                 const widthPct = Math.max(4.2, ((cEnd - cStart) / duration) * 100);
 
-                const fltNo = f.flight_no || 'DX401';
+                const fltNo = f.flight_no || (isMaritime ? 'VOY-8801' : 'DX401');
                 const isDisrupted = isMaritime
                     ? ((fltNo === 'VOY-8813' || f.pairing_id === 'V-4101') && (!f.date || f.date === '2026-09-15'))
                     : ((fltNo === 'DX412' || f.pairing_id === 'P-2291') && (!f.date || f.date === '2026-09-15'));
@@ -5933,7 +6128,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
                 }
 
                 const depStation = f.dep_station || (isMaritime ? 'ROT' : 'BLR');
-                const arrStation = f.arr_station || (isMaritime ? 'HAM' : 'DEL');
+                const arrStation = f.arr_station || (isMaritime ? 'FLX' : 'DEL');
                 const depT = f.dep_time || f.dep_utc?.substring(11, 16) || '07:00';
                 const arrT = f.arr_time || f.arr_utc?.substring(11, 16) || '08:45';
 
@@ -5976,28 +6171,36 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         const tbody = document.getElementById('fullFlightsTbody');
         if (!tbody) return;
 
+        const isMaritime = STATE.activeVertical === 'maritime';
         const flts = list || STATE.flights;
 
         tbody.innerHTML = flts.map(f => {
-            const fltNo = f.flight_no || f.flight_number || 'DX401';
-            const dep = f.dep_station || f.origin || 'BLR';
-            const arr = f.arr_station || f.destination || 'DEL';
-            const pairId = f.pairing_id || 'P-2201';
-            const acType = f.aircraft_type || 'A320';
-            const capt = f.captain || f.captain_id || 'C-1042';
-            const fo = f.first_officer || f.first_officer_id || 'C-2087';
-            const isDisrupted = (fltNo === 'DX412' && !STATE.s1Covered);
+            const fltNo = f.flight_no || f.flight_number || (isMaritime ? 'VOY-8801' : 'DX401');
+            const dep = f.dep_station || f.origin || (isMaritime ? 'ROT' : 'BLR');
+            const arr = f.arr_station || f.destination || (isMaritime ? 'FLX' : 'DEL');
+            const pairId = f.pairing_id || (isMaritime ? 'V-4101' : 'P-2201');
+            const rawAcType = f.aircraft_type || (isMaritime ? 'ULCV_CONTAINER' : 'A320');
+            const acType = rawAcType.replace('_CONTAINER', '').replace('BULK_', '');
+            const capt = f.captain || f.captain_id || (isMaritime ? 'M-1001' : 'C-1042');
+            const fo = f.first_officer || f.first_officer_id || (isMaritime ? 'M-1003' : 'C-2087');
+            const isDisrupted = isMaritime
+                ? ((fltNo === 'VOY-8813' || pairId === 'V-4101') && !STATE.s1Covered)
+                : (fltNo === 'DX412' && !STATE.s1Covered);
+
+            const unitIcon = isMaritime
+                ? `<i class="fa-solid fa-ship" style="margin-right:4px;"></i>`
+                : `<i class="fa-solid fa-plane" style="margin-right:4px;"></i>`;
 
             return `
                 <tr>
                     <td style="font-family:var(--font-mono); font-weight:700; color:${isDisrupted ? 'var(--status-critical)' : 'var(--brand-green-strong)'}; cursor:pointer;" onclick="openFlightModal('${f.flight_id || fltNo}')">
-                        <i class="fa-solid fa-plane"></i> ${fltNo}
+                        ${unitIcon} ${fltNo}
                     </td>
                     <td>${dep} <i class="fa-solid fa-arrow-right" style="font-size:0.65rem; color:var(--ink-muted);"></i> ${arr}</td>
-                    <td style="font-family:var(--font-mono); color:var(--brand-green); cursor:pointer;" onclick="submitCustomPrompt('What are all the flights in pairing ${pairId}?')">
+                    <td style="font-family:var(--font-mono); color:var(--brand-green); cursor:pointer;" onclick="submitCustomPrompt('What are all the ${isMaritime ? 'voyages' : 'flights'} in pairing ${pairId}?')">
                         ${pairId}
                     </td>
-                    <td><span class="threat-pill ${acType === 'ATR72' ? 'purple' : 'amber'}">${acType}</span></td>
+                    <td><span class="threat-pill ${acType === 'ATR72' || acType === 'FEEDER' ? 'purple' : 'amber'}">${acType}</span></td>
                     <td style="font-family:var(--font-mono);">${f.block_hours || 2.5}h</td>
                     <td style="font-weight:600; color:${isDisrupted ? 'var(--status-critical)' : 'var(--ink-primary)'}; cursor:pointer;" onclick="bindCandidateToRightPane('${capt}'); switchOCCView('console');">
                         ${capt} ${isDisrupted ? '⚠️' : ''}
@@ -6016,17 +6219,20 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
     }
 
     function openFlightModal(flightId) {
+        const isMaritime = STATE.activeVertical === 'maritime';
         const f = STATE.flights.find(x => (x.flight_id || x.flight_no) === flightId) || STATE.flights[0];
         if (!f) return;
-        const fltNo = f.flight_no || f.flight_number || 'DX401';
-        const isDisrupted = (fltNo === 'DX412' && !STATE.s1Covered);
-        const capt = f.captain || 'C-1042';
-        const fo = f.first_officer || 'C-2087';
+        const fltNo = f.flight_no || f.flight_number || (isMaritime ? 'VOY-8801' : 'DX401');
+        const isDisrupted = isMaritime
+            ? ((fltNo === 'VOY-8813' || f.pairing_id === 'V-4101') && !STATE.s1Covered)
+            : (fltNo === 'DX412' && !STATE.s1Covered);
+        const capt = f.captain || (isMaritime ? 'M-1001' : 'C-1042');
+        const fo = f.first_officer || (isMaritime ? 'M-1003' : 'C-2087');
 
         const modalTitle = document.getElementById('modalFlightTitle');
         if (modalTitle) {
             modalTitle.innerHTML = `
-                Flight ${fltNo} · ${f.dep_station} → ${f.arr_station} 
+                ${isMaritime ? 'Voyage' : 'Flight'} ${fltNo} · ${f.dep_station} → ${f.arr_station} 
                 ${isDisrupted ? '<span class="threat-pill red" style="margin-left:8px; font-size:0.7rem;"><i class="fa-solid fa-triangle-exclamation"></i> UNCREWED</span>' : '<span class="threat-pill green" style="margin-left:8px; font-size:0.7rem;"><i class="fa-solid fa-circle-check"></i> COVERED</span>'}
             `;
         }
@@ -6036,43 +6242,43 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
             modalBody.innerHTML = `
                 <div class="flight-modal-grid">
                     <div class="flight-modal-cell">
-                        <div class="flight-cell-label">Departure (UTC)</div>
+                        <div class="flight-cell-label">${isMaritime ? 'Port Departure (UTC)' : 'Departure (UTC)'}</div>
                         <div class="flight-cell-val">${f.dep_time || f.dep_utc?.substring(11, 16) || '07:00'} UTC · ${f.dep_station}</div>
                     </div>
                     <div class="flight-modal-cell">
-                        <div class="flight-cell-label">Arrival (UTC)</div>
+                        <div class="flight-cell-label">${isMaritime ? 'Port Arrival (UTC)' : 'Arrival (UTC)'}</div>
                         <div class="flight-cell-val">${f.arr_time || f.arr_utc?.substring(11, 16) || '08:45'} UTC · ${f.arr_station}</div>
                     </div>
                     <div class="flight-modal-cell">
-                        <div class="flight-cell-label">Aircraft Tail & Fleet</div>
-                        <div class="flight-cell-val">${f.aircraft || 'VT-DXC'} (${f.aircraft_type || 'A320'})</div>
+                        <div class="flight-cell-label">${isMaritime ? 'Vessel Hull & Fleet' : 'Aircraft Tail & Fleet'}</div>
+                        <div class="flight-cell-val">${f.aircraft || (isMaritime ? 'MV-NORDICA' : 'VT-DXC')} (${f.aircraft_type || (isMaritime ? 'ULCV_CONTAINER' : 'A320')})</div>
                     </div>
                     <div class="flight-modal-cell">
-                        <div class="flight-cell-label">Pairing & Block Time</div>
-                        <div class="flight-cell-val">${f.pairing_id || 'P-2291'} (${f.block_hours || 1.75}h)</div>
+                        <div class="flight-cell-label">${isMaritime ? 'Pairing & Transit Time' : 'Pairing & Block Time'}</div>
+                        <div class="flight-cell-val">${f.pairing_id || (isMaritime ? 'V-4101' : 'P-2291')} (${f.block_hours || (isMaritime ? 10.0 : 1.75)}h)</div>
                     </div>
                     <div class="flight-modal-cell">
-                        <div class="flight-cell-label">Assigned Captain (PIC)</div>
+                        <div class="flight-cell-label">${isMaritime ? 'Master Mariner (Commanding Officer)' : 'Assigned Captain (PIC)'}</div>
                         <div class="flight-cell-val" style="color:${isDisrupted ? 'var(--status-critical)' : 'var(--ink-primary)'}">
                             ${capt} ${isDisrupted ? '⚠️ (Status: SICK · Uncrewed)' : ''}
                         </div>
                     </div>
                     <div class="flight-modal-cell">
-                        <div class="flight-cell-label">Assigned First Officer (SIC)</div>
+                        <div class="flight-cell-label">${isMaritime ? 'Chief Mate (Executive Officer)' : 'Assigned First Officer (SIC)'}</div>
                         <div class="flight-cell-val">${fo}</div>
                     </div>
                 </div>
                 
                 <div style="background:var(--surface-2); padding:12px; border-radius:8px; border:1px solid var(--hairline); font-size:0.75rem; line-height:1.4;">
                     <div style="font-weight:700; color:var(--brand-green-strong); margin-bottom:4px;">
-                        <i class="fa-solid fa-shield-check"></i> 7-rule legality check
+                        <i class="fa-solid fa-shield-check"></i> ${isMaritime ? 'IMO STCW 2010 Manila Amendments & MLC 2006 legality check' : '7-rule CAR Sec 7 / FAA Part 117 legality check'}
                     </div>
-                    <div>${isDisrupted ? '⚠️ Crew disruption detected. Captain position uncrewed due to sick report. Standby reserve callout required.' : '✅ Flight crew complements fully certified with verified rest and FDP limits.'}</div>
+                    <div>${isDisrupted ? (isMaritime ? '⚠️ Watchkeeper disruption detected. Master Mariner position uncrewed due to sick report. Harbor standby relief required.' : '⚠️ Crew disruption detected. Captain position uncrewed due to sick report. Standby reserve callout required.') : (isMaritime ? '✅ Watchkeeping complements fully certified with verified STCW rest and watch limits.' : '✅ Flight crew complements fully certified with verified rest and FDP limits.')}</div>
                 </div>
 
                 <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:8px;">
                     <button class="icon-btn" style="padding:6px 14px; border:1px solid var(--hairline); border-radius:6px; font-size:0.75rem;" onclick="closeFlightModal()">Close</button>
-                    <button class="btn-authorize-action" style="margin:0; padding:6px 16px; font-size:0.75rem;" onclick="closeFlightModal(); onSelectUncrewedRoute('${f.pairing_id || 'P-2291'}', '${fltNo}', '${isDisrupted ? 'C-1042' : capt}');">
+                    <button class="btn-authorize-action" style="margin:0; padding:6px 16px; font-size:0.75rem;" onclick="closeFlightModal(); onSelectUncrewedRoute('${f.pairing_id || (isMaritime ? 'V-4101' : 'P-2291')}', '${fltNo}', '${isDisrupted ? (isMaritime ? 'M-1001' : 'C-1042') : capt}');">
                         <i class="fa-solid fa-bolt"></i> ${isDisrupted ? 'Recover with Crew Advisor' : 'Inspect in Crew Ops Desk'}
                     </button>
                 </div>
