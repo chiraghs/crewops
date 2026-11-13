@@ -1,4 +1,4 @@
-"""Unified Domain Registry for CortexOps.
+"""Unified Domain Registry for CrewOps.
 Provides access to rulebooks and seed datasets across all 5 verticals.
 """
 from typing import Optional

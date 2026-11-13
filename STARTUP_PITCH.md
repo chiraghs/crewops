@@ -1,4 +1,4 @@
-# CortexOps · Investor Pitch & Executive Brief
+# CrewOps · Investor Pitch & Executive Brief
 
 > **"The Autonomous Mission-Critical Operations Control Center (OCC) Powered by Google AI."**  
 > *Transforming multi-billion-dollar operational disruptions into sub-second, mathematically guaranteed recoveries.*
@@ -11,7 +11,7 @@ Every year, high-stakes industries—**Aviation, Maritime, Intermodal Freight, H
 
 When a disruption strikes, controllers in Operations Control Centers (OCCs) juggle 10+ legacy disconnected screens, radio channels, and paper rulebooks. They are forced to make snap decisions under extreme cognitive overload. A single mistake triggers catastrophic regulatory grounding fines, cascading delays, or patient mortality.
 
-**CortexOps** is the world’s first **Voice-First, Multi-Agent Autonomous OCC Platform**. By fusing **Google Gemini Live (24kHz real-time voice & audio streaming)** with an **Antigravity Multi-Agent Swarm** and a **Deterministic Zero-Hallucination Compliance Kernel**, CortexOps resolves multi-party disruptions in **under 200 milliseconds** with mathematical legality guarantees.
+**CrewOps** is the world’s first **Voice-First, Multi-Agent Autonomous OCC Platform**. By fusing **Google Gemini Live (24kHz real-time voice & audio streaming)** with an **Antigravity Multi-Agent Swarm** and a **Deterministic Zero-Hallucination Compliance Kernel**, CrewOps resolves multi-party disruptions in **under 200 milliseconds** with mathematical legality guarantees.
 
 ---
 
@@ -31,7 +31,7 @@ When a disruption strikes, controllers in Operations Control Centers (OCCs) jugg
 
 ---
 
-## 3. The CortexOps Solution: The Tri-Layer Moat
+## 3. The CrewOps Solution: The Tri-Layer Moat
 
 ```
   ┌────────────────────────────────────────────────────────────────────────┐
@@ -86,7 +86,7 @@ When a disruption strikes, controllers in Operations Control Centers (OCCs) jugg
 
 ## 6. Google AI Stack Synergies
 
-| Google Technology | Role in CortexOps | Why Competitors Cannot Match This |
+| Google Technology | Role in CrewOps | Why Competitors Cannot Match This |
 | :--- | :--- | :--- |
 | **Gemini Live** | Real-time bi-directional radio voice dispatch with low-latency audio | Allows controllers to speak hands-free over headsets during peak crisis without looking away from radar/telemetry |
 | **Gemini Omni** | Multi-modal document & video verification (passports, medical certificates, damage images) | Instantly extracts compliance validity from physical documents |

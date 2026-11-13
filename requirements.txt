@@ -1,4 +1,4 @@
-# CortexOps - Autonomous Operations Control Center (OCC)
+# CrewOps - Autonomous Operations Control Center (OCC)
 # Enterprise Multi-Vertical Operational Platform
 fastapi>=0.110.0
 uvicorn[standard]>=0.28.0

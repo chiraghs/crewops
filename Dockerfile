@@ -1,4 +1,4 @@
-# CortexOps: Mission-Critical Operations Control Center (OCC)
+# CrewOps: Mission-Critical Operations Control Center (OCC)
 # Production Container for Google Cloud Run
 FROM python:3.11-slim
 
@@ -23,4 +23,4 @@ USER appuser
 
 EXPOSE 8080
 
-CMD ["uvicorn", "cortexops.server:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "crewops.server:app", "--host", "0.0.0.0", "--port", "8080"]

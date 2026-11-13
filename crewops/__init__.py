@@ -1,4 +1,4 @@
-"""CortexOps: Generic Autonomous Operations Control Center (OCC).
+"""CrewOps: Generic Autonomous Operations Control Center (OCC).
 Multi-Vertical Mission-Critical Legality, Disruption Recovery & Voice Agent Engine.
 Powered by Google Gemini Live & Antigravity Multi-Agent Orchestration.
 """

@@ -1,4 +1,4 @@
-"""Generic Domain Models for CortexOps.
+"""Generic Domain Models for CrewOps.
 Unifies resource rosters, duty schedules, compliance rules, and disruptions
 across Aviation, Maritime, Logistics, Healthcare, and Industrial Safety.
 """

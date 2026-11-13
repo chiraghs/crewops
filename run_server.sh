@@ -4,11 +4,11 @@ set -e
 PORT=${1:-8787}
 
 echo "=========================================================="
-echo "  CortexOps · Mission-Critical Operations Control Center"
+echo "  CrewOps · Mission-Critical Operations Control Center"
 echo "  Multi-Vertical Autonomous Disruption & Recovery Engine"
 echo "=========================================================="
 echo "Starting server on http://127.0.0.1:${PORT}"
 echo "Press Ctrl+C to terminate."
 echo "=========================================================="
 
-python3 -m cortexops serve --port "${PORT}"
+python3 -m crewops serve --port "${PORT}"

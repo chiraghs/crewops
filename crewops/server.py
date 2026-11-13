@@ -1,4 +1,4 @@
-"""CortexOps Production Server.
+"""CrewOps Production Server.
 Supports FastAPI + WebSockets when installed, with seamless fallback
 to Python standard library http.server if third-party packages are absent.
 """
@@ -62,7 +62,7 @@ def _read_ui() -> bytes:
     if os.path.exists(UI_PATH):
         with open(UI_PATH, "rb") as f:
             return f.read()
-    return b"<h1>CortexOps UI not found</h1>"
+    return b"<h1>CrewOps UI not found</h1>"
 
 
 # --------------------------------------------------------------------------
@@ -80,7 +80,7 @@ except ImportError:
     pass
 
 if HAS_FASTAPI:
-    app = FastAPI(title="CortexOps OCC Platform", version="1.0.0")
+    app = FastAPI(title="CrewOps OCC Platform", version="1.0.0")
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
@@ -334,6 +334,6 @@ class StandaloneOCCServer(http.server.BaseHTTPRequestHandler):
 
 
 def run_standalone(host: str = "0.0.0.0", port: int = 8787):
-    print(f"CortexOps server running on http://{host}:{port}")
+    print(f"CrewOps server running on http://{host}:{port}")
     with socketserver.TCPServer((host, port), StandaloneOCCServer) as httpd:
         httpd.serve_forever()

@@ -2,11 +2,11 @@
 set -e
 
 # Configuration
-SERVICE_NAME="cortexops-occ"
+SERVICE_NAME="crewops-occ"
 REGION="asia-south1"
 
 echo "=========================================================="
-echo "  Deploying CortexOps to Google Cloud Run"
+echo "  Deploying CrewOps to Google Cloud Run"
 echo "  Region: ${REGION}"
 echo "=========================================================="
 

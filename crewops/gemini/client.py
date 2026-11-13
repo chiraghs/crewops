@@ -56,7 +56,7 @@ class GeminiOCCAdvisor:
             self._client = genai.GenerativeModel(
                 model_name=self.model_name,
                 system_instruction=(
-                    "You are CortexOps AI, the real-time operational copilot for high-stakes Operations Control Centers "
+                    "You are CrewOps AI, the real-time operational copilot for high-stakes Operations Control Centers "
                     "(Aviation, Maritime, Logistics, Healthcare, and Industrial Safety). "
                     "You translate human speech and controller questions into precise tool calls. "
                     "Never invent numbers or flight hours; invoke the deterministic compliance tools to verify facts."
@@ -101,7 +101,7 @@ class GeminiOCCAdvisor:
         else:
             return {
                 "text": (
-                    f"CortexOps OCC Copilot active. Monitoring 5 critical sectors across Aviation, Maritime, "
+                    f"CrewOps OCC Copilot active. Monitoring 5 critical sectors across Aviation, Maritime, "
                     f"Logistics, Healthcare, and Industrial Safety. Ask me to check candidate legality, "
                     f"simulate a disruption, or audit compliance."
                 ),

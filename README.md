@@ -1,4 +1,4 @@
-# CortexOps · Mission-Critical Operations Control Center (OCC)
+# CrewOps · Mission-Critical Operations Control Center (OCC)
 
 [![Google AI](https://img.shields.io/badge/Google%20AI-Gemini%20Live-4285F4?logo=google)](https://ai.google.dev/)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Cloud%20Run-34A853?logo=googlecloud)](https://cloud.google.com/run)
@@ -25,7 +25,7 @@ Then navigate to **`http://localhost:8787`** in your browser.
 
 ### 2. Run with Python Module
 ```bash
-python3 -m cortexops serve --port 8787
+python3 -m crewops serve --port 8787
 ```
 
 ### 3. Deploy to Google Cloud Run
@@ -39,7 +39,7 @@ chmod +x deploy_gcp.sh
 ## 🚀 Key Innovations & Architecture
 
 ### 1. Multi-Vertical Cross-Domain Scope
-CortexOps is designed from the ground up as a generic operations engine supporting 5 critical verticals with pluggable rulebooks:
+CrewOps is designed from the ground up as a generic operations engine supporting 5 critical verticals with pluggable rulebooks:
 * ✈️ **Commercial Aviation**: DGCA CAR Section 7 / FAA Part 117 Flight Time Limitations.
 * ⚓ **Maritime & Ports**: IMO STCW 2010 Manila Amendments & MLC 2006 Seafarer Rest Hours.
 * 🚚 **Intermodal Freight**: US DOT FMCSA 49 CFR Part 395 Hours of Service (HOS) & Reefer Cold Chain.
@@ -64,7 +64,7 @@ Autonomous agent swarm collaborating on a shared event board:
 ## 📂 Project Structure
 
 ```
-cortexops/
+crewops/
   ├── __init__.py          # Package initialization
   ├── __main__.py          # CLI entrypoint
   ├── models.py            # Generic dataclasses (Resources, Assignments, Disruptions, Rulebooks)

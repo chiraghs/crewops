@@ -1,6 +1,6 @@
-# CortexOps · System Architecture & Engineering Specifications
+# CrewOps · System Architecture & Engineering Specifications
 
-This document outlines the end-to-end technical architecture of **CortexOps**, designed for enterprise scale and multi-vertical mission-critical operations.
+This document outlines the end-to-end technical architecture of **CrewOps**, designed for enterprise scale and multi-vertical mission-critical operations.
 
 ---
 

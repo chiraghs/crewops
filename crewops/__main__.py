@@ -1,9 +1,9 @@
-"""CortexOps CLI Runner with Automatic Fallback."""
+"""CrewOps CLI Runner with Automatic Fallback."""
 import argparse
 import sys
 
 def main():
-    parser = argparse.ArgumentParser(description="CortexOps: Autonomous OCC Platform")
+    parser = argparse.ArgumentParser(description="CrewOps: Autonomous OCC Platform")
     subparsers = parser.add_subparsers(dest="command")
 
     serve_parser = subparsers.add_parser("serve", help="Run the OCC server")
@@ -16,7 +16,7 @@ def main():
     host = getattr(args, "host", "0.0.0.0")
 
     print(f"========================================================")
-    print(f"  CortexOps · Mission-Critical Operations Control Center")
+    print(f"  CrewOps · Mission-Critical Operations Control Center")
     print(f"  Aviation | Maritime | Logistics | Healthcare | Industrial")
     print(f"  Gemini Live Voice + Antigravity Multi-Agent Swarm")
     print(f"========================================================")
@@ -31,9 +31,9 @@ def main():
 
     if has_uvicorn:
         print(f"Starting ASGI server via Uvicorn on http://{host}:{port}")
-        uvicorn.run("cortexops.server:app", host=host, port=port, reload=False)
+        uvicorn.run("crewops.server:app", host=host, port=port, reload=False)
     else:
-        from cortexops.server import run_standalone
+        from crewops.server import run_standalone
         print(f"Starting zero-dependency server on http://{host}:{port}")
         run_standalone(host=host, port=port)
 

@@ -1,4 +1,4 @@
-"""Deterministic Compliance Kernel & Recovery Solver for CortexOps.
+"""Deterministic Compliance Kernel & Recovery Solver for CrewOps.
 Enforces multi-vertical regulatory standards with mathematical certainty.
 Generates an audit-ready Evidence Ledger for every decision.
 """
