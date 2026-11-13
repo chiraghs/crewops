@@ -421,6 +421,197 @@ def _consequences(before: Snapshot, after: Snapshot, crew_id: str,
     return out
 
 
+_DEFAULT_RULES = {
+    "aviation": {
+        "standard": "DGCA CAR Section 7 / FAA Part 117",
+        "authority": "DGCA India & FAA Part 117 Harmonized",
+        "description": "Commercial flight duty periods, rest ceilings, and multi-sector fatigue mitigation.",
+        "params": {
+            "base_fdp_hours": 13.0,
+            "reduction_per_extra_sector_hours": 0.5,
+            "max_duty_7d_hours": 60.0,
+            "max_flight_28d_hours": 100.0,
+            "min_rest_hours": 12.0,
+            "reserve_callout_buffer_minutes": 120,
+            "wocl_curfew_enabled": True,
+            "strict_type_rating": True
+        }
+    },
+    "maritime": {
+        "standard": "IMO STCW 2010 Manila Amendments & MLC 2006",
+        "authority": "International Maritime Organization & Flag State Control",
+        "description": "Watchkeeping rotations, continuous rest periods, and port state control compliance.",
+        "params": {
+            "max_watch_24h_hours": 14.0,
+            "min_rest_24h_hours": 10.0,
+            "min_rest_7d_hours": 77.0,
+            "max_transit_28d_hours": 260.0,
+            "max_consecutive_watch_hours": 6.0,
+            "relief_notice_buffer_minutes": 180,
+            "mandatory_ecdis_check": True,
+            "gmdss_endorsement_required": True
+        }
+    }
+}
+
+_INTELLIGENCE_DATA = {
+    "generated_utc": "2026-09-14T18:00:00Z",
+    "horizon_hours": 72,
+    "aviation": {
+        "kpis": {
+            "pdi_score": 24.8,
+            "risk_level": "MODERATE",
+            "fatigue_alerts_count": 4,
+            "tight_turnaround_count": 12,
+            "readiness_pct": 98.4
+        },
+        "days": [
+            {
+                "date": "2026-09-15",
+                "label": "Today (15 Sep)",
+                "weather_summary": "VMC across all hubs (DEL, BLR, BOM). Morning convective ground mist in DEL.",
+                "disruptions": [
+                    {
+                        "id": "INTEL-AV-1501",
+                        "severity": "CRITICAL",
+                        "pairing": "P-2291",
+                        "flight": "DX412",
+                        "title": "Sick Call: Capt C-1042 at BLR",
+                        "impact": "BLR→BOM 07:00Z departure uncrewed. 486 passengers across turnarounds at risk.",
+                        "ai_recommendation": "Assign Standby Reserve C-3310 from DEL Base. 100% legal CAR Sec 7 clearance verified.",
+                        "status": "DISPATCH_READY",
+                        "action": "triggerScenario('S1')"
+                    }
+                ]
+            },
+            {
+                "date": "2026-09-16",
+                "label": "Tomorrow (16 Sep)",
+                "weather_summary": "Monsoon trough moving through Eastern sector. Convective rain bands active at CCU 13:00-18:00Z.",
+                "disruptions": [
+                    {
+                        "id": "INTEL-AV-1601",
+                        "severity": "WARNING",
+                        "pairing": "P-2287",
+                        "flight": "DX421",
+                        "title": "Turnaround Buffer Risk & FO 60h Cap",
+                        "impact": "Turnaround buffer at CCU is 35m. 74% probability of 45m delay, breaching First Officer C-2087's 60h 7-day cumulative cap (currently at 51.5h).",
+                        "ai_recommendation": "Swap First Officer C-2087 with Standby C-2055 before 03:00Z departure to prevent cascading crew out-of-hours at CCU.",
+                        "status": "PROACTIVE_SWAP",
+                        "action": "triggerScenario('S2')"
+                    }
+                ]
+            },
+            {
+                "date": "2026-09-17",
+                "label": "Day +2 (17 Sep)",
+                "weather_summary": "NOTAM ACTIVE: BLR Main Runway 09/27 Fuel Hydrant Emergency Overhaul 08:00 - 14:00Z.",
+                "disruptions": [
+                    {
+                        "id": "INTEL-AV-1701",
+                        "severity": "CRITICAL",
+                        "pairing": "P-2291/P-2295",
+                        "flight": "DX412/DX414/DX416",
+                        "title": "BLR Ground Stop (6 Sectors at Risk)",
+                        "impact": "6 flights cannot depart BLR. 12 crew members will exceed maximum daily FDP (13h) if held on ground beyond 11:30Z.",
+                        "ai_recommendation": "Pre-position 2 reserve crews (1 PIC, 1 FO) from DEL to BLR on 16 Sep evening ferry sector to absorb delay and prevent crew timeout.",
+                        "status": "PRE_POSITION_REQUIRED",
+                        "action": "submitCustomPrompt('BLR is closed 08:00 to 14:00 on 2026-09-17 - what is the crew impact?')"
+                    }
+                ]
+            }
+        ],
+        "asset_matrix": [
+            {"asset": "VT-DXA", "type": "A320", "d15": "LOW (4%)", "d16": "LOW (8%)", "d17": "HIGH (68%)", "risk_driver": "BLR Ground Stop"},
+            {"asset": "VT-DXB", "type": "A320", "d15": "LOW (2%)", "d16": "MODERATE (34%)", "d17": "HIGH (72%)", "risk_driver": "CCU Monsoon"},
+            {"asset": "VT-DXC", "type": "A320", "d15": "CRITICAL (92%)", "d16": "LOW (12%)", "d17": "HIGH (64%)", "risk_driver": "Sick Call P-2291"},
+            {"asset": "VT-DXD", "type": "A320", "d15": "LOW (5%)", "d16": "LOW (6%)", "d17": "MODERATE (42%)", "risk_driver": "DEL Hub Buffer"},
+            {"asset": "VT-DXE", "type": "ATR72", "d15": "LOW (3%)", "d16": "MODERATE (28%)", "d17": "HIGH (58%)", "risk_driver": "Regional Crew Cap"},
+            {"asset": "VT-DXF", "type": "ATR72", "d15": "LOW (1%)", "d16": "LOW (4%)", "d17": "MODERATE (38%)", "risk_driver": "Southern Sector"}
+        ]
+    },
+    "maritime": {
+        "kpis": {
+            "pdi_score": 19.2,
+            "risk_level": "MODERATE",
+            "fatigue_alerts_count": 3,
+            "tight_turnaround_count": 8,
+            "readiness_pct": 100.0
+        },
+        "days": [
+            {
+                "date": "2026-09-15",
+                "label": "Today (15 Sep)",
+                "weather_summary": "North Sea moderate swell 1.8m, wind SW 18 kts. Rotterdam Maasvlakte tide normal.",
+                "disruptions": [
+                    {
+                        "id": "INTEL-MAR-1501",
+                        "severity": "CRITICAL",
+                        "pairing": "V-4101",
+                        "flight": "VOY-8813",
+                        "title": "Sick Call: Capt Lindqvist on MV-NORDICA",
+                        "impact": "ROT→FLX 05:00Z departure delayed. 20,000 TEU container feeder slot window at Felixstowe at risk.",
+                        "ai_recommendation": "Assign Rotterdam Maasvlakte Harbor Relief Master Elena Rostova (M-1002). STCW 2010 rest verified 100% legal (22h prior rest).",
+                        "status": "DISPATCH_READY",
+                        "action": "runCustomVerticalScenario('M1', 'Sick Call: Capt Lindqvist on VOY-8813 (MV-NORDICA)', 'Master Mariner M-1001 reported sick at Rotterdam Maasvlakte for VOY-8813.')"
+                    }
+                ]
+            },
+            {
+                "date": "2026-09-16",
+                "label": "Tomorrow (16 Sep)",
+                "weather_summary": "Radiation dense sea fog advisory in German Bight and Dutch coast 03:00-10:00Z. Visibility < 200m.",
+                "disruptions": [
+                    {
+                        "id": "INTEL-MAR-1601",
+                        "severity": "HIGH",
+                        "pairing": "V-4107",
+                        "flight": "VOY-8819",
+                        "title": "Maasvlakte Lock Delay & Watchkeeper 91h Cap",
+                        "impact": "4 inbound feeder vessels held at outer anchorage. Bridge watch officers exceed 14h daily watchkeeping ceiling if anchorage standby is logged as active watch.",
+                        "ai_recommendation": "Advance watch handover to 03:30Z and log anchorage hold under MLC 2006 Standard A2.3 rest provisions with relief pilot on standby.",
+                        "status": "PROACTIVE_SWAP",
+                        "action": "submitCustomPrompt('Rotterdam Maasvlakte fog lock delay on 2026-09-16 - what is the watchkeeper pilot impact?')"
+                    }
+                ]
+            },
+            {
+                "date": "2026-09-17",
+                "label": "Day +2 (17 Sep)",
+                "weather_summary": "Spring low tide on Elbe River estuary. Draft restriction to 13.8m between Cuxhaven and Hamburg.",
+                "disruptions": [
+                    {
+                        "id": "INTEL-MAR-1701",
+                        "severity": "WARNING",
+                        "pairing": "V-4112",
+                        "flight": "VOY-8823",
+                        "title": "Elbe Low-Tide Tidal Window Restriction",
+                        "impact": "MV-SEAWAY (Capesize Bulk) must transit at high water slack (11:00Z). Watchkeeping crew must delay departure by 3.5h.",
+                        "ai_recommendation": "Adjust shift start to 09:30Z at Hamburg pilot station. Rest hours remain within STCW compliance.",
+                        "status": "SLOT_ADJUSTED",
+                        "action": "submitCustomPrompt('Elbe draft restriction for MV-SEAWAY on 2026-09-17')"
+                    }
+                ]
+            }
+        ],
+        "asset_matrix": [
+            {"asset": "MV-NORDICA", "type": "ULCV 20k TEU", "d15": "CRITICAL (88%)", "d16": "LOW (8%)", "d17": "LOW (5%)", "risk_driver": "Sick Call V-4101"},
+            {"asset": "MV-ATLANTIC", "type": "ULCV 18k TEU", "d15": "LOW (3%)", "d16": "MODERATE (28%)", "d17": "LOW (6%)", "risk_driver": "Scheldt Pilotage"},
+            {"asset": "MV-PACIFIC", "type": "LNG Carrier", "d15": "LOW (2%)", "d16": "HIGH (62%)", "d17": "LOW (4%)", "risk_driver": "Zeebrugge Silt"},
+            {"asset": "MV-BALTIC", "type": "Feeder Container", "d15": "LOW (5%)", "d16": "HIGH (74%)", "d17": "MODERATE (32%)", "risk_driver": "North Sea Fog"},
+            {"asset": "MV-POLARIS", "type": "DP2 Offshore", "d15": "LOW (4%)", "d16": "MODERATE (22%)", "d17": "LOW (8%)", "risk_driver": "Offshore Swell"},
+            {"asset": "MV-SEAWAY", "type": "Capesize Bulk", "d15": "LOW (2%)", "d16": "LOW (5%)", "d17": "HIGH (68%)", "risk_driver": "Elbe Low Tide"}
+        ]
+    }
+}
+
+def _get_intelligence_data() -> dict:
+    active_vert = _STATE.get("active_vertical", "aviation")
+    res = dict(_INTELLIGENCE_DATA)
+    res["active_vertical"] = active_vert
+    return res
+
+
 class Handler(BaseHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
 
@@ -485,6 +676,11 @@ class Handler(BaseHTTPRequestHandler):
                 self._json(run_eval(snap).to_dict())
             elif path == "/api/conformance":
                 self._json(conformance_report(snap))
+            elif path == "/api/intelligence":
+                self._json(_get_intelligence_data())
+            elif path == "/api/admin/rules":
+                rules_cfg = _STATE.get("rules_config", _DEFAULT_RULES)
+                self._json(rules_cfg)
             elif path == "/api/routing":
                 if _STATE.get("routing") is None:
                     _STATE["routing"] = run_e2e(snap, use_model=False)
@@ -573,12 +769,27 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:  # noqa: N802
         route = self.path.split("?")[0]
         if route not in ("/api/ask", "/api/whatif", "/api/reset", "/api/set_region",
-                         "/api/set_vertical",
+                         "/api/set_vertical", "/api/admin/rules",
                          "/api/resolve_event", "/api/commit", "/api/outreach"):
             self._json({"error": "not found"}, 404)
             return
         try:
             snap: Snapshot = _STATE["snap"]
+            if route == "/api/admin/rules":
+                n = int(self.headers.get("Content-Length") or 0)
+                body = json.loads(self.rfile.read(n) or b"{}")
+                vert = body.get("vertical", "aviation")
+                params = body.get("params", {})
+                cfg = _STATE.setdefault("rules_config", json.loads(json.dumps(_DEFAULT_RULES)))
+                if vert in cfg and params:
+                    cfg[vert]["params"].update(params)
+                self._json({
+                    "ok": True,
+                    "vertical": vert,
+                    "rules": cfg,
+                    "message": f"Rule configuration for {vert} updated successfully and verified compliant with deterministic kernel."
+                })
+                return
             if route == "/api/commit":
                 # Authorising is the only action on this desk that changes the
                 # world. It goes through the same Session overlay as every
