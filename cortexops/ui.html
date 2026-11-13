@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CortexOps · Mission-Critical Operations Control Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --bg: #090c10;
+  --panel: #11161d;
+  --panel-card: #161c24;
+  --panel-border: #232b36;
+  --text-main: #f0f4f8;
+  --text-dim: #8b99a8;
+  --text-muted: #576575;
+  --accent-cyan: #00e5ff;
+  --accent-blue: #2979ff;
+  --accent-green: #00e676;
+  --accent-amber: #ffab00;
+  --accent-red: #ff3d71;
+  --accent-purple: #d500f9;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top App Header */
+header.app-nav {
+  background: var(--panel);
+  border-bottom: 1px solid var(--panel-border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.brand-group { display: flex; align-items: center; gap: 12px; }
+.brand-badge {
+  background: linear-gradient(135deg, #00e5ff, #2979ff);
+  color: #000;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+.brand-title { font-size: 17px; font-weight: 700; color: #fff; }
+.brand-subtitle { font-size: 12px; color: var(--text-dim); }
+
+.telemetry-pills { display: flex; gap: 12px; font-family: var(--font-mono); font-size: 12px; }
+.tele-pill {
+  background: var(--panel-card);
+  border: 1px solid var(--panel-border);
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pill-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
+
+/* Verticals Ribbon */
+.verticals-ribbon {
+  background: #0d1117;
+  border-bottom: 1px solid var(--panel-border);
+  padding: 8px 24px;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+.v-tab {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  color: var(--text-dim);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.v-tab:hover { background: #1c2430; color: #fff; }
+.v-tab.active {
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(41, 121, 255, 0.15));
+  border-color: var(--accent-cyan);
+  color: #fff;
+}
+
+/* Main Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr 380px;
+  gap: 16px;
+  padding: 20px 24px;
+  flex: 1;
+}
+
+/* Column 1: Live Voice & Assistant */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.card-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--panel-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 14px;
+}
+.card-body { padding: 18px; flex: 1; overflow-y: auto; }
+
+/* Voice Console */
+.voice-console {
+  background: radial-gradient(circle at 50% 30%, #172333 0%, #10151d 100%);
+  border: 1px solid #233142;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 16px;
+  position: relative;
+}
+.mic-ring {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px auto;
+  color: #000;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.mic-ring:hover { transform: scale(1.06); box-shadow: 0 0 32px rgba(0, 229, 255, 0.6); }
+.mic-ring.active {
+  animation: pulse-ring 1.5s infinite;
+  background: var(--accent-red);
+  box-shadow: 0 0 30px rgba(255, 61, 113, 0.7);
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(255, 61, 113, 0.7); }
+  70% { transform: scale(1.08); box-shadow: 0 0 0 16px rgba(255, 61, 113, 0); }
+  100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(255, 61, 113, 0); }
+}
+
+.wave-bars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 28px;
+  margin: 12px 0;
+}
+.bar {
+  width: 4px;
+  height: 6px;
+  background: var(--accent-cyan);
+  border-radius: 2px;
+  transition: height 0.1s ease;
+}
+.voice-status { font-size: 12px; font-family: var(--font-mono); color: var(--accent-cyan); }
+.voice-history {
+  background: #090c10;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 13px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.msg-bubble {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.msg-bubble.user { background: #1c2738; align-self: flex-end; color: #fff; }
+.msg-bubble.agent { background: #121c27; border: 1px solid #1f3044; align-self: flex-start; color: var(--accent-cyan); }
+
+/* Column 2: Operations Center */
+.ops-banner {
+  background: var(--panel-card);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btn-action {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  color: #000;
+  font-weight: 700;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  transition: opacity 0.2s;
+}
+.btn-action:hover { opacity: 0.9; }
+
+.btn-danger {
+  background: linear-gradient(135deg, #ff3d71, #c0254c);
+  color: #fff;
+}
+
+/* Candidate Recovery Cards */
+.recovery-table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+.recovery-table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--panel-border);
+}
+.recovery-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--panel-border);
+  font-size: 13px;
+}
+.tag-legal {
+  background: rgba(0, 230, 118, 0.15);
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+.tag-illegal {
+  background: rgba(255, 61, 113, 0.15);
+  color: var(--accent-red);
+  border: 1px solid var(--accent-red);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+/* Column 3: Antigravity Swarm Board */
+.swarm-feed { display: flex; flex-direction: column; gap: 12px; }
+.swarm-card {
+  background: var(--panel-card);
+  border: 1px solid var(--panel-border);
+  border-left: 3px solid var(--accent-blue);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 12px;
+}
+.swarm-card.kernel { border-left-color: var(--accent-green); }
+.swarm-card.commander { border-left-color: var(--accent-red); }
+.swarm-card.optimizer { border-left-color: var(--accent-amber); }
+.swarm-card.dispatch { border-left-color: var(--accent-purple); }
+.swarm-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+.swarm-agent-tag { font-weight: 700; color: #fff; }
+
+/* Evidence Ledger */
+.ledger-box {
+  background: #090c10;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  margin-top: 14px;
+}
+.ledger-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 1px dashed #1b232e;
+}
+.ledger-row:last-child { border-bottom: none; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="app-nav">
+  <div class="brand-group">
+    <div class="brand-badge">CORTEX OPS</div>
+    <div>
+      <div class="brand-title">Autonomous Operations Control Center</div>
+      <div class="brand-subtitle">Gemini Live Voice · Antigravity Swarm · Zero-Hallucination Kernel</div>
+    </div>
+  </div>
+  <div class="telemetry-pills">
+    <div class="tele-pill"><span class="pill-dot"></span> GEMINI LIVE: CONNECTED</div>
+    <div class="tele-pill"><i class="fa-solid fa-microchip"></i> DETERMINISTIC KERNEL: ACTIVE</div>
+    <div class="tele-pill"><i class="fa-solid fa-cloud"></i> GOOGLE CLOUD: REGION ASIA-SOUTH1</div>
+  </div>
+</header>
+
+<!-- Verticals Ribbon -->
+<nav class="verticals-ribbon" id="verticals-bar">
+  <!-- Rendered dynamically -->
+</nav>
+
+<!-- Main App Workspace -->
+<div class="dashboard-grid">
+
+  <!-- Col 1: Gemini Live Voice Copilot -->
+  <div class="card">
+    <div class="card-header">
+      <span><i class="fa-solid fa-headset" style="color:var(--accent-cyan)"></i> Gemini Live Voice Agent</span>
+      <span style="font-size:11px; color:var(--text-dim); font-family:var(--font-mono);">24kHz PCM</span>
+    </div>
+    <div class="card-body">
+      <div class="voice-console">
+        <div class="mic-ring" id="mic-btn" onclick="toggleVoice()">
+          <i class="fa-solid fa-microphone" id="mic-icon"></i>
+        </div>
+        <div class="wave-bars" id="wave-bars">
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          <div class="bar"></div><div class="bar"></div>
+        </div>
+        <div class="voice-status" id="voice-status">Tap microphone to speak</div>
+      </div>
+
+      <div style="font-weight:700; font-size:12px; margin-bottom:8px; color:var(--text-dim)">VOICE & CHAT LOG</div>
+      <div class="voice-history" id="voice-history">
+        <div class="msg-bubble agent">
+          👋 CortexOps Voice Copilot ready. I translate radio voice directives into verified compliance checks without hallucinations.
+        </div>
+      </div>
+
+      <div style="margin-top:14px; display:flex; gap:6px;">
+        <input type="text" id="chat-input" placeholder="Ask e.g. Who can cover P-2291?..." style="flex:1; background:#090c10; border:1px solid var(--panel-border); color:#fff; padding:8px 12px; border-radius:6px; font-size:12px;" onkeydown="if(event.key==='Enter') sendChat()">
+        <button class="btn-action" style="padding:8px 12px;" onclick="sendChat()"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Col 2: Active Operations & Recovery Center -->
+  <div class="card">
+    <div class="card-header">
+      <span id="domain-header-title"><i class="fa-solid fa-gauge-high"></i> Active Duty Operations</span>
+      <button class="btn-action btn-danger" onclick="triggerDisruption()"><i class="fa-solid fa-bolt"></i> Simulate Critical Disruption</button>
+    </div>
+    <div class="card-body">
+      <div class="ops-banner">
+        <div>
+          <div style="font-size:11px; color:var(--text-dim); font-family:var(--font-mono);" id="rulebook-auth">REGULATORY STANDARD</div>
+          <div style="font-size:15px; font-weight:700; color:#fff;" id="rulebook-name">Loading...</div>
+        </div>
+        <div style="display:flex; gap:16px; font-family:var(--font-mono); font-size:12px;">
+          <div>DUTY CAP: <b id="stat-duty-cap" style="color:var(--accent-cyan)">--</b></div>
+          <div>MIN REST: <b id="stat-min-rest" style="color:var(--accent-green)">--</b></div>
+        </div>
+      </div>
+
+      <div style="font-weight:700; font-size:13px; margin: 14px 0 6px 0;">TARGET DUTY SCHEDULE</div>
+      <div id="duty-schedule-container">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
+        <div style="font-weight:700; font-size:13px;">RECOVERY CANDIDATE SCREENING</div>
+        <div style="font-size:11px; color:var(--text-dim); font-family:var(--font-mono);">DETERMINISTIC EVALUATION</div>
+      </div>
+      <table class="recovery-table">
+        <thead>
+          <tr>
+            <th>CANDIDATE</th>
+            <th>ROLE & BASE</th>
+            <th>LEGALITY</th>
+            <th>COST</th>
+            <th>RISK SCORE</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody id="candidate-rows">
+          <tr><td colspan="6" style="text-align:center; color:var(--text-dim)">Trigger a disruption above or speak with Gemini Live to evaluate options.</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Evidence Ledger -->
+      <div class="ledger-box" id="ledger-box" style="display:none;">
+        <div style="font-weight:700; color:var(--accent-cyan); margin-bottom:6px;"><i class="fa-solid fa-receipt"></i> MATHEMATICAL EVIDENCE LEDGER</div>
+        <div id="ledger-rows"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Col 3: Antigravity Multi-Agent Swarm Board -->
+  <div class="card">
+    <div class="card-header">
+      <span><i class="fa-solid fa-network-wired" style="color:var(--accent-amber)"></i> Antigravity Multi-Agent Swarm</span>
+      <span style="font-size:11px; color:var(--accent-green); font-family:var(--font-mono);">5 AGENTS SYNCED</span>
+    </div>
+    <div class="card-body">
+      <div class="swarm-feed" id="swarm-feed">
+        <!-- Swarm messages stream dynamically -->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let CURRENT_VERTICAL = 'aviation';
+let IS_RECORDING = false;
+let CURRENT_DISRUPTION = null;
+
+// Initialize
+window.addEventListener('DOMContentLoaded', async () => {
+  await loadVerticals();
+  await refreshState();
+  initSSE();
+});
+
+async function loadVerticals() {
+  const res = await fetch('/api/verticals');
+  const data = await res.json();
+  const bar = document.getElementById('verticals-bar');
+  bar.innerHTML = data.verticals.map(v => `
+    <div class="v-tab ${v.id === CURRENT_VERTICAL ? 'active' : ''}" onclick="switchVertical('${v.id}')">
+      <i class="fa-solid ${v.icon}"></i> ${v.name}
+    </div>
+  `).join('');
+}
+
+async function switchVertical(v) {
+  CURRENT_VERTICAL = v;
+  await fetch('/api/switch_vertical', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({vertical: v})
+  });
+  await loadVerticals();
+  await refreshState();
+}
+
+async function refreshState() {
+  const res = await fetch(`/api/state?vertical=${CURRENT_VERTICAL}`);
+  const state = await res.json();
+
+  document.getElementById('rulebook-auth').innerText = state.rulebook.authority.toUpperCase();
+  document.getElementById('rulebook-name').innerText = state.rulebook.name;
+  document.getElementById('stat-duty-cap').innerText = `${state.rulebook.max_duty_7d}h / 7d`;
+  document.getElementById('stat-min-rest').innerText = `${state.rulebook.min_rest}h`;
+
+  // Render Target Assignment
+  const scheduleBox = document.getElementById('duty-schedule-container');
+  if (state.assignments.length > 0) {
+    const a = state.assignments[0];
+    scheduleBox.innerHTML = `
+      <div style="background:#0c1219; border:1px solid #1f2b3a; border-radius:8px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <div style="font-weight:700; color:#fff;">${a.code}</div>
+          <div style="font-size:12px; color:var(--text-dim);">${a.description}</div>
+          <div style="font-size:11px; font-family:var(--font-mono); color:var(--accent-cyan); margin-top:4px;">
+            REPORT: ${a.start_utc} UTC | STATION: ${a.station} -> ${a.dest_station}
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:11px; color:var(--text-dim);">ASSIGNED:</div>
+          <div style="font-weight:700; color:var(--accent-green); font-family:var(--font-mono);">${a.assigned_resource_id || 'UNASSIGNED'}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Render Swarm Feed
+  renderSwarm(state.swarm_activity);
+}
+
+function renderSwarm(messages) {
+  const feed = document.getElementById('swarm-feed');
+  if (!messages || messages.length === 0) {
+    feed.innerHTML = `<div style="color:var(--text-dim); text-align:center; padding:20px;">Swarm standing by on quiet watch.</div>`;
+    return;
+  }
+  feed.innerHTML = messages.map(m => {
+    let cls = '';
+    if (m.sender_role.includes('Kernel')) cls = 'kernel';
+    else if (m.sender_role.includes('Commander')) cls = 'commander';
+    else if (m.sender_role.includes('Optimizer')) cls = 'optimizer';
+    else if (m.sender_role.includes('Dispatch')) cls = 'dispatch';
+
+    return `
+      <div class="swarm-card ${cls}">
+        <div class="swarm-meta">
+          <span class="swarm-agent-tag">${m.sender_name} (${m.sender_role})</span>
+          <span>${m.timestamp}</span>
+        </div>
+        <div style="line-height:1.4;">${m.content}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+async function triggerDisruption() {
+  const btn = event.target;
+  btn.disabled = true;
+  btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Swarm Triaging...`;
+
+  const res = await fetch('/api/disrupt', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({reason: 'Acute medical incapacity / ground emergency alert'})
+  });
+  const data = await res.json();
+  btn.disabled = false;
+  btn.innerHTML = `<i class="fa-solid fa-bolt"></i> Simulate Critical Disruption`;
+
+  CURRENT_DISRUPTION = data.disruption;
+
+  // Render candidate recovery table
+  const tbody = document.getElementById('candidate-rows');
+  tbody.innerHTML = data.options.map(o => `
+    <tr>
+      <td>
+        <b>${o.candidate_name}</b>
+        <div style="font-size:11px; color:var(--text-dim); font-family:var(--font-mono);">${o.candidate_id} ${o.is_reserve ? '(STANDBY RESERVE)' : ''}</div>
+      </td>
+      <td>${o.role} · ${o.base}</td>
+      <td>
+        ${o.is_legal ? '<span class="tag-legal">LEGAL</span>' : '<span class="tag-illegal">RULED OUT</span>'}
+        <div style="font-size:11px; color:var(--text-dim); margin-top:2px;">${o.is_legal ? o.recommendation : o.violations[0]}</div>
+      </td>
+      <td style="font-family:var(--font-mono); font-weight:700;">$${o.cost_usd}</td>
+      <td style="font-family:var(--font-mono); color:${o.risk_score > 0.5 ? 'var(--accent-amber)' : 'var(--accent-green)'}">
+        ${o.risk_score}
+      </td>
+      <td>
+        ${o.is_legal ? `<button class="btn-action" style="padding:5px 10px; font-size:11px;" onclick="authorizeRecovery('${o.candidate_id}')">Authorize</button>` : '—'}
+      </td>
+    </tr>
+  `).join('');
+
+  // Show Evidence Ledger of best option
+  if (data.best_option) {
+    document.getElementById('ledger-box').style.display = 'block';
+    const ledgerBox = document.getElementById('ledger-rows');
+    ledgerBox.innerHTML = data.best_option.margins ? Object.entries(data.best_option.margins).map(([k, v]) => `
+      <div class="ledger-row">
+        <span>${k.replace(/_/g, ' ').toUpperCase()}</span>
+        <span style="color:var(--accent-cyan); font-weight:700;">${v.toFixed(2)} HOURS MARGIN</span>
+      </div>
+    `).join('') : '';
+  }
+
+  // Refresh swarm
+  await refreshState();
+}
+
+async function authorizeRecovery(candidateId) {
+  if (!CURRENT_DISRUPTION) return;
+  await fetch('/api/authorize_recovery', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({disruption_id: CURRENT_DISRUPTION.id, chosen_candidate_id: candidateId})
+  });
+  alert(`Disruption resolved! Roster updated and multi-channel callouts dispatched.`);
+  await refreshState();
+}
+
+// Gemini Live Voice Toggle
+function toggleVoice() {
+  const mic = document.getElementById('mic-btn');
+  const status = document.getElementById('voice-status');
+  IS_RECORDING = !IS_RECORDING;
+
+  if (IS_RECORDING) {
+    mic.classList.add('active');
+    status.innerText = 'Listening to radio voice stream...';
+    animateWave(true);
+    
+    // Simulate real-time speech prompt after 2 seconds
+    setTimeout(() => {
+      if (IS_RECORDING) {
+        handleSpokenInput("Captain Rajesh is unavailable for flight 412. Who is our legal standby?");
+        toggleVoice();
+      }
+    }, 2500);
+  } else {
+    mic.classList.remove('active');
+    status.innerText = 'Tap microphone to speak';
+    animateWave(false);
+  }
+}
+
+function animateWave(active) {
+  const bars = document.querySelectorAll('.bar');
+  if (active) {
+    window.waveInterval = setInterval(() => {
+      bars.forEach(b => {
+        const h = Math.floor(Math.random() * 22) + 4;
+        b.style.height = `${h}px`;
+      });
+    }, 100);
+  } else {
+    clearInterval(window.waveInterval);
+    bars.forEach(b => b.style.height = '6px');
+  }
+}
+
+async function handleSpokenInput(text) {
+  addHistory(text, 'user');
+  const res = await fetch('/api/ask', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({query: text})
+  });
+  const data = await res.json();
+  addHistory(data.text, 'agent');
+  speakText(data.text);
+}
+
+function sendChat() {
+  const inp = document.getElementById('chat-input');
+  const val = inp.value.trim();
+  if (!val) return;
+  inp.value = '';
+  handleSpokenInput(val);
+}
+
+function addHistory(text, sender) {
+  const box = document.getElementById('voice-history');
+  const div = document.createElement('div');
+  div.className = `msg-bubble ${sender}`;
+  div.innerText = text;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+
+function speakText(text) {
+  if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 1.05;
+    window.speechSynthesis.speak(utterance);
+  }
+}
+
+function initSSE() {
+  const es = new EventSource('/api/events/stream');
+  es.onmessage = async (e) => {
+    await refreshState();
+  };
+}
+</script>
+</body>
+</html>
