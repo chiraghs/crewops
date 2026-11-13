@@ -32,7 +32,7 @@ try:
 except ImportError:  # pragma: no cover
     _RICH = False
 
-BANNER = "dCortex Air · Crew Ops Advisor"
+BANNER = "CrewOps · Operations Control Advisor"
 
 
 def _plain(s: str) -> str:

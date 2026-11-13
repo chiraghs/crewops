@@ -1003,7 +1003,7 @@ Rules:
   unsure of.
 - If no tool fits, return {"steps":[],"why":"<what is missing>"}.
 
-Context: fixed synthetic dataset, dCortex Air. Snapshot 2026-09-14T18:00:00Z.
+Context: fixed synthetic dataset, CrewOps. Snapshot 2026-09-14T18:00:00Z.
 Flights and rosters cover 2026-09-14..2026-09-20 UTC; "tomorrow" is 2026-09-15.
 Crew C-1042, pairings (multi-day trips) P-2291, flights DX412, aircraft VT-DXA,
 stations BLR DEL BOM MAA HYD CCU COK GOI."""

@@ -191,7 +191,7 @@ def _outreach(snap: Snapshot, data: dict[str, Any]) -> dict[str, Any]:
     leg_str = ", ".join(legs) if legs else "DX412/DX413"
 
     whatsapp = (
-        f"⚠️ *dCortex AIR - PRIORITY CREW DISPATCH*\n\n"
+        f"⚠️ *CrewOps - PRIORITY CREW DISPATCH*\n\n"
         f"Hello {crank} *{cname}* ({cid}),\n"
         f"OCC has assigned you to cover pairing *{pid}* on *{pdate}*.\n\n"
         f"📋 *Assignment Details:*\n"
@@ -215,13 +215,13 @@ def _outreach(snap: Snapshot, data: dict[str, Any]) -> dict[str, Any]:
     )
 
     sms = (
-        f"dCortex OCC: {crank} {cname} ({cid}), you are assigned Pairing {pid} on {pdate}. "
+        f"CrewOps OCC: {crank} {cname} ({cid}), you are assigned Pairing {pid} on {pdate}. "
         f"Report {report_utc} at {cbase}. Flight legs: {leg_str}. "
         f"DGCA cleared. Confirm via portal or reply 1 to accept."
     )
 
     voice = (
-        f"Good day {crank} {cname}. This is an automated notification from the dCortex Operations Control Center. "
+        f"Good day {crank} {cname}. This is an automated notification from the CrewOps Operations Control Center. "
         f"Due to operational disruption, you have been assigned to cover pairing {pid} on {pdate}. "
         f"Your required report time is {report_utc} at {cbase}. Your assigned sectors are {leg_str}. "
         f"All DGCA legality and rest period checks have been verified. Press 1 to acknowledge receipt and accept this assignment, "

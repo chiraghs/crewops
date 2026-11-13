@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dCortex</title>
+    <title>CrewOps · OCC Decision Command Suite</title>
     <!-- Google Fonts: Outfit (Headings) + Plus Jakarta Sans (UI) + IBM Plex Mono (Codes/Metrics) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -3053,7 +3053,7 @@ input, select { font: inherit; color: inherit; }
                             </span>
                             <span class="verified-metric"><i class="fa-solid fa-circle-check"></i> Deterministic Legal Proof</span>
                         </div>
-                        <div class="card-heading-title">dCortex OCC Crew Advisor Ready</div>
+                        <div class="card-heading-title">CrewOps OCC Advisor Ready</div>
                         <p style="font-size:0.82rem; color:var(--ink-secondary); line-height:1.5;">
                             Ask about crew, rosters, duty hours or a disruption. The question becomes a typed plan, a deterministic kernel does every calculation against the seven rules in rules.json, and each number traces back to the roster. When the answer is not in this data, it says so rather than guess.</p>
                         <div class="rule-badges-deck">
@@ -5034,7 +5034,7 @@ LEGS: DX412 (BLR→BOM), DX413 (BOM→BLR)
 LEGALITY: all 7 rules checked, none breached
 ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ`;
         } else if (ch === 'sms') {
-            box.textContent = `dCortex OCC: ${rank} ${crewId}, you are assigned Pairing P-2291 on 2026-09-15. Report 06:00 UTC at ${base}. Flight legs: DX412/DX413. DGCA CAR Sec 7 cleared. Reply 1 to accept.`;
+            box.textContent = `CrewOps OCC: ${rank} ${crewId}, you are assigned Pairing P-2291 on 2026-09-15. Report 06:00 UTC at ${base}. Flight legs: DX412/DX413. DGCA CAR Sec 7 cleared. Reply 1 to accept.`;
         } else if (ch === 'voice') {
             box.textContent = `Automated OCC Voice Callout to ${rank} ${crewId}: "Due to operational disruption, you are assigned to cover Pairing P-2291 on 2026-09-15. Report 06:00 UTC at ${base} Base. Sectors: DX412/DX413. All DGCA CAR Sec 7 rest and duty checks verified legal. Press 1 to acknowledge and accept."`;
         }
@@ -5155,7 +5155,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ`;
                     <span class="verdict-tag pass"><i class="fa-solid fa-shield-check"></i> Solver Online · CAR Sec 7 Active</span>
                     <span class="verified-metric"><i class="fa-solid fa-circle-check"></i> Deterministic Legal Proof</span>
                 </div>
-                <div class="card-heading-title">dCortex OCC Crew Advisor Ready</div>
+                <div class="card-heading-title">CrewOps OCC Advisor Ready</div>
                 <p style="font-size:0.82rem; color:var(--ink-secondary); line-height:1.5;">
                     Console cleared. Ready for your next operational query or disruption scenario.
                 </p>
