@@ -223,6 +223,35 @@ input, select { font: inherit; color: inherit; }
 }
 
 /* Active-underline navigation tabs: "Crew Ops" */
+.vertical-dropdown-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-right: 0.75rem;
+}
+
+.vertical-select-pill {
+    background: transparent;
+    color: var(--ink-primary);
+    border: none;
+    font-family: var(--font-header);
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    padding-right: 0.25rem;
+}
+.vertical-select-pill option {
+    background: var(--surface-1);
+    color: var(--ink-primary);
+    font-family: var(--font-body);
+}
+
 .nav-tabs-group {
     display: flex;
     align-items: center;
@@ -2570,12 +2599,25 @@ input, select { font: inherit; color: inherit; }
             <div class="nav-left-cluster">
                 <!-- Brand Swirl -->
                 <div class="brand-logo-area" onclick="switchOCCView('console')">
-                    <div class="brand-swirl-icon">
-                        <i class="fa-solid fa-wind"></i>
+                    <div class="brand-swirl-icon" style="background:linear-gradient(135deg, var(--brand-green-strong), var(--brand-orange));">
+                        <i class="fa-solid fa-layer-group"></i>
                     </div>
                     <div>
-                        <span class="brand-title">dCortex</span>
+                        <span class="brand-title">CrewOps</span>
+                        <span class="brand-sub" id="brandSubVertical">OCC SUITE</span>
                     </div>
+                </div>
+
+                <!-- Cross-Industry Regulatory Vertical Switcher -->
+                <div class="vertical-dropdown-wrap" title="Switch Industry Regulatory Domain (Cross-Industry OCC)">
+                    <i class="fa-solid fa-shield-halved" style="color:var(--brand-green-strong); font-size:0.8rem;"></i>
+                    <select id="industryVerticalSelect" class="vertical-select-pill" onchange="switchIndustryVertical(this.value)">
+                        <option value="aviation" selected>✈️ Aviation · CAR Sec 7 / FAA</option>
+                        <option value="maritime">⚓ Maritime · IMO STCW 2010</option>
+                        <option value="logistics">🚚 Logistics · US DOT FMCSA</option>
+                        <option value="healthcare">🏥 Healthcare · ACGME Triage</option>
+                        <option value="industrial">🦺 Industrial · OSHA 1910 PSM</option>
+                    </select>
                 </div>
 
                 <!-- Navigation Tabs -->
@@ -2631,12 +2673,12 @@ input, select { font: inherit; color: inherit; }
            TOP KPI TELEMETRY RIBBON
            ========================================================================== -->
         <div class="kpi-telemetry-strip">
-            <div class="kpi-items-group">
-                <span class="kpi-tag"><i class="fa-solid fa-plane-departure"></i> Active Flights: <b>147</b></span>
-                <span class="kpi-tag"><i class="fa-solid fa-users"></i> Crew Complements: <b>150 Active (74 Pilots, 76 CC)</b></span>
-                <span class="kpi-tag"><i class="fa-solid fa-shield-heart"></i> Reserve Depth: <b>16 On-Call (6 PIC, 4 SIC, 6 CC)</b></span>
-                <span class="kpi-tag"><i class="fa-solid fa-shield-halved"></i> DGCA Conformance: <b>100% CAR Sec 7</b></span>
-                <span class="kpi-tag"><i class="fa-solid fa-plane-circle-check"></i> Network Health: <b>99.8%</b></span>
+            <div class="kpi-items-group" id="kpiItemsGroup">
+                <span class="kpi-tag" id="kpiTagUnits"><i class="fa-solid fa-plane-departure" id="kpiIconUnits"></i> <span id="kpiLabelUnits">Active Flights</span>: <b id="kpiValUnits">147</b></span>
+                <span class="kpi-tag" id="kpiTagCrew"><i class="fa-solid fa-users" id="kpiIconCrew"></i> <span id="kpiLabelCrew">Crew Complements</span>: <b id="kpiValCrew">150 Active (74 Pilots, 76 CC)</b></span>
+                <span class="kpi-tag" id="kpiTagReserves"><i class="fa-solid fa-shield-heart" id="kpiIconReserves"></i> <span id="kpiLabelReserves">Reserve Depth</span>: <b id="kpiValReserves">16 On-Call (6 PIC, 4 SIC, 6 CC)</b></span>
+                <span class="kpi-tag" id="kpiTagRule"><i class="fa-solid fa-shield-halved" id="kpiIconRule"></i> <span id="kpiLabelRule">Compliance</span>: <b id="kpiValRule">100% CAR Sec 7</b></span>
+                <span class="kpi-tag" id="kpiTagHealth"><i class="fa-solid fa-circle-check"></i> Network Health: <b>99.8%</b></span>
             </div>
             <div class="kpi-station-status">
                 <span style="color:var(--ink-secondary); font-size:0.7rem; font-family:var(--font-mono);">SNAPSHOT: 2026-09-14 18:00Z</span>
@@ -3564,6 +3606,289 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         { label: 'Activation Speed', key: 'activation' },
         { label: 'Fleet Match', key: 'fleet' }
     ];
+
+    const VERTICAL_CONFIGS = {
+        aviation: {
+            id: 'aviation',
+            name: 'Commercial Aviation',
+            shortName: 'Aviation',
+            standard: 'DGCA CAR Sec 7 / FAA Part 117',
+            unitLabel: 'Active Flights',
+            unitCount: '147',
+            crewLabel: 'Flight Crew',
+            crewCount: '150 Active (74 Pilots, 76 CC)',
+            reserveLabel: 'Reserve Depth',
+            reserveCount: '16 On-Call (6 PIC, 4 SIC, 6 CC)',
+            ruleLabel: 'Compliance',
+            ruleVal: '100% CAR Sec 7',
+            unitTab: 'Flight Timeline (147)',
+            crewTab: 'Crew Roster (150)',
+            reserveTab: 'Reserve Matrix (16)',
+            radarAxes: [
+                { label: 'Duty Absorption', key: 'absorption' },
+                { label: 'Downstream Safety', key: 'downstream' },
+                { label: 'Rest Buffer (12h)', key: 'rest' },
+                { label: 'Station Depth', key: 'station' },
+                { label: 'Activation Speed', key: 'activation' },
+                { label: 'Fleet Match', key: 'fleet' }
+            ],
+            scenarios: [
+                { id: 'S1', title: 'S1: Sick Call', type: 'SICK_CREW', runnable: true, narrative: 'Capt. C-1042 sick for pairing P-2291 at BLR. Fast resolve to optimal reserve.' },
+                { id: 'S2', title: 'S2: Duty Swap', type: 'SWAP', runnable: true, narrative: 'Check duty swap legality between C-2087 and C-3310.' },
+                { id: 'S4', title: 'S4: Station Stop', type: 'STATION_CLOSURE', runnable: true, narrative: 'DEL airport fog delay closure from 04:00 to 09:00Z.' },
+                { id: 'S5', title: 'S5: Ranked Options', type: 'RANK', runnable: true, narrative: 'Rank all 43 candidates for uncovered multi-sector trip.' }
+            ],
+            starters: [
+                'Who can cover P-2291 instead of C-1042?',
+                'If I move C-2087 onto P-2291, does anyone breach a duty limit?',
+                'Where are we thin on cover this week?',
+                'Draft the callout notification to C-3310 for P-2291'
+            ]
+        },
+        maritime: {
+            id: 'maritime',
+            name: 'Maritime & Port Logistics',
+            shortName: 'Maritime',
+            standard: 'IMO STCW 2010 Manila Amendments & MLC 2006',
+            unitLabel: 'Active Voyages',
+            unitCount: '84',
+            crewLabel: 'Watch Officers',
+            crewCount: '120 Officers (52 Master/Mates, 68 Engineers)',
+            reserveLabel: 'Harbor Reserves',
+            reserveCount: '14 Pilots & Relief Officers',
+            ruleLabel: 'Compliance',
+            ruleVal: '100% STCW (Min 77h Rest/7d)',
+            unitTab: 'Voyage Timeline (84)',
+            crewTab: 'Mariner Roster (120)',
+            reserveTab: 'Harbor Reserves (14)',
+            radarAxes: [
+                { label: 'Watch Absorption', key: 'absorption' },
+                { label: 'Voyage Safety', key: 'downstream' },
+                { label: 'STCW Rest (10h)', key: 'rest' },
+                { label: 'Port Reachability', key: 'station' },
+                { label: 'Pilotage Transit', key: 'activation' },
+                { label: 'Vessel Rating', key: 'fleet' }
+            ],
+            scenarios: [
+                { id: 'M1', title: 'M1: Master Sick', type: 'SICK_CREW', runnable: true, narrative: 'Capt. Lindqvist incapacitated on MV Nordica before Elbe tidal window.' },
+                { id: 'M2', title: 'M2: Lock Congestion', type: 'STATION_CLOSURE', runnable: true, narrative: 'Rotterdam lock maintenance delay 6 hours.' },
+                { id: 'M3', title: 'M3: STCW Rest Breach', type: 'RANK', runnable: true, narrative: 'Audit watchkeeper fatigue exceeding 14h in 24h.' }
+            ],
+            starters: [
+                'Who is the legal Master Mariner for MV Nordica at Rotterdam?',
+                'Can Elena Rostova cover the Hamburg voyage without breaching STCW 77h rest?',
+                'Show harbor standby officers with valid ECDIS and GMDSS currency',
+                'Where are we thin on DP2 certified chief mates this week?'
+            ]
+        },
+        logistics: {
+            id: 'logistics',
+            name: 'Intermodal Freight & Fleet',
+            shortName: 'Logistics',
+            standard: 'US DOT FMCSA 49 CFR Part 395 (HOS)',
+            unitLabel: 'Active Freight Runs',
+            unitCount: '210',
+            crewLabel: 'CDL-A Drivers',
+            crewCount: '180 Drivers (110 Long-Haul, 70 Regional)',
+            reserveLabel: 'Fleet Reserves',
+            reserveCount: '22 Slip-Seat Relief Drivers',
+            ruleLabel: 'Compliance',
+            ruleVal: '100% FMCSA (14h / 11h Limit)',
+            unitTab: 'Fleet Timeline (210)',
+            crewTab: 'Driver Roster (180)',
+            reserveTab: 'Fleet Reserves (22)',
+            radarAxes: [
+                { label: '14h Duty Window', key: 'absorption' },
+                { label: 'Delivery SLA', key: 'downstream' },
+                { label: '10h Off-Duty Rest', key: 'rest' },
+                { label: 'Terminal Depth', key: 'station' },
+                { label: 'Reefer Dispatch', key: 'activation' },
+                { label: 'CDL/Hazmat Match', key: 'fleet' }
+            ],
+            scenarios: [
+                { id: 'L1', title: 'L1: Reefer Alert', type: 'DELAY', runnable: true, narrative: 'I-80 cold-chain pharmaceutical haul reefer compressor failure.' },
+                { id: 'L2', title: 'L2: 11h HOS Breach', type: 'SICK_CREW', runnable: true, narrative: 'Marcus Vance reaches 13.5h duty window before Detroit DC.' },
+                { id: 'L3', title: 'L3: Hazmat Reroute', type: 'STATION_CLOSURE', runnable: true, narrative: 'Chicago terminal gate strike detour.' }
+            ],
+            starters: [
+                'Marcus Vance is at 13.5h duty on I-80. Who can relieve him at Chicago Hub?',
+                'Show drivers with valid HAZMAT and cold-chain currency',
+                'Can Sarah Jenkins take trip TRIP-404 without breaching 60h/7d cap?',
+                'Which drivers have completed their mandatory 34-hour restart?'
+            ]
+        },
+        healthcare: {
+            id: 'healthcare',
+            name: 'Healthcare & Trauma Triage',
+            shortName: 'Healthcare',
+            standard: 'ACGME Clinical Work-Hour Standards & Trauma Acuity',
+            unitLabel: 'Active Clinical Shifts',
+            unitCount: '48',
+            crewLabel: 'Physicians & RNs',
+            crewCount: '95 Clinical Staff (42 Attending/Fellows, 53 ICU RNs)',
+            reserveLabel: 'On-Call Matrix',
+            reserveCount: '12 Rapid Trauma On-Call MDs',
+            ruleLabel: 'Compliance',
+            ruleVal: '100% ACGME (Max 80h / Week)',
+            unitTab: 'Clinical Shifts (48)',
+            crewTab: 'Physician Roster (95)',
+            reserveTab: 'On-Call Matrix (12)',
+            radarAxes: [
+                { label: '16h Shift Cap', key: 'absorption' },
+                { label: 'Trauma Acuity', key: 'downstream' },
+                { label: '10h Rest Interval', key: 'rest' },
+                { label: 'Trauma Bay Depth', key: 'station' },
+                { label: 'Triage Response', key: 'activation' },
+                { label: 'Specialty Match', key: 'fleet' }
+            ],
+            scenarios: [
+                { id: 'H1', title: 'H1: Multi-Trauma Surge', type: 'DELAY', runnable: true, narrative: 'Highway multi-vehicle collision incoming with 8 critical patients.' },
+                { id: 'H2', title: 'H2: 16h Shift Overage', type: 'SICK_CREW', runnable: true, narrative: 'Dr. Maya Patel reaches 15.5h in Trauma Bay 1.' },
+                { id: 'H3', title: 'H3: ICU Bed Divert', type: 'STATION_CLOSURE', runnable: true, narrative: 'Pediatric ICU ventilator shortage diverting incoming ambulances.' }
+            ],
+            starters: [
+                'Dr. Maya Patel has reached 15h in Trauma Bay 1. Who is on-call with ATLS certification?',
+                'Check ACGME 80h weekly headroom for trauma surgery fellows',
+                'Who is available for immediate emergency bedside thoracotomy coverage?',
+                'List all on-call ICU nurses with ECMO credentials'
+            ]
+        },
+        industrial: {
+            id: 'industrial',
+            name: 'Industrial Safety & Energy',
+            shortName: 'Industrial',
+            standard: 'OSHA 1910 PSM / API RP 755 Fatigue Risk Management',
+            unitLabel: 'Turnaround Shifts',
+            unitCount: '36',
+            crewLabel: 'Safety Engineers',
+            crewCount: '75 Engineers (35 OIM/Safety Leads, 40 Technicians)',
+            reserveLabel: 'ERT Standby Pool',
+            reserveCount: '10 Emergency Response Leads',
+            ruleLabel: 'Compliance',
+            ruleVal: '100% OSHA 1910 (12h Shift Cap)',
+            unitTab: 'Turnaround Shifts (36)',
+            crewTab: 'Engineer Roster (75)',
+            reserveTab: 'ERT Reserves (10)',
+            radarAxes: [
+                { label: '12h Shift Cap', key: 'absorption' },
+                { label: 'Process Safety', key: 'downstream' },
+                { label: '12h Rest Buffer', key: 'rest' },
+                { label: 'Refinery Depth', key: 'station' },
+                { label: 'ERT Rapid Mobilization', key: 'activation' },
+                { label: 'Safety Cert Match', key: 'fleet' }
+            ],
+            scenarios: [
+                { id: 'I1', title: 'I1: H2S Wellhead Alert', type: 'DELAY', runnable: true, narrative: 'Subsea wellhead valve leak potential H2S gas exposure.' },
+                { id: 'I2', title: 'I2: 12h PSM Overage', type: 'SICK_CREW', runnable: true, narrative: 'Offshore Lead Liam MacLeod exceeds 12-hour hazardous turnaround shift.' },
+                { id: 'I3', title: 'I3: Flare Stack Lockout', type: 'STATION_CLOSURE', runnable: true, narrative: 'Refinery flare header pressure trip emergency.' }
+            ],
+            starters: [
+                'Offshore rig Alpha needs an H2S certified Safety Lead for 06:00Z. Is Astrid Nygård legal under API 755?',
+                'Show 12h shift compliance for refinery unit 4 turnaround',
+                'List engineers approaching the 14-day offshore rotation limit',
+                'Who is on standby for the North Sea Emergency Response Team?'
+            ]
+        }
+    };
+
+    function switchIndustryVertical(verticalId) {
+        const cfg = VERTICAL_CONFIGS[verticalId] || VERTICAL_CONFIGS.aviation;
+        STATE.activeVertical = verticalId;
+        
+        const sel = document.getElementById('industryVerticalSelect');
+        if (sel && sel.value !== verticalId) sel.value = verticalId;
+        
+        const sub = document.getElementById('brandSubVertical');
+        if (sub) sub.textContent = cfg.shortName.toUpperCase() + ' OCC';
+
+        const lblUnits = document.getElementById('kpiLabelUnits');
+        const valUnits = document.getElementById('kpiValUnits');
+        if (lblUnits) lblUnits.textContent = cfg.unitLabel;
+        if (valUnits) valUnits.textContent = cfg.unitCount;
+
+        const lblCrew = document.getElementById('kpiLabelCrew');
+        const valCrew = document.getElementById('kpiValCrew');
+        if (lblCrew) lblCrew.textContent = cfg.crewLabel;
+        if (valCrew) valCrew.textContent = cfg.crewCount;
+
+        const lblRes = document.getElementById('kpiLabelReserves');
+        const valRes = document.getElementById('kpiValReserves');
+        if (lblRes) lblRes.textContent = cfg.reserveLabel;
+        if (valRes) valRes.textContent = cfg.reserveCount;
+
+        const lblRule = document.getElementById('kpiLabelRule');
+        const valRule = document.getElementById('kpiValRule');
+        if (lblRule) lblRule.textContent = cfg.ruleLabel;
+        if (valRule) valRule.textContent = cfg.ruleVal;
+
+        const tabF = document.getElementById('tabBtnFlights');
+        if (tabF) tabF.innerHTML = `<i class="fa-solid fa-timeline" style="margin-right:6px;"></i>${cfg.unitTab}`;
+        const tabR = document.getElementById('tabBtnRoster');
+        if (tabR) tabR.textContent = cfg.crewTab;
+        const tabM = document.getElementById('tabBtnReserves');
+        if (tabM) tabM.textContent = cfg.reserveTab;
+
+        RADAR_AXES.splice(0, RADAR_AXES.length, ...cfg.radarAxes);
+        if (STATE.currentRiskData) {
+            renderRadarSpider(STATE.currentRiskData);
+        }
+
+        const chatInput = document.getElementById('chatQueryInput');
+        if (chatInput) {
+            chatInput.placeholder = `Ask about ${cfg.crewLabel.toLowerCase()}, ${cfg.unitLabel.toLowerCase()}, or disruptions...`;
+        }
+
+        const host = document.getElementById('starterQuestions');
+        if (host && cfg.starters) {
+            host.innerHTML = `<div class="starter-row"><span class="starter-tier">${cfg.shortName}</span>` +
+                cfg.starters.map(q => `<button class="starter-chip" type="button" onclick="submitCustomPrompt('${q.replace(/'/g, "\\'")}')">${q}</button>`).join('') +
+                `</div>`;
+        }
+
+        const bar = document.getElementById('scenarioBar');
+        if (bar && cfg.scenarios) {
+            bar.innerHTML = cfg.scenarios.map(x => 
+                `<button class="flow-scn" type="button" title="${x.narrative}" onclick="runCustomVerticalScenario('${x.id}', '${x.title.replace(/'/g, "\\'")}', '${x.narrative.replace(/'/g, "\\'")}')">` +
+                `<b>${x.id}</b>${x.title}</button>`
+            ).join('');
+        }
+
+        fetch('/api/set_vertical', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({vertical: verticalId})
+        }).catch(() => {});
+
+        showToast(`Switched OCC domain to ${cfg.name} (${cfg.standard})`);
+    }
+
+    function runCustomVerticalScenario(id, title, narrative) {
+        switchOCCView('console');
+        const feed = document.getElementById('chatFeed');
+        if (!feed) return;
+
+        const flow = document.createElement('div');
+        flow.className = 'chat-bubble-agent scenario-flow';
+        flow.innerHTML = `
+            <div class="flow-header">
+                <b>${id} · ${title}</b>
+                <span class="flow-badge">ACTIVE SCENARIO</span>
+            </div>
+            <div style="font-size:0.85rem; color:var(--ink-secondary); margin:0.5rem 0 1rem 0; line-height:1.4;">
+                ${narrative}
+            </div>
+            <div style="display:flex; gap:0.5rem; align-items:center;">
+                <button class="btn-authorize-action" onclick="submitCustomPrompt('Resolve ${id} optimal recovery plan')">
+                    <i class="fa-solid fa-bolt"></i> Run Swarm Recovery
+                </button>
+                <button class="sugg-chip-btn" onclick="submitCustomPrompt('Show candidate legality audit for ${id}')">
+                    Inspect Legality Audit
+                </button>
+            </div>
+        `;
+        feed.appendChild(flow);
+        flow.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
 
     document.addEventListener('DOMContentLoaded', async () => {
         initTheme();

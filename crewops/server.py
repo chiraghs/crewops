@@ -391,6 +391,17 @@ class Handler(BaseHTTPRequestHandler):
                 # is the same engine behind a quieter interface, and which one
                 # a controller wants is not a decision to bake into a route.
                 self._send(200, _page(), "text/html; charset=utf-8")
+            elif path == "/api/verticals":
+                self._json({
+                    "active": _STATE.get("active_vertical", "aviation"),
+                    "verticals": [
+                        {"id": "aviation", "name": "Commercial Aviation", "regulatory_body": "DGCA CAR Sec 7 / FAA Part 117", "icon": "fa-plane-departure", "units": 147, "crew": 150, "reserves": 16},
+                        {"id": "maritime", "name": "Maritime & Port Logistics", "regulatory_body": "IMO STCW 2010 Manila Amendments", "icon": "fa-ship", "units": 84, "crew": 120, "reserves": 14},
+                        {"id": "logistics", "name": "Intermodal Freight & Fleet", "regulatory_body": "US DOT FMCSA 49 CFR Part 395", "icon": "fa-truck-fast", "units": 210, "crew": 180, "reserves": 22},
+                        {"id": "healthcare", "name": "Healthcare & Trauma Triage", "regulatory_body": "ACGME Clinical Work-Hour Standards", "icon": "fa-hospital-user", "units": 48, "crew": 95, "reserves": 12},
+                        {"id": "industrial", "name": "Industrial Safety & Energy", "regulatory_body": "OSHA 1910 PSM / API RP 755", "icon": "fa-helmet-safety", "units": 36, "crew": 75, "reserves": 10},
+                    ]
+                })
             elif path == "/api/health":
                 adv: Advisor = _STATE["advisor"]
                 self._json({
@@ -501,6 +512,7 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:  # noqa: N802
         route = self.path.split("?")[0]
         if route not in ("/api/ask", "/api/whatif", "/api/reset", "/api/set_region",
+                         "/api/set_vertical",
                          "/api/resolve_event", "/api/commit", "/api/outreach"):
             self._json({"error": "not found"}, 404)
             return
@@ -727,10 +739,17 @@ class Handler(BaseHTTPRequestHandler):
                     out["sarvam_error"] = str(e)
                 self._json(out)
                 return
-            if route in ("/api/whatif", "/api/reset", "/api/set_region"):
+            if route in ("/api/whatif", "/api/reset", "/api/set_region", "/api/set_vertical"):
                 n = int(self.headers.get("Content-Length") or 0)
                 body = json.loads(self.rfile.read(n) or b"{}")
                 
+                if route == "/api/set_vertical":
+                    with _LOCK:
+                        vert = body.get("vertical", "aviation")
+                        _STATE["active_vertical"] = vert
+                    self._json({"ok": True, "vertical": vert})
+                    return
+
                 if route == "/api/set_region":
                     with _LOCK:
                         region = body.get("region", "in")
