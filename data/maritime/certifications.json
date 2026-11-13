@@ -1,0 +1,2882 @@
+[
+  {
+    "crew_id": "M-1001",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1001",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1001",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1001",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1002",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1002",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1002",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1002",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1003",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1003",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1003",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1003",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1004",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1004",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1004",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1004",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1005",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1005",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1005",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1005",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1006",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1006",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1006",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1006",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1007",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1007",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1007",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1007",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1008",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1008",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1008",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1008",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1009",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1009",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1009",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1009",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1010",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1010",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1010",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1010",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1011",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1011",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1011",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1011",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1012",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1012",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1012",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1012",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1013",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1013",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1013",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1013",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1014",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1014",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1014",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1014",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1015",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1015",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1015",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1015",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1016",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1016",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1016",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1016",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1017",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1017",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1017",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1017",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1018",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1018",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1018",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1018",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1019",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1019",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1019",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1019",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1020",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1020",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1020",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1020",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1021",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1021",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1021",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1021",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1022",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1022",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1022",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1022",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1023",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1023",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1023",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1023",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1024",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1024",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1024",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1024",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1025",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1025",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1025",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1025",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1026",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1026",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1026",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1026",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1027",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1027",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1027",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1027",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1028",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1028",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1028",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1028",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1029",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1029",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1029",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1029",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1030",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1030",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1030",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1030",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1031",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1031",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1031",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1031",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1032",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1032",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1032",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1032",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1033",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1033",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1033",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1033",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1034",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1034",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1034",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1034",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1035",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1035",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1035",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1035",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1036",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1036",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1036",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1036",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1037",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1037",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1037",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1037",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1038",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1038",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1038",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1038",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1039",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1039",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1039",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1039",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1040",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1040",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1040",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1040",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1041",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1041",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1041",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1041",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1042",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1042",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1042",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1042",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1043",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1043",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1043",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1043",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1044",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1044",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1044",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1044",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1045",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1045",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1045",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1045",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1046",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1046",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1046",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1046",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1047",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1047",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1047",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1047",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1048",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1048",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1048",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1048",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1049",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1049",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1049",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1049",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1050",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1050",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1050",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1050",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1051",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1051",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1051",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1051",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1052",
+    "cert_type": "STCW Master Mariner",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1052",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1052",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1052",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1053",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1053",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1053",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1053",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1054",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1054",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1054",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1054",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1055",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1055",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1055",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1055",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1056",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1056",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1056",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1056",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1057",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1057",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1057",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1057",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1058",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1058",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1058",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1058",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1059",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1059",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1059",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1059",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1060",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1060",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1060",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1060",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1061",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1061",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1061",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1061",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1062",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1062",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1062",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1062",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1063",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1063",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1063",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1063",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1064",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1064",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1064",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1064",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1065",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1065",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1065",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1065",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1066",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1066",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1066",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1066",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1067",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1067",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1067",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1067",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1068",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1068",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1068",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1068",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1069",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1069",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1069",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1069",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1070",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1070",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1070",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1070",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1071",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1071",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1071",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1071",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1072",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1072",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1072",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1072",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1073",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1073",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1073",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1073",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1074",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1074",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1074",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1074",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1075",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1075",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1075",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1075",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1076",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1076",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1076",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1076",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1077",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1077",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1077",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1077",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1078",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1078",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1078",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1078",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1079",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1079",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1079",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1079",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1080",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1080",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1080",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1080",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1081",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1081",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1081",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1081",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1082",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1082",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1082",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1082",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1083",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1083",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1083",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1083",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1084",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1084",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1084",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1084",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1085",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1085",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1085",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1085",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1086",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1086",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1086",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1086",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1087",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1087",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1087",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1087",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1088",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1088",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1088",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1088",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1089",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1089",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1089",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1089",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1090",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1090",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1090",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1090",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1091",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1091",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1091",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1091",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1092",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1092",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1092",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1092",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1093",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1093",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1093",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1093",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1094",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1094",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1094",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1094",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1095",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1095",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1095",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1095",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1096",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1096",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1096",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1096",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1097",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1097",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1097",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1097",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1098",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1098",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1098",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1098",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1099",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1099",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1099",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1099",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1100",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1100",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1100",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1100",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1101",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1101",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1101",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1101",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1102",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1102",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1102",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1102",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1103",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1103",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1103",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1103",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1104",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1104",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1104",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1104",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1105",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1105",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1105",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1105",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1106",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1106",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1106",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1106",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1107",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1107",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1107",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1107",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1108",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1108",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1108",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1108",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1109",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1109",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1109",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1109",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1110",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1110",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1110",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1110",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1111",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1111",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1111",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1111",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1112",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1112",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1112",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1112",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1113",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1113",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1113",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1113",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1114",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1114",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1114",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1114",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1115",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1115",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1115",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1115",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1116",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1116",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1116",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1116",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1117",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1117",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1117",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1117",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1118",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1118",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1118",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1118",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1119",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1119",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1119",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1119",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  },
+  {
+    "crew_id": "M-1120",
+    "cert_type": "STCW Chief Mate",
+    "valid_from": "2023-01-01",
+    "valid_to": "2028-06-30"
+  },
+  {
+    "crew_id": "M-1120",
+    "cert_type": "ECDIS General & Type Specific",
+    "valid_from": "2024-01-01",
+    "valid_to": "2027-12-31"
+  },
+  {
+    "crew_id": "M-1120",
+    "cert_type": "GMDSS Radio Operator",
+    "valid_from": "2023-05-01",
+    "valid_to": "2028-05-01"
+  },
+  {
+    "crew_id": "M-1120",
+    "cert_type": "Maritime Medical STCW I/9",
+    "valid_from": "2025-09-01",
+    "valid_to": "2027-09-01"
+  }
+]

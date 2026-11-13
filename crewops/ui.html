@@ -2611,7 +2611,7 @@ input, select { font: inherit; color: inherit; }
                 </div>
 
                 <!-- Cross-Industry Regulatory Vertical Switcher -->
-                <div class="vertical-dropdown-wrap" title="Switch Industry Regulatory Domain (Cross-Industry OCC)">
+                <div class="vertical-dropdown-wrap" title="Switch Industry Regulatory Domain (Cross-Industry OCC)" onclick="checkVerticalClick(event)">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green-strong)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="12 2 2 7 12 12 22 7 12 2"/>
                         <polyline points="2 17 12 22 22 17"/>
@@ -2620,7 +2620,7 @@ input, select { font: inherit; color: inherit; }
                     <select id="industryVerticalSelect" class="vertical-select-pill" onchange="switchIndustryVertical(this.value)">
                         <option value="aviation" selected>Aviation · CAR Sec 7 / FAA Part 117</option>
                         <option value="maritime">Maritime · IMO STCW 2010 / MLC</option>
-                        <option value="logistics">Intermodal Fleet · US DOT FMCSA HOS</option>
+                        <option value="logistics" disabled>Intermodal Fleet · US DOT FMCSA (Enterprise - Coming Soon)</option>
                         <option value="healthcare" disabled>Healthcare · ACGME (Enterprise - Coming Soon)</option>
                         <option value="industrial" disabled>Industrial · OSHA 1910 PSM (Enterprise - Coming Soon)</option>
                     </select>
@@ -3871,7 +3871,15 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         }
     };
 
-    function switchIndustryVertical(verticalId) {
+    async function switchIndustryVertical(verticalId) {
+        if (verticalId === 'logistics' || verticalId === 'healthcare' || verticalId === 'industrial') {
+            const vName = verticalId === 'logistics' ? 'Intermodal Fleet & Logistics' : (verticalId === 'healthcare' ? 'Healthcare & Trauma Triage' : 'Industrial Safety & Energy');
+            showToast(`⚠️ ${vName} is an Enterprise tier vertical and is not enabled for this live demo. Please select Aviation or Maritime.`);
+            const sel = document.getElementById('industryVerticalSelect');
+            if (sel) sel.value = STATE.activeVertical || 'aviation';
+            return;
+        }
+
         const cfg = VERTICAL_CONFIGS[verticalId] || VERTICAL_CONFIGS.aviation;
         STATE.activeVertical = verticalId;
         
@@ -3909,9 +3917,6 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         if (tabM) tabM.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>${cfg.reserveTab}`;
 
         RADAR_AXES.splice(0, RADAR_AXES.length, ...cfg.radarAxes);
-        if (STATE.currentRiskData) {
-            renderRadarSpider(STATE.currentRiskData);
-        }
 
         const chatInput = document.getElementById('chatQueryInput');
         if (chatInput) {
@@ -3933,13 +3938,101 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
             ).join('');
         }
 
-        fetch('/api/set_vertical', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({vertical: verticalId})
-        }).catch(() => {});
+        // Dynamically update timeline and roster filter options (ports/hubs, fleets, vessels)
+        updateVerticalFilterOptions(verticalId);
+
+        // Tell backend server to switch active snapshot
+        try {
+            const resp = await fetch('/api/set_vertical', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({vertical: verticalId})
+            });
+            const resData = await resp.json();
+            if (resData.ok) {
+                // Fetch fresh dataset for this vertical
+                await loadInitialData();
+                
+                // Select default persona for right-hand risk radar & dispatch
+                const defaultPilot = verticalId === 'maritime' ? 'M-1002' : 'C-3310';
+                bindCandidateToRightPane(defaultPilot);
+                
+                // Refresh currently open view
+                renderCrewOpsWaveMonitor();
+                if (STATE.activeView === 'flights') renderFlightsView();
+                else if (STATE.activeView === 'roster') renderRosterTable();
+                else if (STATE.activeView === 'reserves') renderReservesTable();
+                else if (STATE.activeView === 'brief') renderDayBrief();
+            } else if (resData.error) {
+                showToast(`⚠️ ${resData.error}`);
+            }
+        } catch (err) {
+            console.error('Failed to switch vertical', err);
+        }
 
         showToast(`Switched OCC domain to ${cfg.name} (${cfg.standard})`);
+    }
+
+    function checkVerticalClick(e) {
+        const sel = document.getElementById('industryVerticalSelect');
+        if (sel && (sel.value === 'logistics' || sel.value === 'healthcare' || sel.value === 'industrial')) {
+            showToast('⚠️ Intermodal Fleet, Healthcare, and Industrial Safety are Enterprise tier verticals and disabled for this demo. Aviation and Maritime are active.');
+        }
+    }
+
+    function updateVerticalFilterOptions(vert) {
+        const isMaritime = vert === 'maritime';
+        const tails = isMaritime ? MARITIME_TAILS : AVIATION_TAILS;
+
+        // Station / Port Dropdowns
+        const cStation = document.getElementById('crewFilterFlightStation');
+        const tStation = document.getElementById('filterFlightStation');
+        const stations = isMaritime
+            ? [{val: '', label: 'Port: All Ports'}, {val: 'ROT', label: 'ROT (Rotterdam Maasvlakte)'}, {val: 'HAM', label: 'HAM (Hamburg Elbe)'}, {val: 'ANT', label: 'ANT (Antwerp)'}, {val: 'SGP', label: 'SGP (Singapore)'}, {val: 'DXB', label: 'DXB (Jebel Ali)'}]
+            : [{val: '', label: 'Hub: All Stations'}, {val: 'DEL', label: 'DEL (Delhi Hub)'}, {val: 'BLR', label: 'BLR (Bengaluru Hub)'}, {val: 'BOM', label: 'BOM (Mumbai)'}, {val: 'CCU', label: 'CCU (Kolkata)'}, {val: 'HYD', label: 'HYD (Hyderabad)'}];
+
+        [cStation, tStation].forEach(sel => {
+            if (sel) sel.innerHTML = stations.map(s => `<option value="${s.val}">${s.label}</option>`).join('');
+        });
+
+        // Fleet / Vessel Type Dropdowns
+        const cFleet = document.getElementById('crewFilterFlightFleet');
+        const tFleet = document.getElementById('filterFlightFleet');
+        const fleets = isMaritime
+            ? [{val: '', label: 'Vessel: All Types'}, {val: 'ULCV_CONTAINER', label: 'ULCV (20k TEU Container)'}, {val: 'LNG_CARRIER', label: 'LNG Carrier (174k m³)'}, {val: 'FEEDER_CONTAINER', label: 'Feeder Container'}, {val: 'DP2_OFFSHORE', label: 'DP2 Support Vessel'}, {val: 'BULK_CAPESIZE', label: 'Capesize Bulk Carrier'}]
+            : [{val: '', label: 'Fleet: All'}, {val: 'A320', label: 'Fleet: A320 Jet'}, {val: 'ATR72', label: 'Fleet: ATR72 Turboprop'}];
+
+        [cFleet, tFleet].forEach(sel => {
+            if (sel) sel.innerHTML = fleets.map(f => `<option value="${f.val}">${f.label}</option>`).join('');
+        });
+
+        // Tail / Vessel Hull Dropdowns
+        const cTail = document.getElementById('crewFilterFlightTail');
+        const tTail = document.getElementById('filterFlightTail');
+        const tailOptions = [{val: '', label: isMaritime ? 'Vessel: All Hulls' : 'Tail: All Tails'}].concat(
+            tails.map(t => ({val: t.tail, label: t.name}))
+        );
+        [cTail, tTail].forEach(sel => {
+            if (sel) sel.innerHTML = tailOptions.map(t => `<option value="${t.val}">${t.label}</option>`).join('');
+        });
+
+        // Roster Base filter
+        const rBase = document.getElementById('filterRosterBase');
+        if (rBase) {
+            const rBaseOpts = isMaritime
+                ? [{val: '', label: 'All Ports'}, {val: 'ROT', label: 'ROT (Rotterdam)'}, {val: 'HAM', label: 'HAM (Hamburg)'}, {val: 'ANT', label: 'ANT (Antwerp)'}, {val: 'SGP', label: 'SGP (Singapore)'}]
+                : [{val: '', label: 'All Bases'}, {val: 'BLR', label: 'BLR (Bengaluru)'}, {val: 'DEL', label: 'DEL (Delhi)'}];
+            rBase.innerHTML = rBaseOpts.map(b => `<option value="${b.val}">${b.label}</option>`).join('');
+        }
+
+        // Roster Rank filter
+        const rRank = document.getElementById('filterRosterRank');
+        if (rRank) {
+            const rRankOpts = isMaritime
+                ? [{val: '', label: 'All Ranks'}, {val: 'Master Mariner', label: 'Master Mariner'}, {val: 'Chief Mate', label: 'Chief Mate'}, {val: 'Chief Engineer', label: 'Chief Engineer'}, {val: 'Second Mate', label: 'Second Mate'}, {val: 'Second Engineer', label: 'Second Engineer'}]
+                : [{val: '', label: 'All Ranks'}, {val: 'Captain', label: 'Captain'}, {val: 'First Officer', label: 'First Officer'}, {val: 'Senior Cabin Crew', label: 'Senior Cabin Crew'}, {val: 'Cabin Crew', label: 'Cabin Crew'}];
+            rRank.innerHTML = rRankOpts.map(r => `<option value="${r.val}">${r.label}</option>`).join('');
+        }
     }
 
     function runCustomVerticalScenario(id, title, narrative) {
@@ -4819,24 +4912,26 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
     // 4. DYNAMIC RISK DELEGATION MATRIX ENGINE
     // Calculates real risk metrics from actual roster / reserve datasets for either a pilot or a filter cohort!
     function calculatePilotRiskData(crewId) {
-        // Find pilot in roster or reserves
+        // Find pilot or mariner in roster or reserves
         const rItem = STATE.roster.find(c => c.crew_id === crewId);
         const resItem = STATE.reserves.find(r => r.crew_id === crewId);
 
-        const name = (rItem ? rItem.name : (resItem ? resItem.name : 'Pilot ' + crewId));
+        const isMaritime = STATE.activeVertical === 'maritime';
+        const limit7d = rItem?.duty_limit_7d || (isMaritime ? 91 : 60);
+        const name = (rItem ? rItem.name : (resItem ? resItem.name : (isMaritime ? 'Officer ' : 'Pilot ') + crewId));
         const duty7d = rItem ? (rItem.duty_hours_7d || 0) : (resItem ? (resItem.duty_hours_7d || 0) : 25);
         const reachMins = resItem ? (resItem.reachability_minutes || 45) : (rItem ? (rItem.reachability_minutes || 60) : 60);
-        const base = rItem ? rItem.base : (resItem ? resItem.base : 'BLR');
+        const base = rItem ? rItem.base : (resItem ? resItem.base : (isMaritime ? 'ROT' : 'BLR'));
 
-        // 1. Duty Absorption: headroom before 60h cap
-        const headroom7d = Math.max(0, 60 - duty7d);
-        const absorption = Math.min(100, Math.max(10, Math.round((headroom7d / 60) * 100)));
+        // 1. Duty Absorption: headroom before cap (60h for DGCA / 91h for STCW)
+        const headroom7d = Math.max(0, limit7d - duty7d);
+        const absorption = Math.min(100, Math.max(10, Math.round((headroom7d / limit7d) * 100)));
 
-        // 2. Downstream Safety: higher if healthy headroom, very low if >= 50h
+        // 2. Downstream Safety: higher if healthy headroom
         let downstream = 95;
-        if (duty7d >= 60) downstream = 10;
-        else if (duty7d >= 50) downstream = 30;
-        else if (duty7d >= 40) downstream = 70;
+        if (duty7d >= limit7d) downstream = 10;
+        else if (duty7d >= limit7d * 0.85) downstream = 30;
+        else if (duty7d >= limit7d * 0.65) downstream = 70;
 
         // 3. Rest Buffer
         const rest = (crewId === 'C-2087' ? 30 : 92);
@@ -5093,11 +5188,12 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         const box = document.getElementById('outreachDraftText');
         if (!box) return;
         const ch = STATE.activeChannel;
+        const isMaritime = STATE.activeVertical === 'maritime';
         
-        // Find pilot details if in roster or reserves
+        // Find pilot or mariner details if in roster or reserves
         const rCrew = (STATE.reserves || []).find(r => r.crew_id === crewId) || (STATE.roster || []).find(r => r.crew_id === crewId);
-        const base = rCrew ? rCrew.base : 'DEL';
-        const rank = rCrew ? rCrew.rank : 'Captain';
+        const base = rCrew ? rCrew.base : (isMaritime ? 'ROT' : 'DEL');
+        const rank = rCrew ? rCrew.rank : (isMaritime ? 'Master Mariner' : 'Captain');
 
         // Update meta telemetry cells
         const metaCrew = document.getElementById('dispMetaCrew');
@@ -5105,20 +5201,24 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         const targetBadge = document.getElementById('dispatchCrewTarget');
         if (targetBadge) targetBadge.textContent = `${rank} [${crewId}]`;
 
+        const pairId = isMaritime ? 'V-4101' : 'P-2291';
+        const legText = isMaritime ? 'VOY-8813 (ROT→HAM)' : 'DX412 (BLR→BOM), DX413 (BOM→BLR)';
+        const reportTime = isMaritime ? '04:00 UTC' : '06:00 UTC';
+        const stationWord = isMaritime ? 'Pilot Station' : 'OPS';
+        const ruleWord = isMaritime ? 'IMO STCW 2010 Manila Amendments (Min 10h rest, 77h 7-day rest OK)' : 'all 7 rules checked, none breached';
+
         if (ch === 'acars') {
-            box.textContent = `QU OCCDELXA
-.DELOCCX 141800
-CREW REASSIGNMENT UPLINK (ARINC-620)
-ATTN: ${rank.toUpperCase()} ${crewId}
-REASSIGN: PAIRING P-2291 EFF 2026-09-15
-REPORT: 06:00 UTC @ ${base} OPS
-LEGS: DX412 (BLR→BOM), DX413 (BOM→BLR)
-LEGALITY: all 7 rules checked, none breached
-ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ`;
+            box.textContent = isMaritime 
+                ? `INMARSAT-C TELEX PRIORITY OCC/ROT\nTO: MASTER / CHIEF MATE ${crewId}\nVESSEL VOYAGE ASSIGNMENT: ${pairId} EFF 2026-09-15\nREPORT PORT: ${base} PILOT STATION @ ${reportTime}\nPORT CALLS: ${legText}\nSTCW 2010 COMPLIANCE: 100% PASS / MIN 77H REST VERIFIED\nACKNOWLEDGE VIA INMARSAT-C OR VHF CH 16`
+                : `QU OCCDELXA\n.DELOCCX 141800\nCREW REASSIGNMENT UPLINK (ARINC-620)\nATTN: ${rank.toUpperCase()} ${crewId}\nREASSIGN: PAIRING P-2291 EFF 2026-09-15\nREPORT: 06:00 UTC @ ${base} OPS\nLEGS: DX412 (BLR→BOM), DX413 (BOM→BLR)\nLEGALITY: all 7 rules checked, none breached\nACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ`;
         } else if (ch === 'sms') {
-            box.textContent = `CrewOps OCC: ${rank} ${crewId}, you are assigned Pairing P-2291 on 2026-09-15. Report 06:00 UTC at ${base}. Flight legs: DX412/DX413. DGCA CAR Sec 7 cleared. Reply 1 to accept.`;
+            box.textContent = isMaritime
+                ? `CrewOps Maritime: ${rank} ${crewId}, you are assigned Voyage ${pairId} on 2026-09-15. Report ${reportTime} at ${base} ${stationWord}. Ports: ${legText}. STCW 2010 cleared. Reply 1 to accept.`
+                : `CrewOps OCC: ${rank} ${crewId}, you are assigned Pairing P-2291 on 2026-09-15. Report 06:00 UTC at ${base}. Flight legs: DX412/DX413. DGCA CAR Sec 7 cleared. Reply 1 to accept.`;
         } else if (ch === 'voice') {
-            box.textContent = `Automated OCC Voice Callout to ${rank} ${crewId}: "Due to operational disruption, you are assigned to cover Pairing P-2291 on 2026-09-15. Report 06:00 UTC at ${base} Base. Sectors: DX412/DX413. All DGCA CAR Sec 7 rest and duty checks verified legal. Press 1 to acknowledge and accept."`;
+            box.textContent = isMaritime
+                ? `Automated Maritime Voice Callout to ${rank} ${crewId}: "Due to operational disruption, you are assigned to cover Voyage ${pairId} on 2026-09-15. Report ${reportTime} at ${base} ${stationWord}. Port rotation: ${legText}. All IMO STCW 2010 rest and watchkeeping checks verified legal. Press 1 to acknowledge and accept."`
+                : `Automated OCC Voice Callout to ${rank} ${crewId}: "Due to operational disruption, you are assigned to cover Pairing P-2291 on 2026-09-15. Report 06:00 UTC at ${base} Base. Sectors: DX412/DX413. All DGCA CAR Sec 7 rest and duty checks verified legal. Press 1 to acknowledge and accept."`;
         }
     }
 
@@ -5275,7 +5375,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ`;
     // ==========================================================================
     // FLIGHT SCHEDULE & TIMELINE GANTT ENGINE
     // ==========================================================================
-    const FLEET_TAILS = [
+    const AVIATION_TAILS = [
         { tail: 'VT-DXA', type: 'A320', base: 'DEL', name: 'VT-DXA (A320 Jet)' },
         { tail: 'VT-DXB', type: 'A320', base: 'BLR', name: 'VT-DXB (A320 Jet)' },
         { tail: 'VT-DXC', type: 'A320', base: 'BLR', name: 'VT-DXC (A320 Jet)' },
@@ -5283,6 +5383,20 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ`;
         { tail: 'VT-DXE', type: 'ATR72', base: 'BLR', name: 'VT-DXE (ATR72 Regional)' },
         { tail: 'VT-DXF', type: 'ATR72', base: 'BLR', name: 'VT-DXF (ATR72 Regional)' }
     ];
+
+    const MARITIME_TAILS = [
+        { tail: 'MV-NORDICA', type: 'ULCV_CONTAINER', base: 'ROT', name: 'MV Nordica (20k TEU ULCV)' },
+        { tail: 'MV-ATLANTIC', type: 'ULCV_CONTAINER', base: 'HAM', name: 'MV Atlantic (18k TEU ULCV)' },
+        { tail: 'MV-PACIFIC', type: 'LNG_CARRIER', base: 'ROT', name: 'MV Pacific (174k m³ LNG)' },
+        { tail: 'MV-BALTIC', type: 'FEEDER_CONTAINER', base: 'HAM', name: 'MV Baltic (Feeder Container)' },
+        { tail: 'MV-POLARIS', type: 'DP2_OFFSHORE', base: 'ROT', name: 'MV Polaris (DP2 Support)' },
+        { tail: 'MV-SEAWAY', type: 'BULK_CAPESIZE', base: 'HAM', name: 'MV Seaway (Capesize Bulk)' }
+    ];
+
+    function getActiveFleetTails() {
+        return STATE.activeVertical === 'maritime' ? MARITIME_TAILS : AVIATION_TAILS;
+    }
+    const FLEET_TAILS = AVIATION_TAILS;
 
     const SHIFT_BLOCKS = {
         all: { label: 'All Day', startMin: 0, endMin: 1440, ticks: ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'] },
@@ -5761,9 +5875,11 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ`;
         if (!container) return;
 
         const tailFilter = document.getElementById('filterFlightTail')?.value || '';
-        const visibleTails = tailFilter ? FLEET_TAILS.filter(t => t.tail === tailFilter) : FLEET_TAILS;
+        const activeTails = getActiveFleetTails();
+        const visibleTails = tailFilter ? activeTails.filter(t => t.tail === tailFilter) : activeTails;
 
         const duration = blk.endMin - blk.startMin;
+        const isMaritime = STATE.activeVertical === 'maritime';
 
         container.innerHTML = visibleTails.map(tInfo => {
             const tailFlights = list.filter(f => (f.aircraft || f.aircraft_tail) === tInfo.tail);
@@ -5789,19 +5905,25 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ`;
                 const widthPct = Math.max(4.2, ((cEnd - cStart) / duration) * 100);
 
                 const fltNo = f.flight_no || 'DX401';
-                const isDisrupted = (fltNo === 'DX412' || f.pairing_id === 'P-2291') && (!f.date || f.date === '2026-09-15');
+                const isDisrupted = isMaritime
+                    ? ((fltNo === 'VOY-8813' || f.pairing_id === 'V-4101') && (!f.date || f.date === '2026-09-15'))
+                    : ((fltNo === 'DX412' || f.pairing_id === 'P-2291') && (!f.date || f.date === '2026-09-15'));
                 
                 let barClass = 'a320-bar';
                 if (isDisrupted) {
                     barClass = STATE.s1Covered ? 'covered-bar' : 'disrupted-bar';
-                } else if (f.aircraft_type === 'ATR72') {
+                } else if (f.aircraft_type === 'ATR72' || f.aircraft_type === 'FEEDER_CONTAINER') {
                     barClass = 'atr72-bar';
                 }
 
-                const depStation = f.dep_station || 'BLR';
-                const arrStation = f.arr_station || 'DEL';
+                const depStation = f.dep_station || (isMaritime ? 'ROT' : 'BLR');
+                const arrStation = f.arr_station || (isMaritime ? 'HAM' : 'DEL');
                 const depT = f.dep_time || f.dep_utc?.substring(11, 16) || '07:00';
                 const arrT = f.arr_time || f.arr_utc?.substring(11, 16) || '08:45';
+
+                const unitIconSvg = isMaritime
+                    ? `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;"><path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"/><path d="M4 18L3 12h18l-1 6"/><path d="M12 12V4"/></svg>`
+                    : `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:3px;"><polygon points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`;
 
                 return `
                     <div class="flight-gantt-bar ${barClass}" 
@@ -5809,7 +5931,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ`;
                          onclick="openFlightModal('${f.flight_id || fltNo}')"
                          title="${fltNo}: ${depStation}→${arrStation} (${depT}-${arrT} UTC)">
                         <div class="bar-flight-no">
-                            <i class="fa-solid fa-plane"></i> ${fltNo}
+                            ${unitIconSvg} ${fltNo}
                             ${isDisrupted && !STATE.s1Covered ? '<span style="font-size:0.6rem; color:#fee2e2;">⚠️ UNCREWED</span>' : ''}
                         </div>
                         <div class="bar-flight-sector">
@@ -5823,7 +5945,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ`;
                 <div class="timeline-swimlane">
                     <div class="swimlane-tail-card">
                         <span class="tail-title">${tInfo.tail}</span>
-                        <span class="tail-meta">${tInfo.type} · ${tInfo.base} Hub</span>
+                        <span class="tail-meta">${tInfo.type} · ${tInfo.base} ${isMaritime ? 'Port' : 'Hub'}</span>
                     </div>
                     <div class="swimlane-track-area">
                         ${gridLines}

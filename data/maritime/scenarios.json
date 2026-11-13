@@ -1,0 +1,49 @@
+[
+  {
+    "scenario_id": "M1",
+    "difficulty": "standard",
+    "title": "M1: Master Mariner Incapacity before Elbe Tidal Window",
+    "event": {
+      "type": "SICK_CREW",
+      "crew_id": "M-1001",
+      "pairing_id": "V-4101",
+      "date": "2026-09-15",
+      "narrative": "Capt. H\u00e5kon Lindqvist incapacitated at Rotterdam Maasvlakte with acute gastrointestinal infection before 05:00Z tidal departure of MV Nordica (VOY-8813) to Hamburg."
+    },
+    "answer_key": {
+      "optimal_cover": "M-1002",
+      "name": "Capt. Elena Rostova",
+      "cost_usd": 1250.0,
+      "legality": "LEGAL",
+      "rest_hours_prior": 15.0,
+      "duty_7d_post": 35.5
+    }
+  },
+  {
+    "scenario_id": "M2",
+    "difficulty": "advanced",
+    "title": "M2: Lock Congestion & Tidal Delay at River Elbe",
+    "event": {
+      "type": "DELAY",
+      "pairing_id": "V-4102",
+      "delay_hours": 5.0,
+      "narrative": "Severe river fog and lock gate maintenance at Brunsb\u00fcttel delays MV Atlantic transit by 5 hours, testing 14h STCW single-watch limit."
+    },
+    "answer_key": {
+      "recommendation": "Deploy standby 2nd Mate at Cuxhaven to split watch into 6h-6h periods under STCW A-VIII/1."
+    }
+  },
+  {
+    "scenario_id": "M3",
+    "difficulty": "audit",
+    "title": "M3: Port State Control (PSC) ECDIS Certification Audit",
+    "event": {
+      "type": "RANK",
+      "narrative": "Paris MoU Port State Control announces comprehensive ECDIS JRC type-specific audit across all container vessels calling Rotterdam."
+    },
+    "answer_key": {
+      "compliant_officers": 98,
+      "detention_risk": "ZERO"
+    }
+  }
+]

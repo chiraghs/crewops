@@ -1,0 +1,1623 @@
+[
+  {
+    "crew_id": "M-1001",
+    "name": "Capt. H\u00e5kon Lindqvist",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 98,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1002",
+    "name": "Capt. Elena Rostova",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "FEEDER_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 92,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1003",
+    "name": "Chief Mate Kenji Tanaka",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC"
+    ],
+    "seniority": 85,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1004",
+    "name": "Capt. Sven Larsson",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 95,
+    "reachability_minutes": 50,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1005",
+    "name": "Chief Mate Astrid Nyg\u00e5rd",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 82,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1006",
+    "name": "Chief Eng. Marcus Vance",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "MAN_B_W_ME"
+    ],
+    "seniority": 90,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1007",
+    "name": "Capt. Aris Volkov",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 57,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1008",
+    "name": "Capt. Ananya Nilsson",
+    "rank": "Captain",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 58,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1009",
+    "name": "Capt. Stavros Holm",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 59,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1010",
+    "name": "Capt. Jonas Karlsson",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 60,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1011",
+    "name": "Capt. Karin Nakamura",
+    "rank": "Captain",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 61,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1012",
+    "name": "Capt. Lucas Nyg\u00e5rd",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 62,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1013",
+    "name": "Capt. Viktor Andersen",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 63,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1014",
+    "name": "Capt. Kenji Eide",
+    "rank": "Captain",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 64,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1015",
+    "name": "Capt. Marcus Lindberg",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 65,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1016",
+    "name": "Capt. Ingrid Fedorov",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 66,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1017",
+    "name": "Capt. Sofia Kovalev",
+    "rank": "Captain",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 67,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1018",
+    "name": "Capt. Tariq Zhang",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 68,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1019",
+    "name": "Capt. Amina Rossi",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 69,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1020",
+    "name": "Capt. Matteo Ricci",
+    "rank": "Captain",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 70,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1021",
+    "name": "Capt. Gunnar Kostas",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 71,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1022",
+    "name": "Capt. Chloe Jensen",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 72,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1023",
+    "name": "Capt. Valeria Rostova",
+    "rank": "Captain",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 73,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1024",
+    "name": "Capt. Pavel Hansen",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 74,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1025",
+    "name": "Capt. Irina Ivanova",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 75,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1026",
+    "name": "Capt. Oskar Smirnov",
+    "rank": "Captain",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 76,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1027",
+    "name": "Capt. Elena Petrova",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 77,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1028",
+    "name": "Capt. Astrid Dubois",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 78,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1029",
+    "name": "Capt. Liam Larsson",
+    "rank": "Captain",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 79,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1030",
+    "name": "Capt. Frederik M\u00f8ller",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 80,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1031",
+    "name": "Capt. Chiara Patel",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 81,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1032",
+    "name": "Capt. Johan Sen",
+    "rank": "Captain",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 82,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1033",
+    "name": "Capt. Natalia Larsen",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 83,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1034",
+    "name": "Capt. Dmitri Johansson",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 84,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1035",
+    "name": "Capt. Bj\u00f6rn Vance",
+    "rank": "Captain",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 85,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1036",
+    "name": "Capt. Magnus Berg",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 86,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1037",
+    "name": "Capt. Hanna Sokolov",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 87,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1038",
+    "name": "Capt. Oliver Dupont",
+    "rank": "Captain",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 88,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1039",
+    "name": "Capt. Maya Svensson",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 89,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1040",
+    "name": "Capt. H\u00e5kon Lindqvist",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 90,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1041",
+    "name": "Capt. Sven MacLeod",
+    "rank": "Captain",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 91,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1042",
+    "name": "Capt. Mei Ling Al-Mansoor",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 92,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1043",
+    "name": "Capt. Nikolai Papadopoulos",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 93,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1044",
+    "name": "Capt. Lars Strand",
+    "rank": "Captain",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 94,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1045",
+    "name": "Capt. Katarina Morozova",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 95,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1046",
+    "name": "Capt. Einar Tanaka",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 96,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1047",
+    "name": "Capt. Aris Volkov",
+    "rank": "Captain",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 97,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1048",
+    "name": "Capt. Ananya Nilsson",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 50,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1049",
+    "name": "Capt. Stavros Holm",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 51,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1050",
+    "name": "Capt. Jonas Karlsson",
+    "rank": "Captain",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 52,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1051",
+    "name": "Capt. Karin Nakamura",
+    "rank": "Captain",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 53,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1052",
+    "name": "Capt. Lucas Nyg\u00e5rd",
+    "rank": "Captain",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 54,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1053",
+    "name": "Chief Mate Viktor Andersen",
+    "rank": "First Officer",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 55,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1054",
+    "name": "Chief Mate Kenji Eide",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 56,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1055",
+    "name": "Chief Mate Marcus Lindberg",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 57,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1056",
+    "name": "Chief Mate Ingrid Fedorov",
+    "rank": "First Officer",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 58,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1057",
+    "name": "Chief Mate Sofia Kovalev",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 59,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1058",
+    "name": "Chief Mate Tariq Zhang",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 60,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1059",
+    "name": "Chief Mate Amina Rossi",
+    "rank": "First Officer",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 61,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1060",
+    "name": "Chief Mate Matteo Ricci",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 62,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1061",
+    "name": "Chief Mate Gunnar Kostas",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 63,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1062",
+    "name": "Chief Mate Chloe Jensen",
+    "rank": "First Officer",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 64,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1063",
+    "name": "Chief Mate Valeria Rostova",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 65,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1064",
+    "name": "Chief Mate Pavel Hansen",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 66,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1065",
+    "name": "Chief Mate Irina Ivanova",
+    "rank": "First Officer",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 67,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1066",
+    "name": "Chief Mate Oskar Smirnov",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 68,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1067",
+    "name": "Chief Mate Elena Petrova",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 69,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1068",
+    "name": "Chief Mate Astrid Dubois",
+    "rank": "First Officer",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 70,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1069",
+    "name": "Chief Mate Liam Larsson",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 71,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1070",
+    "name": "Chief Mate Frederik M\u00f8ller",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 72,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1071",
+    "name": "Chief Mate Chiara Patel",
+    "rank": "First Officer",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 73,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1072",
+    "name": "Chief Mate Johan Sen",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 74,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1073",
+    "name": "Chief Mate Natalia Larsen",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 75,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1074",
+    "name": "Chief Mate Dmitri Johansson",
+    "rank": "First Officer",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 76,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1075",
+    "name": "Chief Mate Bj\u00f6rn Vance",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 77,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1076",
+    "name": "Chief Mate Magnus Berg",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 78,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1077",
+    "name": "Chief Mate Hanna Sokolov",
+    "rank": "First Officer",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 79,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1078",
+    "name": "Chief Mate Oliver Dupont",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 80,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1079",
+    "name": "Chief Mate Maya Svensson",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 81,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1080",
+    "name": "Chief Mate H\u00e5kon Lindqvist",
+    "rank": "First Officer",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 82,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1081",
+    "name": "Chief Mate Sven MacLeod",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 83,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1082",
+    "name": "Chief Mate Mei Ling Al-Mansoor",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 84,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1083",
+    "name": "Chief Mate Nikolai Papadopoulos",
+    "rank": "First Officer",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 85,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1084",
+    "name": "Chief Mate Lars Strand",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 86,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1085",
+    "name": "Chief Mate Katarina Morozova",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 87,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1086",
+    "name": "Chief Mate Einar Tanaka",
+    "rank": "First Officer",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 88,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1087",
+    "name": "Chief Mate Aris Volkov",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 89,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1088",
+    "name": "Chief Mate Ananya Nilsson",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 90,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1089",
+    "name": "Chief Mate Stavros Holm",
+    "rank": "First Officer",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 91,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1090",
+    "name": "Chief Mate Jonas Karlsson",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 92,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1091",
+    "name": "Chief Eng. Karin Nakamura",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 93,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1092",
+    "name": "Chief Eng. Lucas Nyg\u00e5rd",
+    "rank": "First Officer",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 94,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1093",
+    "name": "Chief Eng. Viktor Andersen",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 95,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1094",
+    "name": "Chief Eng. Kenji Eide",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 96,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1095",
+    "name": "Chief Eng. Marcus Lindberg",
+    "rank": "First Officer",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 97,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1096",
+    "name": "Chief Eng. Ingrid Fedorov",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 50,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1097",
+    "name": "Chief Eng. Sofia Kovalev",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 51,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1098",
+    "name": "Chief Eng. Tariq Zhang",
+    "rank": "First Officer",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 52,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1099",
+    "name": "Chief Eng. Amina Rossi",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 53,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1100",
+    "name": "Chief Eng. Matteo Ricci",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 54,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1101",
+    "name": "Chief Eng. Gunnar Kostas",
+    "rank": "First Officer",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 55,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1102",
+    "name": "Chief Eng. Chloe Jensen",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 56,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1103",
+    "name": "Chief Eng. Valeria Rostova",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 57,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1104",
+    "name": "Chief Eng. Pavel Hansen",
+    "rank": "First Officer",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 58,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1105",
+    "name": "Chief Eng. Irina Ivanova",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 59,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1106",
+    "name": "Chief Eng. Oskar Smirnov",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 60,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1107",
+    "name": "Chief Eng. Elena Petrova",
+    "rank": "First Officer",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 61,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1108",
+    "name": "Chief Eng. Astrid Dubois",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 62,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1109",
+    "name": "Chief Eng. Liam Larsson",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 63,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1110",
+    "name": "Chief Eng. Frederik M\u00f8ller",
+    "rank": "First Officer",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 64,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1111",
+    "name": "Chief Eng. Chiara Patel",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 65,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1112",
+    "name": "Chief Eng. Johan Sen",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 66,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1113",
+    "name": "Chief Eng. Natalia Larsen",
+    "rank": "First Officer",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 67,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1114",
+    "name": "Chief Eng. Dmitri Johansson",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 68,
+    "reachability_minutes": 30,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1115",
+    "name": "Chief Eng. Bj\u00f6rn Vance",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 69,
+    "reachability_minutes": 45,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1116",
+    "name": "Chief Eng. Magnus Berg",
+    "rank": "First Officer",
+    "base": "ANT",
+    "ratings": [
+      "LNG_CARRIER",
+      "ECDIS_JRC",
+      "SIGTTO"
+    ],
+    "seniority": 70,
+    "reachability_minutes": 60,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1117",
+    "name": "Chief Eng. Hanna Sokolov",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "FEEDER_CONTAINER",
+      "ECDIS_FURUNO",
+      "DP2"
+    ],
+    "seniority": 71,
+    "reachability_minutes": 75,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1118",
+    "name": "Chief Eng. Oliver Dupont",
+    "rank": "First Officer",
+    "base": "HAM",
+    "ratings": [
+      "DP2_OFFSHORE",
+      "ECDIS_JRC"
+    ],
+    "seniority": 72,
+    "reachability_minutes": 90,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1119",
+    "name": "Chief Eng. Maya Svensson",
+    "rank": "First Officer",
+    "base": "SGP",
+    "ratings": [
+      "BULK_CAPESIZE",
+      "ECDIS_FURUNO"
+    ],
+    "seniority": 73,
+    "reachability_minutes": 105,
+    "status": "active"
+  },
+  {
+    "crew_id": "M-1120",
+    "name": "Chief Eng. H\u00e5kon Lindqvist",
+    "rank": "First Officer",
+    "base": "ROT",
+    "ratings": [
+      "ULCV_CONTAINER",
+      "ECDIS_JRC",
+      "DP2"
+    ],
+    "seniority": 74,
+    "reachability_minutes": 30,
+    "status": "active"
+  }
+]

@@ -62,26 +62,38 @@ def _brief(snap: Snapshot) -> dict[str, Any]:
 
 def _roster(snap: Snapshot) -> list[dict[str, Any]]:
     out = []
+    is_maritime = _STATE.get("active_vertical") == "maritime"
+    duty_limit = 91.0 if is_maritime else 60.0
+    flight_limit = 260.0 if is_maritime else 100.0
     for cid, c in snap.crew.items():
         clk = snap.clocks.get(cid, {})
         d7 = clk.get("duty_hours_7d", 0.0)
         f28 = clk.get("flight_hours_28d", 0.0)
         pairings = [p.pairing_id for p in snap.pairings_for_crew(cid)]
         status = "Reserve" if cid in snap.reserves else ("Assigned" if pairings else "Available")
+        
+        display_rank = c.rank
+        if is_maritime:
+            if c.rank == "Captain":
+                display_rank = "Master Mariner"
+            elif c.rank == "First Officer":
+                display_rank = "Chief Mate" if "Chief Mate" in c.name else ("Chief Engineer" if "Chief Eng" in c.name else "Watch Officer")
+
         out.append({
             "crew_id": cid,
             "name": c.name,
-            "rank": c.rank,
+            "rank": display_rank,
+            "internal_rank": c.rank,
             "base": c.base,
             "ratings": list(c.ratings),
             "seniority": c.seniority,
             "reachability_minutes": c.reachability_minutes,
             "duty_hours_7d": d7,
-            "duty_limit_7d": 60.0,
-            "duty_util_pct": round(min(100.0, (d7 / 60.0) * 100), 1),
+            "duty_limit_7d": duty_limit,
+            "duty_util_pct": round(min(100.0, (d7 / duty_limit) * 100), 1),
             "flight_hours_28d": f28,
-            "flight_limit_28d": 100.0,
-            "flight_util_pct": round(min(100.0, (f28 / 100.0) * 100), 1),
+            "flight_limit_28d": flight_limit,
+            "flight_util_pct": round(min(100.0, (f28 / flight_limit) * 100), 1),
             "pairings": pairings,
             "status": status,
         })
@@ -90,6 +102,7 @@ def _roster(snap: Snapshot) -> list[dict[str, Any]]:
 
 def _flights(snap: Snapshot) -> list[dict[str, Any]]:
     out = []
+    is_maritime = _STATE.get("active_vertical") == "maritime"
     for fid, f in snap.flights.items():
         p_info = snap.pairing_of_flight(fid)
         pid = p_info[0].pairing_id if p_info else None
@@ -113,21 +126,31 @@ def _flights(snap: Snapshot) -> list[dict[str, Any]]:
             "captain": capt,
             "first_officer": fo,
             "cabin_crew": scc,
+            "unit_type": "Voyage" if is_maritime else "Flight",
         })
     return sorted(out, key=lambda x: (x["dep_utc"], x["flight_no"]))
 
 
 def _reserves(snap: Snapshot) -> list[dict[str, Any]]:
     out = []
+    is_maritime = _STATE.get("active_vertical") == "maritime"
+    duty_limit = 91.0 if is_maritime else 60.0
     for cid, r in snap.reserves.items():
         c = snap.crew.get(cid)
         clk = snap.clocks.get(cid, {})
         d7 = clk.get("duty_hours_7d", 0.0)
         f28 = clk.get("flight_hours_28d", 0.0)
+        display_rank = c.rank if c else "Unknown"
+        if is_maritime and c:
+            if c.rank == "Captain":
+                display_rank = "Master Mariner"
+            elif c.rank == "First Officer":
+                display_rank = "Chief Mate" if "Chief Mate" in c.name else ("Chief Engineer" if "Chief Eng" in c.name else "Watch Officer")
         out.append({
             "crew_id": cid,
             "name": c.name if c else cid,
-            "rank": c.rank if c else "Unknown",
+            "rank": display_rank,
+            "internal_rank": c.rank if c else "Unknown",
             "base": r.base,
             "ratings": list(c.ratings) if c else [],
             "dates": list(r.dates),
@@ -135,7 +158,7 @@ def _reserves(snap: Snapshot) -> list[dict[str, Any]]:
             "window_start": r.window_start,
             "window_end": r.window_end,
             "duty_hours_7d": d7,
-            "duty_headroom_7d": round(max(0.0, 60.0 - d7), 2),
+            "duty_headroom_7d": round(max(0.0, duty_limit - d7), 2),
             "flight_hours_28d": f28,
             "reachability_minutes": c.reachability_minutes if c else 60,
         })
@@ -190,43 +213,78 @@ def _outreach(snap: Snapshot, data: dict[str, Any]) -> dict[str, Any]:
                 legs.append(f"{fl.flight_no} ({fl.dep_station}→{fl.arr_station})")
     leg_str = ", ".join(legs) if legs else "DX412/DX413"
 
-    whatsapp = (
-        f"⚠️ *CrewOps - PRIORITY CREW DISPATCH*\n\n"
-        f"Hello {crank} *{cname}* ({cid}),\n"
-        f"OCC has assigned you to cover pairing *{pid}* on *{pdate}*.\n\n"
-        f"📋 *Assignment Details:*\n"
-        f"• Base: {cbase} | Fleet: {crate}\n"
-        f"• Required Report Time: *{report_utc}*\n"
-        f"• Scheduled Legs: {leg_str}\n"
-        f"• DGCA Compliance: Verified PASS (FDP cap, 12h rest, 60h 7-day limit ok)\n\n"
-        f"Please reply *CONFIRM* to acknowledge and accept duty, or call OCC Dispatch (+91-11-2565-8787)."
-    )
+    is_maritime = _STATE.get("active_vertical") == "maritime"
+    if is_maritime:
+        whatsapp = (
+            f"⚠️ *CrewOps - MARITIME PRIORITY WATCH DISPATCH*\n\n"
+            f"Hello {cname} ({cid}),\n"
+            f"Port Operations Control has assigned you to cover voyage pairing *{pid}* on *{pdate}*.\n\n"
+            f"📋 *Voyage Assignment Details:*\n"
+            f"• Port: {cbase} Pilot Station | Rating: {crate}\n"
+            f"• Required Report Time: *{report_utc}*\n"
+            f"• Port Rotation: {leg_str}\n"
+            f"• IMO STCW 2010 Compliance: Verified PASS (Min 10h Rest, 77h 7-Day Rest Verified)\n\n"
+            f"Please reply *CONFIRM* to acknowledge and accept watch, or contact Port Dispatch (+31-10-256-8787)."
+        )
+        acars = (
+            f"INMARSAT-C TELEX PRIORITY OCC/ROT\n"
+            f"TO: MASTER / CHIEF MATE {cid} ({cname.upper()})\n"
+            f"VESSEL VOYAGE ASSIGNMENT: {pid} EFF {pdate}\n"
+            f"REPORT PORT: {cbase} PILOT STATION @ {report_utc}\n"
+            f"PORT CALLS: {leg_str.upper()}\n"
+            f"STCW 2010 COMPLIANCE: 100% PASS / MIN 77H REST VERIFIED\n"
+            f"ACKNOWLEDGE VIA INMARSAT-C OR VHF CH 16"
+        )
+        sms = (
+            f"CrewOps Maritime: {cname} ({cid}), assigned Voyage {pid} on {pdate}. "
+            f"Report {report_utc} at {cbase} Pilot Station. Rotation: {leg_str}. "
+            f"STCW 2010 cleared. Reply CONFIRM to accept."
+        )
+        voice = (
+            f"Good day {cname}. This is an automated notification from the CrewOps Maritime Operations Control Center. "
+            f"Due to operational crew disruption, you have been assigned to cover voyage pairing {pid} on {pdate}. "
+            f"Your required report time is {report_utc} at {cbase} Pilot Station. Your assigned port rotation is {leg_str}. "
+            f"All IMO STCW watchkeeping and mandatory rest checks have been verified. Press 1 to acknowledge receipt and accept this watch, "
+            f"or press 2 to speak immediately with the port duty superintendent."
+        )
+    else:
+        whatsapp = (
+            f"⚠️ *CrewOps - PRIORITY CREW DISPATCH*\n\n"
+            f"Hello {crank} *{cname}* ({cid}),\n"
+            f"OCC has assigned you to cover pairing *{pid}* on *{pdate}*.\n\n"
+            f"📋 *Assignment Details:*\n"
+            f"• Base: {cbase} | Fleet: {crate}\n"
+            f"• Required Report Time: *{report_utc}*\n"
+            f"• Scheduled Legs: {leg_str}\n"
+            f"• DGCA Compliance: Verified PASS (FDP cap, 12h rest, 60h 7-day limit ok)\n\n"
+            f"Please reply *CONFIRM* to acknowledge and accept duty, or call OCC Dispatch (+91-11-2565-8787)."
+        )
 
-    acars = (
-        f"QU OCCDELXA\n"
-        f".DELOCCX 141800\n"
-        f"CREW REASSIGNMENT UPLINK\n"
-        f"ATTN: {crank.upper()} {cid} / {cname.upper()}\n"
-        f"REASSIGN: PAIRING {pid} EFF {pdate}\n"
-        f"REPORT: {report_utc} @ {cbase} OPS\n"
-        f"LEGS: {leg_str.upper()}\n"
-        f"LEGALITY STATUS: DGCA PASS / ZERO BREACH\n"
-        f"ACK REQD VIA ACARS OR FREQ 131.850 MHZ"
-    )
+        acars = (
+            f"QU OCCDELXA\n"
+            f".DELOCCX 141800\n"
+            f"CREW REASSIGNMENT UPLINK\n"
+            f"ATTN: {crank.upper()} {cid} / {cname.upper()}\n"
+            f"REASSIGN: PAIRING {pid} EFF {pdate}\n"
+            f"REPORT: {report_utc} @ {cbase} OPS\n"
+            f"LEGS: {leg_str.upper()}\n"
+            f"LEGALITY STATUS: DGCA PASS / ZERO BREACH\n"
+            f"ACK REQD VIA ACARS OR FREQ 131.850 MHZ"
+        )
 
-    sms = (
-        f"CrewOps OCC: {crank} {cname} ({cid}), you are assigned Pairing {pid} on {pdate}. "
-        f"Report {report_utc} at {cbase}. Flight legs: {leg_str}. "
-        f"DGCA cleared. Confirm via portal or reply 1 to accept."
-    )
+        sms = (
+            f"CrewOps OCC: {crank} {cname} ({cid}), you are assigned Pairing {pid} on {pdate}. "
+            f"Report {report_utc} at {cbase}. Flight legs: {leg_str}. "
+            f"DGCA cleared. Confirm via portal or reply 1 to accept."
+        )
 
-    voice = (
-        f"Good day {crank} {cname}. This is an automated notification from the CrewOps Operations Control Center. "
-        f"Due to operational disruption, you have been assigned to cover pairing {pid} on {pdate}. "
-        f"Your required report time is {report_utc} at {cbase}. Your assigned sectors are {leg_str}. "
-        f"All DGCA legality and rest period checks have been verified. Press 1 to acknowledge receipt and accept this assignment, "
-        f"or press 2 to speak immediately with a flight duty dispatcher."
-    )
+        voice = (
+            f"Good day {crank} {cname}. This is an automated notification from the CrewOps Operations Control Center. "
+            f"Due to operational disruption, you have been assigned to cover pairing {pid} on {pdate}. "
+            f"Your required report time is {report_utc} at {cbase}. Your assigned sectors are {leg_str}. "
+            f"All DGCA legality and rest period checks have been verified. Press 1 to acknowledge receipt and accept this assignment, "
+            f"or press 2 to speak immediately with a flight duty dispatcher."
+        )
 
     return {
         "crew_id": cid,
@@ -392,14 +450,17 @@ class Handler(BaseHTTPRequestHandler):
                 # a controller wants is not a decision to bake into a route.
                 self._send(200, _page(), "text/html; charset=utf-8")
             elif path == "/api/verticals":
+                snaps = _STATE.get("snapshots", {})
+                av_s = snaps.get("aviation", snap)
+                mar_s = snaps.get("maritime")
                 self._json({
                     "active": _STATE.get("active_vertical", "aviation"),
                     "verticals": [
-                        {"id": "aviation", "name": "Commercial Aviation", "regulatory_body": "DGCA CAR Sec 7 / FAA Part 117", "icon": "fa-plane-departure", "units": 147, "crew": 150, "reserves": 16},
-                        {"id": "maritime", "name": "Maritime & Port Logistics", "regulatory_body": "IMO STCW 2010 Manila Amendments", "icon": "fa-ship", "units": 84, "crew": 120, "reserves": 14},
-                        {"id": "logistics", "name": "Intermodal Freight & Fleet", "regulatory_body": "US DOT FMCSA 49 CFR Part 395", "icon": "fa-truck-fast", "units": 210, "crew": 180, "reserves": 22},
-                        {"id": "healthcare", "name": "Healthcare & Trauma Triage", "regulatory_body": "ACGME Clinical Work-Hour Standards", "icon": "fa-hospital-user", "units": 48, "crew": 95, "reserves": 12},
-                        {"id": "industrial", "name": "Industrial Safety & Energy", "regulatory_body": "OSHA 1910 PSM / API RP 755", "icon": "fa-helmet-safety", "units": 36, "crew": 75, "reserves": 10},
+                        {"id": "aviation", "name": "Commercial Aviation", "regulatory_body": "DGCA CAR Sec 7 / FAA Part 117", "enabled": True, "units": len(av_s.flights), "crew": len(av_s.crew), "reserves": len(av_s.reserves)},
+                        {"id": "maritime", "name": "Maritime & Port Logistics", "regulatory_body": "IMO STCW 2010 Manila Amendments & MLC 2006", "enabled": True, "units": len(mar_s.flights) if mar_s else 84, "crew": len(mar_s.crew) if mar_s else 120, "reserves": len(mar_s.reserves) if mar_s else 14},
+                        {"id": "logistics", "name": "Intermodal Freight & Fleet", "regulatory_body": "US DOT FMCSA 49 CFR Part 395", "enabled": False, "units": 210, "crew": 180, "reserves": 22},
+                        {"id": "healthcare", "name": "Healthcare & Trauma Triage", "regulatory_body": "ACGME Clinical Work-Hour Standards", "enabled": False, "units": 48, "crew": 95, "reserves": 12},
+                        {"id": "industrial", "name": "Industrial Safety & Energy", "regulatory_body": "OSHA 1910 PSM / API RP 755", "enabled": False, "units": 36, "crew": 75, "reserves": 10},
                     ]
                 })
             elif path == "/api/health":
@@ -746,8 +807,28 @@ class Handler(BaseHTTPRequestHandler):
                 if route == "/api/set_vertical":
                     with _LOCK:
                         vert = body.get("vertical", "aviation")
-                        _STATE["active_vertical"] = vert
-                    self._json({"ok": True, "vertical": vert})
+                        if vert in ("logistics", "healthcare", "industrial"):
+                            self._json({
+                                "ok": False,
+                                "error": f"{vert.title()} is an Enterprise tier vertical and is not enabled for this live demo. Please select Aviation or Maritime."
+                            }, 400)
+                            return
+                        snapshots = _STATE.get("snapshots", {})
+                        if vert in snapshots:
+                            _STATE["active_vertical"] = vert
+                            _STATE["snap"] = snapshots[vert]
+                            _STATE["advisor"] = Advisor(_STATE["snap"], use_model=_STATE.get("use_model"))
+                            _SESSIONS.clear()
+                        else:
+                            _STATE["active_vertical"] = vert
+                    self._json({
+                        "ok": True,
+                        "vertical": vert,
+                        "flights": len(_STATE["snap"].flights),
+                        "crew": len(_STATE["snap"].crew),
+                        "pairings": len(_STATE["snap"].pairings),
+                        "reserves": len(_STATE["snap"].reserves)
+                    })
                     return
 
                 if route == "/api/set_region":
@@ -885,11 +966,27 @@ def _restore_default_rulebook(data_dir: str | None) -> None:
 
 def serve(host: str = "127.0.0.1", port: int = 8787,
           data_dir: str | None = None, use_model: bool | None = None) -> int:
-    _restore_default_rulebook(
-        data_dir or os.environ.get("CREWOPS_DATA_DIR") or "Problem Statement/data")
-    snap = load(data_dir)
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    av_dir = os.path.join(root_dir, "data", "aviation")
+    mar_dir = os.path.join(root_dir, "data", "maritime")
+    if not os.path.isdir(av_dir):
+        av_dir = data_dir or os.environ.get("CREWOPS_DATA_DIR") or os.path.join(root_dir, "Problem Statement", "data")
+    
+    _restore_default_rulebook(av_dir)
+    snap = load(av_dir)
+    
+    snapshots = {"aviation": snap}
+    if os.path.isdir(mar_dir):
+        try:
+            snapshots["maritime"] = load(mar_dir)
+            print(f"  Maritime dataset loaded: {len(snapshots['maritime'].flights)} voyages, {len(snapshots['maritime'].crew)} mariners")
+        except Exception as e:
+            print(f"  Warning loading maritime dataset: {e}")
+            
+    _STATE["snapshots"] = snapshots
+    _STATE["active_vertical"] = "aviation"
     _STATE["snap"] = snap
-    _STATE["data_dir"] = data_dir or os.environ.get("CREWOPS_DATA_DIR") or "Problem Statement/data"
+    _STATE["data_dir"] = av_dir
     _STATE["advisor"] = Advisor(snap, use_model=use_model)
     _STATE["use_model"] = use_model
     httpd = ThreadingHTTPServer((host, port), Handler)

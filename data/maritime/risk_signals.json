@@ -1,0 +1,726 @@
+[
+  {
+    "crew_id": "M-1001",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.89,
+    "drivers": [
+      "acute_medical_fatigue"
+    ]
+  },
+  {
+    "crew_id": "M-1002",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.12,
+    "drivers": [
+      "well_rested_relief"
+    ]
+  },
+  {
+    "crew_id": "M-1003",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1004",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1005",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1006",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1007",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1008",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1009",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1010",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1011",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1012",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1013",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1014",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1015",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1016",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1017",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1018",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1019",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1020",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1021",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1022",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1023",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1024",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1025",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1026",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1027",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1028",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1029",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1030",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1031",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1032",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1033",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1034",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1035",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1036",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1037",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1038",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1039",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1040",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1041",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1042",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1043",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1044",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1045",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1046",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1047",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1048",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1049",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1050",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1051",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1052",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1053",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1054",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1055",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1056",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1057",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1058",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1059",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1060",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1061",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1062",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1063",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1064",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1065",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1066",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1067",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1068",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1069",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1070",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.17,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1071",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1072",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1073",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1074",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1075",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1076",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1077",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1078",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1079",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1080",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1081",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1082",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1083",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1084",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1085",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1086",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1087",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1088",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1089",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1090",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1091",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1092",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1093",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1094",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1095",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1096",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1097",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1098",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1099",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1100",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1101",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1102",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1103",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1104",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1105",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1106",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1107",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1108",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1109",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1110",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1111",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1112",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1113",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1114",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1115",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1116",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1117",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1118",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1119",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  },
+  {
+    "crew_id": "M-1120",
+    "as_of_utc": "2026-09-14T18:00:00Z",
+    "disruption_risk_score": 0.45,
+    "drivers": []
+  }
+]

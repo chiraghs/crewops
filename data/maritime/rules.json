@@ -1,0 +1,60 @@
+{
+  "time_convention": "UTC",
+  "definitions": {
+    "watchkeeping_period": "Hours engaged in bridge or engine room navigational watch",
+    "rest_period": "Continuous hours off-duty with full access to rest quarters",
+    "standard": "IMO STCW 2010 Manila Amendments Table A-VIII/1 & MLC 2006 Standard A2.3"
+  },
+  "rules": [
+    {
+      "rule_id": "RULE-FDP-01",
+      "text": "Max 14 hours watch/duty in any 24-hour period.",
+      "params": {
+        "base_fdp_hours": 14.0,
+        "reduction_per_extra_sector_hours": 0.0,
+        "free_sectors": 99
+      }
+    },
+    {
+      "rule_id": "RULE-DUTY-02",
+      "text": "Max 91 duty/watch hours in any 7 consecutive days (minimum 77 hours rest per 7d).",
+      "params": {
+        "max_duty_hours": 91.0,
+        "window_days": 7
+      }
+    },
+    {
+      "rule_id": "RULE-FLT-03",
+      "text": "Max 260 transit hours in any 28 consecutive days.",
+      "params": {
+        "max_flight_hours": 260.0,
+        "window_days": 28
+      }
+    },
+    {
+      "rule_id": "RULE-REST-04",
+      "text": "Min 10 hours rest in any 24-hour period, divisible into no more than two periods, one at least 6h.",
+      "params": {
+        "minimum_rest_hours": 10.0,
+        "extended_rest_hours": 14.0
+      }
+    },
+    {
+      "rule_id": "RULE-QUAL-05",
+      "text": "Vessel type, tonnage & propulsion qualification match (ULCV, LNG, DP2).",
+      "params": {}
+    },
+    {
+      "rule_id": "RULE-CERT-06",
+      "text": "Valid STCW Certificate of Competency (CoC) and Type-Specific ECDIS.",
+      "params": {}
+    },
+    {
+      "rule_id": "RULE-BASE-07",
+      "text": "Report port match or certified relief pilot transit within reachability window.",
+      "params": {
+        "callout_notice_minutes": 180
+      }
+    }
+  ]
+}

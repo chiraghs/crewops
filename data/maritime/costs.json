@@ -1,0 +1,12 @@
+{
+  "currency": "USD",
+  "reserve_callout_pilot": 1250.0,
+  "reserve_callout_cabin": 650.0,
+  "dayoff_callout_pilot": 1800.0,
+  "dayoff_callout_cabin": 900.0,
+  "deadhead_positioning": 450.0,
+  "delay_cost_per_duty_hour": 4500.0,
+  "cancellation_per_flight": 120000.0,
+  "hotel_overnight": 220.0,
+  "notes": "IMO STCW standard port tariff & container liner demurrage rate"
+}
