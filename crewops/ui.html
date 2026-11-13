@@ -188,38 +188,54 @@ input, select { font: inherit; color: inherit; }
 .brand-logo-area {
     display: flex;
     align-items: center;
-    gap: 0.65rem;
+    gap: 0.6rem;
     cursor: pointer;
+    flex-shrink: 0;
+    user-select: none;
 }
 
 .brand-swirl-icon {
     width: 28px;
     height: 28px;
-    border-radius: 50%;
-    background: var(--brand-gradient);
+    min-width: 28px;
+    min-height: 28px;
+    max-width: 28px;
+    max-height: 28px;
+    aspect-ratio: 1 / 1;
+    border-radius: 7px;
+    background: linear-gradient(135deg, var(--brand-green-strong) 0%, #005F4E 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 131, 108, 0.35);
-    font-size: 0.85rem;
+    box-shadow: 0 2px 6px rgba(0, 131, 108, 0.28);
+    flex-shrink: 0;
 }
 
 .brand-title {
     font-family: var(--font-header);
-    font-size: 1.12rem;
+    font-size: 1.15rem;
     font-weight: 800;
     letter-spacing: -0.02em;
     color: var(--ink-primary);
+    line-height: 1;
+    white-space: nowrap;
 }
 
-.brand-sub {
-    font-size: 0.72rem;
+.brand-occ-badge {
+    font-size: 0.62rem;
     font-weight: 700;
-    color: var(--brand-orange);
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-left: 2px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(0, 131, 108, 0.12);
+    color: var(--brand-green-strong);
+    border: 1px solid rgba(0, 131, 108, 0.25);
+    line-height: 1.2;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
 }
 
 /* Active-underline navigation tabs: "Crew Ops" */
@@ -2597,17 +2613,17 @@ input, select { font: inherit; color: inherit; }
            ========================================================================== -->
         <header class="top-navbar">
             <div class="nav-left-cluster">
-                <!-- Brand Swirl -->
-                <div class="brand-logo-area" onclick="switchOCCView('console')">
+                <!-- Brand Logo -->
+                <div class="brand-logo-area" onclick="switchOCCView('console')" title="CrewOps OCC Platform">
                     <div class="brand-swirl-icon">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                            <polyline points="2 17 12 22 22 17"/>
+                            <polyline points="2 12 12 17 22 12"/>
                         </svg>
                     </div>
-                    <div>
-                        <span class="brand-title">CrewOps</span>
-                        <span class="brand-sub" id="brandSubVertical">OCC SUITE</span>
-                    </div>
+                    <span class="brand-title">CrewOps</span>
+                    <span class="brand-occ-badge" id="brandSubVertical">OCC</span>
                 </div>
 
                 <!-- Cross-Industry Regulatory Vertical Switcher -->
@@ -3887,7 +3903,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         if (sel && sel.value !== verticalId) sel.value = verticalId;
         
         const sub = document.getElementById('brandSubVertical');
-        if (sub) sub.textContent = cfg.shortName.toUpperCase() + ' OCC';
+        if (sub) sub.textContent = 'OCC';
 
         const lblUnits = document.getElementById('kpiLabelUnits');
         const valUnits = document.getElementById('kpiValUnits');
