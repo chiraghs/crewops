@@ -2599,8 +2599,10 @@ input, select { font: inherit; color: inherit; }
             <div class="nav-left-cluster">
                 <!-- Brand Swirl -->
                 <div class="brand-logo-area" onclick="switchOCCView('console')">
-                    <div class="brand-swirl-icon" style="background:linear-gradient(135deg, var(--brand-green-strong), var(--brand-orange));">
-                        <i class="fa-solid fa-layer-group"></i>
+                    <div class="brand-swirl-icon">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
                     </div>
                     <div>
                         <span class="brand-title">CrewOps</span>
@@ -2610,35 +2612,60 @@ input, select { font: inherit; color: inherit; }
 
                 <!-- Cross-Industry Regulatory Vertical Switcher -->
                 <div class="vertical-dropdown-wrap" title="Switch Industry Regulatory Domain (Cross-Industry OCC)">
-                    <i class="fa-solid fa-shield-halved" style="color:var(--brand-green-strong); font-size:0.8rem;"></i>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--brand-green-strong)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                        <polyline points="2 17 12 22 22 17"/>
+                        <polyline points="2 12 12 17 22 12"/>
+                    </svg>
                     <select id="industryVerticalSelect" class="vertical-select-pill" onchange="switchIndustryVertical(this.value)">
-                        <option value="aviation" selected>✈️ Aviation · CAR Sec 7 / FAA</option>
-                        <option value="maritime">⚓ Maritime · IMO STCW 2010</option>
-                        <option value="logistics">🚚 Logistics · US DOT FMCSA</option>
-                        <option value="healthcare">🏥 Healthcare · ACGME Triage</option>
-                        <option value="industrial">🦺 Industrial · OSHA 1910 PSM</option>
+                        <option value="aviation" selected>Aviation · CAR Sec 7 / FAA Part 117</option>
+                        <option value="maritime">Maritime · IMO STCW 2010 / MLC</option>
+                        <option value="logistics">Intermodal Fleet · US DOT FMCSA HOS</option>
+                        <option value="healthcare" disabled>Healthcare · ACGME (Enterprise - Coming Soon)</option>
+                        <option value="industrial" disabled>Industrial · OSHA 1910 PSM (Enterprise - Coming Soon)</option>
                     </select>
                 </div>
 
                 <!-- Navigation Tabs -->
                 <nav class="nav-tabs-group">
                     <button class="nav-tab active" id="tabBtnConsole" onclick="switchOCCView('console')">
-                        <i class="fa-solid fa-headset" style="margin-right:6px;"></i>Crew Ops
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;">
+                            <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+                        </svg>Crew Ops
                     </button>
                     <button class="nav-tab" id="tabBtnFlights" onclick="switchOCCView('flights')">
-                        <i class="fa-solid fa-timeline" style="margin-right:6px;"></i>Flight Timeline (147)
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>Flight Timeline (147)
                     </button>
                     <button class="nav-tab" id="tabBtnRoster" onclick="switchOCCView('roster')">
-                        Crew Roster (150)
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>Crew Roster (150)
                     </button>
                     <button class="nav-tab" id="tabBtnReserves" onclick="switchOCCView('reserves')">
-                        Reserve Matrix (16)
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>Reserve Matrix (16)
                     </button>
                     <button class="nav-tab" id="tabBtnBrief" onclick="switchOCCView('brief')">
-                        <i class="fa-solid fa-file-waveform" style="margin-right:6px;"></i>Day Brief
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>Day Brief
                     </button>
                     <button class="nav-tab" id="tabBtnAudit" onclick="switchOCCView('audit')">
-                        Audit Vault (42/42)
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>Audit Vault (42/42)
                     </button>
                 </nav>
             </div>
@@ -2646,19 +2673,35 @@ input, select { font: inherit; color: inherit; }
             <div class="nav-right-cluster">
                 <!-- Search [⌘K] -->
                 <div class="nav-search-bar">
-                    <i class="fa-solid fa-magnifying-glass" style="font-size:0.75rem;"></i>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.75; flex-shrink:0;">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
                     <input type="text" id="navbarSearchInput" placeholder="Search flights, crew, pairings..." onkeydown="if(event.key==='Enter') executeNavbarSearch()">
                     <span class="kbd-shortcut">⌘K</span>
                 </div>
 
                 <!-- Light / Dark Theme Toggle Button -->
                 <button class="icon-btn theme-toggle-btn" id="themeToggleBtn" title="Toggle Light/Dark Theme" onclick="toggleTheme()">
-                    <i class="fa-solid fa-sun" id="themeIcon"></i>
+                    <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
                 </button>
 
                 <!-- Notifications -->
                 <button class="icon-btn" title="3 Active Disruptions" onclick="showToast('Active Disruptions: S1 Sick Call, S2 Swap Check, S4 Station Stop')">
-                    <i class="fa-solid fa-bell"></i>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
                 </button>
 
                 <!-- OCC Duty Manager Profile (Admin Level) -->
@@ -2674,11 +2717,43 @@ input, select { font: inherit; color: inherit; }
            ========================================================================== -->
         <div class="kpi-telemetry-strip">
             <div class="kpi-items-group" id="kpiItemsGroup">
-                <span class="kpi-tag" id="kpiTagUnits"><i class="fa-solid fa-plane-departure" id="kpiIconUnits"></i> <span id="kpiLabelUnits">Active Flights</span>: <b id="kpiValUnits">147</b></span>
-                <span class="kpi-tag" id="kpiTagCrew"><i class="fa-solid fa-users" id="kpiIconCrew"></i> <span id="kpiLabelCrew">Crew Complements</span>: <b id="kpiValCrew">150 Active (74 Pilots, 76 CC)</b></span>
-                <span class="kpi-tag" id="kpiTagReserves"><i class="fa-solid fa-shield-heart" id="kpiIconReserves"></i> <span id="kpiLabelReserves">Reserve Depth</span>: <b id="kpiValReserves">16 On-Call (6 PIC, 4 SIC, 6 CC)</b></span>
-                <span class="kpi-tag" id="kpiTagRule"><i class="fa-solid fa-shield-halved" id="kpiIconRule"></i> <span id="kpiLabelRule">Compliance</span>: <b id="kpiValRule">100% CAR Sec 7</b></span>
-                <span class="kpi-tag" id="kpiTagHealth"><i class="fa-solid fa-circle-check"></i> Network Health: <b>99.8%</b></span>
+                <span class="kpi-tag" id="kpiTagUnits">
+                    <svg id="kpiIconUnits" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                    <span id="kpiLabelUnits">Active Flights</span>: <b id="kpiValUnits">147</b>
+                </span>
+                <span class="kpi-tag" id="kpiTagCrew">
+                    <svg id="kpiIconCrew" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span id="kpiLabelCrew">Crew Complements</span>: <b id="kpiValCrew">150 Active (74 Pilots, 76 CC)</b>
+                </span>
+                <span class="kpi-tag" id="kpiTagReserves">
+                    <svg id="kpiIconReserves" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <polyline points="9 12 11 14 15 10"/>
+                    </svg>
+                    <span id="kpiLabelReserves">Reserve Depth</span>: <b id="kpiValReserves">16 On-Call (6 PIC, 4 SIC, 6 CC)</b>
+                </span>
+                <span class="kpi-tag" id="kpiTagRule">
+                    <svg id="kpiIconRule" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                        <polyline points="2 17 12 22 22 17"/>
+                        <polyline points="2 12 12 17 22 12"/>
+                    </svg>
+                    <span id="kpiLabelRule">Compliance</span>: <b id="kpiValRule">100% CAR Sec 7</b>
+                </span>
+                <span class="kpi-tag" id="kpiTagHealth">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    Network Health: <b>99.8%</b>
+                </span>
             </div>
             <div class="kpi-station-status">
                 <span style="color:var(--ink-secondary); font-size:0.7rem; font-family:var(--font-mono);">SNAPSHOT: 2026-09-14 18:00Z</span>
@@ -2695,7 +2770,9 @@ input, select { font: inherit; color: inherit; }
                 <div class="enterprise-filter-bar crewops-single-filter-bar">
                     <div class="filter-controls-group" style="gap:8px;">
                         <span style="font-size:0.75rem; font-weight:700; color:var(--ink-primary); display:flex; align-items:center; gap:5px;">
-                            <i class="fa-solid fa-filter"></i> Filters:
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                            </svg> Filters:
                         </span>
 
                         <!-- Date Dropdown -->
@@ -2756,7 +2833,10 @@ input, select { font: inherit; color: inherit; }
                     <div style="display:flex; align-items:center; gap:8px; margin-left:auto;">
                         <span class="filter-counter-badge" id="crewFlightFilterBadge">Showing Flights</span>
                         <button class="mode-toggle-btn" style="padding:4px 10px; font-size:0.72rem; cursor:pointer;" onclick="switchOCCView('flights')" title="Switch to Full Timeline Gantt">
-                            <i class="fa-solid fa-chart-gantt"></i> Open Timeline ↗
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>Open Timeline ↗
                         </button>
                     </div>
                 </div>
@@ -3822,11 +3902,11 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         if (valRule) valRule.textContent = cfg.ruleVal;
 
         const tabF = document.getElementById('tabBtnFlights');
-        if (tabF) tabF.innerHTML = `<i class="fa-solid fa-timeline" style="margin-right:6px;"></i>${cfg.unitTab}`;
+        if (tabF) tabF.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${cfg.unitTab}`;
         const tabR = document.getElementById('tabBtnRoster');
-        if (tabR) tabR.textContent = cfg.crewTab;
+        if (tabR) tabR.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>${cfg.crewTab}`;
         const tabM = document.getElementById('tabBtnReserves');
-        if (tabM) tabM.textContent = cfg.reserveTab;
+        if (tabM) tabM.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>${cfg.reserveTab}`;
 
         RADAR_AXES.splice(0, RADAR_AXES.length, ...cfg.radarAxes);
         if (STATE.currentRiskData) {
@@ -3879,7 +3959,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
             </div>
             <div style="display:flex; gap:0.5rem; align-items:center;">
                 <button class="btn-authorize-action" onclick="submitCustomPrompt('Resolve ${id} optimal recovery plan')">
-                    <i class="fa-solid fa-bolt"></i> Run Swarm Recovery
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Run Swarm Recovery
                 </button>
                 <button class="sugg-chip-btn" onclick="submitCustomPrompt('Show candidate legality audit for ${id}')">
                     Inspect Legality Audit
@@ -3914,10 +3994,12 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         const isDark = theme === 'dark';
         document.documentElement.classList.toggle('dark', isDark);
         localStorage.setItem('occ-theme', theme);
-        const icon = document.getElementById('themeIcon');
-        if (icon) {
-            icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-            icon.parentElement.title = isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme';
+        const btn = document.getElementById('themeToggleBtn');
+        if (btn) {
+            btn.title = isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme';
+            btn.innerHTML = isDark
+                ? `<svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`
+                : `<svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
         }
         if (STATE.currentRiskData) {
             renderRadarSpider(STATE.currentRiskData);
