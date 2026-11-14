@@ -23,12 +23,21 @@ chmod +x run_server.sh
 ```
 Then navigate to **`http://localhost:8787`** in your browser.
 
-### 2. Run with Python Module
+### 2. Next.js 15 Standalone Modern Frontend
+CrewOps includes a modern **Next.js 15 (App Router, TypeScript, Tailwind CSS, Lucide Icons)** suite located in `frontend/`:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Then navigate to **`http://localhost:3000`** (automatically proxies API requests to `http://localhost:8787`).
+
+### 3. Run with Python Module
 ```bash
 python3 -m crewops serve --port 8787
 ```
 
-### 3. Deploy to Google Cloud Run
+### 4. Deploy to Google Cloud Run
 ```bash
 chmod +x deploy_gcp.sh
 ./deploy_gcp.sh
