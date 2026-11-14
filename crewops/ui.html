@@ -3085,8 +3085,8 @@ input, select { font: inherit; color: inherit; }
                 </div><!-- /opsNavExpandedContent -->
             </section>
 
-            <!-- PANE 2: CREW OPS DESK (CENTER HERO - MINIMIZED BY DEFAULT) -->
-            <section class="pane-chat-center minimized" id="paneChatCenter">
+            <!-- PANE 2: CREW OPS DESK (CENTER HERO - OPEN BY DEFAULT) -->
+            <section class="pane-chat-center expanded" id="paneChatCenter">
                 <div class="chat-console-header">
                     <div style="display:flex; align-items:center; gap:8px;">
                         <h3>
@@ -3094,19 +3094,19 @@ input, select { font: inherit; color: inherit; }
                             Crew Advisor
                         </h3>
                         <span class="copilot-status-pill" id="copilotStatusPill">
-                            ● CAR Sec 7 Deterministic Engine Ready
+                            ● Crew Advisor Active · CAR Sec 7 Solver Running
                         </span>
                     </div>
                     <div style="display:flex; align-items:center; gap:8px;">
                         <button class="btn-copilot-toggle" id="btnToggleCopilot" onclick="toggleChatbotMinimize()" title="Switch between Flight Wave Monitor and Crew Advisor">
-                            <i class="fa-solid fa-comments" id="iconToggleCopilot"></i>
-                            <span id="labelToggleCopilot">Open Crew Advisor</span>
+                            <i class="fa-solid fa-chart-gantt" id="iconToggleCopilot"></i>
+                            <span id="labelToggleCopilot">Show Flight Monitor</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- 1. Operational Flight Wave Monitor (Visible when minimized by default) -->
-                <div class="copilot-minimized-flight-deck" id="copilotFlightDeck">
+                <!-- 1. Operational Flight Wave Monitor (Hidden when advisor is open by default) -->
+                <div class="copilot-minimized-flight-deck" id="copilotFlightDeck" style="display:none;">
                     <div class="wave-monitor-header">
                         <div style="display:flex; align-items:center; gap:8px;">
                             <span style="font-size:0.78rem; font-weight:700; color:var(--ink-primary); display:flex; align-items:center; gap:6px;">
@@ -3139,8 +3139,8 @@ input, select { font: inherit; color: inherit; }
                     </div>
                 </div>
 
-                <!-- 2. Chat Feed (Hidden when minimized, visible when expanded) -->
-                <div class="chat-feed-scroll" id="chatFeed" style="display:none;">
+                <!-- 2. Chat Feed (Visible when expanded by default) -->
+                <div class="chat-feed-scroll" id="chatFeed" style="display:flex;">
                     <!-- Welcome Turn -->
                     <div class="advisor-card-rich">
                         <div class="advisor-top-verdict">
@@ -3165,7 +3165,7 @@ input, select { font: inherit; color: inherit; }
                 </div>
 
                 <!-- Prompt Input Bar with Query Builder & Suggestion Chips -->
-                <div class="chat-prompt-wrap" id="chatPromptWrap">
+                <div class="chat-prompt-wrap min" id="chatPromptWrap">
                     <!-- Enterprise Disruption Filter & Crew Search Bar (Hidden when minimized, visible when expanded) -->
                     <div class="chat-query-builder" id="chatQueryBuilder" style="display:none;">
                         <span class="builder-label"><i class="fa-solid fa-sliders"></i> Disruption Filter:</span>
@@ -3215,7 +3215,7 @@ input, select { font: inherit; color: inherit; }
                       <div class="prechat-bar">Disruptions &amp; examples
                         <span class="count" id="prechatCount"></span>
                         <button class="btn-min" id="prechatBtn"
-                                onclick="togglePrechat()">Minimise</button></div>
+                                onclick="togglePrechat()">Show</button></div>
                       <div class="live-bar"><span class="live-dot"></span>Live
                           <span class="live-items" id="liveItems"></span></div>
                       <div class="flow-bar" id="scenarioBar"></div>
@@ -4358,6 +4358,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         // Neither is awaited: an empty desk must never wait on its own furniture.
         loadStarterQuestions();
         loadScenarioBar();
+        restorePrechat();
         setTimeout(restorePrechat, 400);   // after the bars have filled
         startLiveFeed();
         await loadInitialData();
@@ -4365,6 +4366,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         bindCandidateToRightPane('C-3310');
         renderCrewOpsWaveMonitor();
         initOpsNavState();
+        toggleChatbotMinimize(false); // Crew Advisor open by default
     });
 
     // 1. Theme Engine (frontend-next Light/Dark Theme)
@@ -4784,14 +4786,20 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
     }
 
     function restorePrechat(){
-      let min = false;
-      try{ min = localStorage.getItem('occ.prechat') === 'min'; }catch(e){}
+      let min = true; // Minimized by default as requested
+      try{
+        const saved = localStorage.getItem('occ.prechat');
+        if (saved !== null) {
+          min = saved === 'min';
+        }
+      }catch(e){}
       if(min){
         const el = document.getElementById('chatPromptWrap') ||
                    document.getElementById('prechat');
         if(!el) return;
         el.classList.add('min');
-        document.getElementById('prechatBtn').textContent = 'Show';
+        const b = document.getElementById('prechatBtn');
+        if(b) b.textContent = 'Show';
         const c = document.getElementById('prechatCount');
         if(c) c.textContent = prechatSummary();
       }
@@ -5830,7 +5838,7 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
         }
     }
 
-    STATE.chatMinimized = true; // Minimized by default as requested
+    STATE.chatMinimized = false; // Open Crew Advisor by default as requested
 
     function toggleChatbotMinimize(forceState) {
         if (forceState !== undefined) {
