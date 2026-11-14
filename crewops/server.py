@@ -635,10 +635,11 @@ class Handler(BaseHTTPRequestHandler):
         snap: Snapshot = _STATE["snap"]
         try:
             if path in ("/", "/index.html", "/cockpit", "/cockpit/"):
-                # The cockpit is what a visitor lands on. The single-column
-                # desk keeps its own address rather than being deleted -- it
-                # is the same engine behind a quieter interface, and which one
-                # a controller wants is not a decision to bake into a route.
+                if not os.path.exists(UI_PATH):
+                    self.send_response(302)
+                    self.send_header("Location", "http://localhost:3000/")
+                    self.end_headers()
+                    return
                 self._send(200, _page(), "text/html; charset=utf-8")
             elif path == "/api/verticals":
                 snaps = _STATE.get("snapshots", {})
@@ -1139,13 +1140,11 @@ UI_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ui.html")
 
 
 def _page() -> bytes:
-    """Read the UI from disk on every request.
-
-    Deliberate: it means the interface can be edited and reloaded mid-demo
-    without restarting the server and losing the session state.
-    """
-    with open(UI_PATH, encoding="utf-8") as fh:
-        return fh.read().encode("utf-8")
+    """Read the UI from disk on every request, or redirect to Next.js."""
+    if os.path.exists(UI_PATH):
+        with open(UI_PATH, encoding="utf-8") as fh:
+            return fh.read().encode("utf-8")
+    return b"""<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=http://localhost:3000/" /></head><body><p>Redirecting to CrewOps Next.js OCC Suite at <a href="http://localhost:3000/">http://localhost:3000/</a>...</p></body></html>"""
 
 
 def _restore_default_rulebook(data_dir: str | None) -> None:
