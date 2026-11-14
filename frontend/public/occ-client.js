@@ -1,3 +1,9 @@
+/**
+ * CrewOps Autonomous Operations Control Center (OCC)
+ * Client-side Reactive Runtime Engine & Event Bus
+ * Language: JavaScript (ES2022+)
+ */
+
     const STATE = {
         session: 'occ-' + Math.random().toString(36).substring(2, 9),
         activeView: 'console',

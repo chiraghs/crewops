@@ -1,0 +1,21 @@
+# ==============================================================================
+# GitHub Linguist Language Detection Configuration
+# ==============================================================================
+
+# Explicitly override language mappings
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+*.js linguist-language=JavaScript
+*.css linguist-language=CSS
+*.py linguist-language=Python
+
+# Ensure OCC Next.js app components and scripts are recognized accurately
+frontend/src/app/occ-template.ts linguist-language=TypeScript
+frontend/src/app/page.tsx linguist-language=TypeScript
+frontend/src/app/layout.tsx linguist-language=TypeScript
+frontend/src/app/occ.css linguist-language=CSS
+frontend/public/occ-client.js linguist-language=JavaScript
+
+# Vendored files and ignore rules
+frontend/package-lock.json linguist-vendored
+*.html linguist-detectable=false
