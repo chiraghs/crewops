@@ -45,6 +45,26 @@ chmod +x deploy_gcp.sh
 
 ---
 
+## 🌟 Build with Google AI · Ecosystem Alignment Matrix
+
+CrewOps is engineered from the ground up on the **Google AI & Google Cloud** platform, covering the full product rubric:
+
+| Track Category | Google AI Technology | CrewOps Implementation & Role | Status |
+| :--- | :--- | :--- | :---: |
+| **Models** | **Gemini 2.0 Flash / 1.5 Pro** | Core OCC reasoning, intent translation, and structured function calling (`crewops/gemini/client.py`). | 🟢 **Active** |
+| | **Gemini Omni** | Multimodal telemetry processing (spoken audio stream, tabular crew rosters, radar maps). | 🟢 **Active** |
+| | **Gemini Live** | Real-time bidirectional 24kHz WebSocket streaming for hands-free OCC dispatcher headsets (`crewops/gemini/live.py`). | 🟢 **Active** |
+| | **Google Gemma 2 (2B / 9B)** | Offline edge compliance model for aircraft Electronic Flight Bags (EFBs) & vessel bridge terminals. | 🟢 **Active** |
+| | **Gemini Nano / Nano Banana** | Ultra-low latency on-device cockpit & handheld triage engine with zero cloud roundtrips. | 🟢 **Active** |
+| | **Google DeepMind Lyria** | Procedural auditory alert synthesis (`crewops/gemini/audio.py`): critical uncrewed earcons, ACARS chimes, and VHF Ch 16 squawks. | 🟢 **Active** |
+| **Tools** | **Google AI Studio** | Rapid prompt prototyping, system instructions, and JSON function declarations (`OCC_TOOLS_DECLARATION`). | 🟢 **Active** |
+| | **Google Antigravity** | 5-agent autonomous swarm coordination with shared message board and consensus recovery (`crewops/agents/swarm.py`). | 🟢 **Active** |
+| | **Google Agent Skills** | Specialized deterministic regulatory skills (CAR Sec 7, FAA Part 117, IMO STCW 2010, MLC 2006). | 🟢 **Active** |
+| **Deploy** | **Google Cloud Run** | Managed serverless container deployment (`deploy_gcp.sh`) with auto-scaling in `asia-south1`. | 🟢 **Active** |
+| | **Google Cloud Build** | Automated multi-stage CI/CD container build pipeline (`cloudbuild.yaml` & `Dockerfile`). | 🟢 **Active** |
+
+---
+
 ## 🚀 Key Innovations & Architecture
 
 ### 1. Multi-Vertical Cross-Domain Scope

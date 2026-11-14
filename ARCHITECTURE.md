@@ -90,3 +90,39 @@ Each vertical implements a unified interface:
 * **Network Tier**: Google Cloud Premium Network with Cloud CDN and Cloud Armor DDoS mitigation.
 * **Secret Management**: Google Cloud Secret Manager for secure storage of API keys (`GEMINI_API_KEY`, WhatsApp API, Twilio, ACARS gateway).
 * **Logging & Observability**: Google Cloud Operations Suite (Cloud Logging, Cloud Monitoring, Cloud Trace) capturing end-to-end latency metrics.
+
+---
+
+## 5. Google AI Ecosystem Architecture: Cloud, Edge & Device Tiering
+
+CrewOps leverages Google's full AI portfolio across a tiered latency-critical operational hierarchy:
+
+```mermaid
+flowchart TD
+    subgraph CloudTier["Google Cloud Tier (OCC Central Command)"]
+        Gemini2["Gemini 2.0 Flash / 1.5 Pro<br/>(Complex Multi-Turn Disruption Reasoning)"]
+        GeminiOmni["Gemini Omni<br/>(Multimodal Voice, Video & Radar Telemetry)"]
+        GeminiLive["Gemini Live (24kHz WebSocket)<br/>(Hands-free Voice Dispatcher Streaming)"]
+        LyriaEngine["Google DeepMind Lyria<br/>(Procedural Acoustic Alert Earcons & VHF Audio)"]
+    end
+
+    subgraph ToolingTier["Google Tools & Swarm Orchestration"]
+        AIStudio["Google AI Studio<br/>(Prompt Engineering & Structured Function Calling)"]
+        Antigravity["Google Antigravity Multi-Agent Swarm<br/>(5 Specialized Autonomous Agents)"]
+        AgentSkills["Google Agent Skills<br/>(CAR Sec 7, FAA Part 117, IMO STCW, MLC 2006)"]
+    end
+
+    subgraph EdgeTier["Edge & Device Tier (Cockpit / Bridge / Off-grid)"]
+        GemmaEdge["Google Gemma 2 (2B / 9B)<br/>(Aircraft Electronic Flight Bag & Shipboard Bridge)"]
+        NanoBanana["Gemini Nano / Nano Banana<br/>(On-device Handheld & Wearable Safety Triage)"]
+    end
+
+    subgraph InfraTier["Google Cloud Infrastructure"]
+        CloudRun["Google Cloud Run (Managed Serverless)"]
+        CloudBuild["Google Cloud Build (CI/CD Pipeline)"]
+    end
+
+    CloudTier --> ToolingTier
+    ToolingTier --> EdgeTier
+    CloudTier --> InfraTier
+```

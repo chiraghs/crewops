@@ -682,6 +682,10 @@ class Handler(BaseHTTPRequestHandler):
             elif path == "/api/admin/rules":
                 rules_cfg = _STATE.get("rules_config", _DEFAULT_RULES)
                 self._json(rules_cfg)
+            elif path == "/api/google_ai/status":
+                from .gemini.client import GoogleAIOCCAdvisor
+                adv_inst = GoogleAIOCCAdvisor()
+                self._json(adv_inst.get_ecosystem_status())
             elif path == "/api/routing":
                 if _STATE.get("routing") is None:
                     _STATE["routing"] = run_e2e(snap, use_model=False)
@@ -771,11 +775,20 @@ class Handler(BaseHTTPRequestHandler):
         route = self.path.split("?")[0]
         if route not in ("/api/ask", "/api/whatif", "/api/reset", "/api/set_region",
                          "/api/set_vertical", "/api/admin/rules",
-                         "/api/resolve_event", "/api/commit", "/api/outreach"):
+                         "/api/resolve_event", "/api/commit", "/api/outreach",
+                         "/api/google_ai/earcon"):
             self._json({"error": "not found"}, 404)
             return
         try:
             snap: Snapshot = _STATE["snap"]
+            if route == "/api/google_ai/earcon":
+                n = int(self.headers.get("Content-Length") or 0)
+                body = json.loads(self.rfile.read(n) or b"{}")
+                alert_type = body.get("alert_type", "critical_uncrewed")
+                from .gemini.audio import LyriaAudioEngine
+                engine = LyriaAudioEngine()
+                self._json(engine.generate_earcon(alert_type))
+                return
             if route == "/api/admin/rules":
                 n = int(self.headers.get("Content-Length") or 0)
                 body = json.loads(self.rfile.read(n) or b"{}")
