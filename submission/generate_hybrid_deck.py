@@ -286,7 +286,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
     <div class="slide-footer">
       <div>CrewOps • Startup Buildathon Idea Submission</div>
-      <div>Slide 2 of 10</div>
+      <div>Slide 2 of 11</div>
     </div>
   </div>
 
@@ -341,7 +341,7 @@ HTML_CONTENT = """<!DOCTYPE html>
       <!-- Right: UI Screenshot Mockup -->
       <div style="flex: 1.25; display: flex; flex-direction: column; justify-content: space-between;">
         <div class="s-screenshot-frame" style="flex: 1;">
-          <img src="screenshots/screenshot_console.png" alt="Live OCC Suite Console">
+          <img src="screenshots/screenshot_console.jpg" alt="Live OCC Suite Console">
         </div>
         <div style="margin-top: 10px; background: #F8FAFC; border: 1.5px solid #0284C7; border-radius: 8px; padding: 10px 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
           <div style="font-size: 11px; font-weight: 800; color: #0284C7; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px;">💬 REAL-WORLD CONVERSATIONAL TRIAGE & COMPLIANCE EXAMPLE</div>
@@ -355,7 +355,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
     <div class="slide-footer">
       <div>CrewOps • Startup Buildathon Idea Submission</div>
-      <div>Slide 3 of 10</div>
+      <div>Slide 3 of 11</div>
     </div>
   </div>
 
@@ -415,7 +415,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
     <div class="slide-footer">
       <div>CrewOps • Startup Buildathon Idea Submission</div>
-      <div>Slide 4 of 10</div>
+      <div>Slide 4 of 11</div>
     </div>
   </div>
 
@@ -489,7 +489,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
     <div class="slide-footer">
       <div>CrewOps • Startup Buildathon Idea Submission</div>
-      <div>Slide 5 of 10</div>
+      <div>Slide 5 of 11</div>
     </div>
   </div>
 
@@ -550,7 +550,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
     <div class="slide-footer">
       <div>CrewOps • Startup Buildathon Idea Submission</div>
-      <div>Slide 6 of 10</div>
+      <div>Slide 6 of 11</div>
     </div>
   </div>
 
@@ -574,7 +574,7 @@ HTML_CONTENT = """<!DOCTYPE html>
           1. Operations Control Center (OCC) Console
         </div>
         <div class="s-screenshot-frame" style="flex: 1;">
-          <img src="screenshots/screenshot_console.png" alt="OCC Command Console">
+          <img src="screenshots/screenshot_console.jpg" alt="OCC Command Console">
         </div>
         <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: 12px; line-height: 1.45; color: #334155;">
           <div style="background: #EFF6FF; border: 1.5px solid #BFDBFE; border-radius: 6px; padding: 6px 10px; margin-bottom: 8px; font-size: 12px; color: #1E40AF; line-height: 1.4;">
@@ -595,7 +595,7 @@ HTML_CONTENT = """<!DOCTYPE html>
           2. Mission-Control Regulatory & Policy Engine
         </div>
         <div class="s-screenshot-frame" style="flex: 1;">
-          <img src="screenshots/screenshot_admin.png" alt="Regulatory Policy Engine">
+          <img src="screenshots/screenshot_admin.jpg" alt="Regulatory Policy Engine">
         </div>
         <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: 12.5px; line-height: 1.5; color: #334155;">
           • <strong>Certified Statutory Presets:</strong> DGCA CAR Sec 7, Monsoon Guard, and High-Tempo Flexibility.<br>
@@ -608,7 +608,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
     <div class="slide-footer">
       <div>CrewOps • Startup Buildathon Idea Submission</div>
-      <div>Slide 7 of 10</div>
+      <div>Slide 7 of 11</div>
     </div>
   </div>
 
@@ -632,7 +632,7 @@ HTML_CONTENT = """<!DOCTYPE html>
           3. Live Visual Schedule Timeline Gantt
         </div>
         <div class="s-screenshot-frame" style="flex: 1;">
-          <img src="screenshots/screenshot_flights.png" alt="Schedule Timeline Gantt">
+          <img src="screenshots/screenshot_flights.jpg" alt="Schedule Timeline Gantt">
         </div>
         <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: 12.5px; line-height: 1.5; color: #334155;">
           • <strong>Fleet Timeline Gantt:</strong> Visual schedule for tails VT-DXA..F across DEL, BOM, BLR, CCU, HYD.<br>
@@ -648,7 +648,7 @@ HTML_CONTENT = """<!DOCTYPE html>
           4. 72-Hour Predictive Disruption Radar
         </div>
         <div class="s-screenshot-frame" style="flex: 1;">
-          <img src="screenshots/screenshot_intelligence.png" alt="72h Predictive Radar">
+          <img src="screenshots/screenshot_intelligence.jpg" alt="72h Predictive Radar">
         </div>
         <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: 12.5px; line-height: 1.5; color: #334155;">
           • <strong>Multi-Horizon Lookahead:</strong> Forecasts weather frontlines, monsoon storms & tidal locks 72h out.<br>
@@ -661,12 +661,98 @@ HTML_CONTENT = """<!DOCTYPE html>
 
     <div class="slide-footer">
       <div>CrewOps • Startup Buildathon Idea Submission</div>
-      <div>Slide 8 of 10</div>
+      <div>Slide 8 of 11</div>
     </div>
   </div>
 
   <!-- =========================================================================
-       SLIDE 9: MARKET VALIDATION, TRACTION & GCP DEPLOYMENT (Sanjeevini KPI Grid)
+       SLIDE 9: LIVE SHOWCASE 3 (Plug & Play Theme Engine & Network Daily Brief)
+       ========================================================================= -->
+  <div class="slide">
+    <div class="template-header">
+      <img src="header_banner_cropped.png">
+    </div>
+
+    <div class="slide-header-box">
+      <div style="font-size: 13px; font-weight: 800; color: #059669; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px;">ENTERPRISE CUSTOMIZATION & AUTONOMOUS INTELLIGENCE</div>
+      <div class="slide-main-title">Live Platform Showcase</div>
+      <div class="slide-subtitle">Plug & Play Theme Engine (Light / Dark OCC) & Network Operations Daily Brief</div>
+    </div>
+
+    <div class="slide-content" style="gap: 28px;">
+      <!-- Left Column: Plug and Play Multi-Theme Engine -->
+      <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 700; color: #1A73E8; margin-bottom: 8px;">
+            5. Plug & Play Theming as per Config
+          </div>
+          
+          <!-- Side-by-Side Daylight & Midnight Comparison -->
+          <div style="display: flex; gap: 12px; margin-bottom: 12px;">
+            <!-- Daylight Theme -->
+            <div style="flex: 1; display: flex; flex-direction: column;">
+              <div style="font-size: 11px; font-weight: 700; color: #1E40AF; text-transform: uppercase; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
+                <span>☀️ Daylight OCC Mode</span>
+              </div>
+              <div class="s-screenshot-frame" style="height: 250px; background: #FFFFFF; border: 1.5px solid #BFDBFE;">
+                <img src="screenshots/screenshot_theme_light.jpg" alt="Light OCC Theme" style="width: 100%; height: 100%; object-fit: cover; object-position: top left;">
+              </div>
+            </div>
+
+            <!-- Midnight Theme -->
+            <div style="flex: 1; display: flex; flex-direction: column;">
+              <div style="font-size: 11px; font-weight: 700; color: #059669; text-transform: uppercase; margin-bottom: 4px; display: flex; align-items: center; gap: 4px;">
+                <span>🌙 Low-Glare Night Mode</span>
+              </div>
+              <div class="s-screenshot-frame" style="height: 250px; background: #0B1120; border: 1.5px solid #334155;">
+                <img src="screenshots/screenshot_theme_dark.jpg" alt="Dark OCC Theme" style="width: 100%; height: 100%; object-fit: cover; object-position: top left;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 14px 18px; font-size: 13px; line-height: 1.55; color: #334155;">
+          <div style="font-weight: 800; font-size: 12px; color: #1E40AF; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">
+            ENTERPRISE MULTI-TENANT CUSTOMIZATION
+          </div>
+          • <strong>Zero-Recompile Theming:</strong> Instant CSS variable token injection adapts to any airline carrier's branding & colorway.<br>
+          • <strong>Circadian Fatigue Mitigation:</strong> Seamless transition between high-visibility daylight and dark-room night-shift consoles.<br>
+          • <strong>Scenario Power Triggers:</strong> Interactive simulation triggers (Sick Calls, Pairings, Ground Stops) in both themes.<br>
+          • <strong>Frontline Radar Delegation:</strong> Embedded 6-axis risk delegation radar verifying safe operational autonomy.
+        </div>
+      </div>
+
+      <!-- Right Column: Autonomous Network Operations Daily Brief -->
+      <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 700; color: #059669; margin-bottom: 8px;">
+            6. Network Operations Daily Brief
+          </div>
+          <div class="s-screenshot-frame" style="height: 440px; padding: 6px; background: #FFFFFF; border: 1.5px solid #CBD5E1;">
+            <img src="screenshots/screenshot_daily_brief.jpg" alt="Network Operations Daily Brief" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+        </div>
+
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 14px 18px; font-size: 13px; line-height: 1.55; color: #334155;">
+          <div style="font-weight: 800; font-size: 12px; color: #065F46; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;">
+            AUTONOMOUS FLEET & REGULATORY TRIAGE
+          </div>
+          • <strong>Snapshot-Driven Intelligence:</strong> Auto-aggregates 147 sectors, 150 active crew, and 16 standby reserves on startup.<br>
+          • <strong>Single Points of Failure:</strong> Proactively highlights fragile pairings with &le;1 legal cover before delays cascade.<br>
+          • <strong>Reserve Coverage Gaps:</strong> Identifies thin UTC standby windows across A320 & ATR72 Captains and First Officers.<br>
+          • <strong>Latent Regulatory Breaches:</strong> Instantly catches expired recurrent training (e.g., C-5417) prior to flight departure.
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <div>CrewOps • Startup Buildathon Idea Submission</div>
+      <div>Slide 9 of 11</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SLIDE 10: MARKET VALIDATION, TRACTION & GCP DEPLOYMENT (Sanjeevini KPI Grid)
        ========================================================================= -->
   <div class="slide">
     <div class="template-header">
@@ -745,7 +831,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
     <div class="slide-footer">
       <div>CrewOps • Startup Buildathon Idea Submission</div>
-      <div>Slide 9 of 10</div>
+      <div>Slide 10 of 11</div>
     </div>
   </div>
 
