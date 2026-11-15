@@ -183,10 +183,10 @@ tf4.word_wrap = True
 tf4.margin_left = tf4.margin_right = tf4.margin_top = tf4.margin_bottom = 0
 
 add_header_paragraph(tf4, "CREWOPS: AUTONOMOUS OCC PLATFORM", color=GOOGLE_GREEN, space_before=Pt(0), font_size=Pt(10.5))
-add_bullet_paragraph(tf4, "Core Paradigm", "'The Model Translates, The Kernel Decides.' CrewOps resolves multi-party operational disruptions in under 200 milliseconds with mathematical zero-hallucination compliance guarantees.", font_size=Pt(8.5))
-add_bullet_paragraph(tf4, "Voice-First Conversational Dispatch", "Continuous 24kHz bidirectional WebSocket audio via Google Gemini Live enables dispatchers to query complex rosters and command emergency recoveries hands-free while monitoring radar.", font_size=Pt(8.5))
+add_bullet_paragraph(tf4, "Core Paradigm", "'The Model Translates, The Kernel Decides.' CrewOps resolves multi-party operational disruptions within 2 seconds with mathematical zero-hallucination compliance guarantees.", font_size=Pt(8.5))
+add_bullet_paragraph(tf4, "Voice-Supported Conversational Dispatch", "Continuous 24kHz bidirectional WebSocket audio via Google Gemini Live enables dispatchers to query complex rosters and command emergency recoveries hands-free while monitoring radar.", font_size=Pt(8.5))
 add_bullet_paragraph(tf4, "Antigravity Multi-Agent Swarm", "Five specialized autonomous agents coordinate over a shared event board: Incident Commander, Compliance Kernel, Resource Optimizer, Dispatch Comms, and Containment Guard.", font_size=Pt(8.5))
-add_bullet_paragraph(tf4, "Zero-Hallucination Compliance Kernel", "Deterministic solvers verify 100% legal conformance against DGCA CAR Section 7 & IMO STCW 2010 Manila Amendments with mathematical evidence ledgers.", font_size=Pt(8.5))
+add_bullet_paragraph(tf4, "Zero-Hallucination Compliance Kernel", "Deterministic solvers verify 100% legal conformance against DGCA Section & Amendments with mathematical evidence ledgers.", font_size=Pt(8.5))
 add_bullet_paragraph(tf4, "72-Hour Predictive Disruption Radar", "Multi-horizon lookahead forecasting weather frontlines, tidal lock windows, and approaching cumulative fatigue caps before flights/voyages become uncrewed.", font_size=Pt(8.5))
 add_bullet_paragraph(tf4, "Multi-Channel Emergency Uplinks", "One-click automated message delivery across ARINC-620 ACARS (aircraft), Inmarsat-C Telex (vessels), VHF Marine Channel 16, and secure SMS.", font_size=Pt(8.5))
 
@@ -341,7 +341,7 @@ tb_bl8 = slide8.shapes.add_textbox(Inches(0.48), Inches(4.34), Inches(4.35), Inc
 tf = tb_bl8.text_frame
 tf.word_wrap = True
 tf.margin_left = tf.margin_top = tf.margin_right = tf.margin_bottom = 0
-add_bullet_paragraph(tf, "Sub-200ms Triage", "Instant containment across 147 flights & 84 voyages.", font_size=Pt(8.2), space_after=Pt(1.5))
+add_bullet_paragraph(tf, "Sub-2s Real-Time Triage", "Instant containment across 147 flights & 84 voyages.", font_size=Pt(8.2), space_after=Pt(1.5))
 add_bullet_paragraph(tf, "Gemini Live Audio", "Continuous 24kHz hands-free conversational voice dispatch.", font_size=Pt(8.2), space_after=Pt(1.5))
 add_bullet_paragraph(tf, "Cost Optimization", "Hungarian solver yields -₹14,200 savings per recovered pairing.", font_size=Pt(8.2), space_after=Pt(1.5))
 add_bullet_paragraph(tf, "Multi-Channel Uplinks", "One-click ARINC ACARS, Inmarsat-C Telex & VHF dispatch.", font_size=Pt(8.2), space_after=Pt(1.5))
@@ -462,7 +462,7 @@ add_header_paragraph(tf10, "EMPIRICAL BENCHMARK DATASETS & REGULATORY CONFORMANC
 add_bullet_paragraph(tf10, "Commercial Aviation Dataset", "147 active scheduled flights, 150 crew members, 39 pairings, 16 standby reserves operating across 5 Indian hub airports (DEL, BOM, BLR, CCU, HYD).", font_size=Pt(8.8))
 add_bullet_paragraph(tf10, "Maritime Logistics Dataset", "84 short-sea feeder voyages, 120 watchkeepers (52 Master/Mates, 68 Engineers), 24 pairings, 14 harbor relief pilots across European container hubs (Rotterdam, Hamburg, Antwerp).", font_size=Pt(8.8))
 add_bullet_paragraph(tf10, "42 / 42 Conformance Scorecard", "100% pass rate across deterministic regulatory regression test suites covering WOCL incursions, augmented crew rest buffers, tidal gate locks, and rolling 28-day caps.", font_size=Pt(8.8))
-add_bullet_paragraph(tf10, "Operational Impact", "Reduces disruption resolution latency from 35 minutes to under 200 milliseconds, saving an average of ₹14,200 (43%) per disrupted pairing.", font_size=Pt(8.8))
+add_bullet_paragraph(tf10, "Operational Impact", "Reduces disruption resolution latency from 35 minutes to under 2 seconds, saving an average of ₹14,200 (43%) per disrupted pairing.", font_size=Pt(8.8))
 
 add_header_paragraph(tf10, "GOOGLE CLOUD PRODUCTION INFRASTRUCTURE & BUSINESS MODEL", color=GOOGLE_BLUE, space_before=Pt(5), font_size=Pt(10.5))
 add_bullet_paragraph(tf10, "Google Cloud Run (Managed Serverless)", "Containerized deployment in asia-south1 with 2 vCPU / 2GiB, handling auto-scaling WebSocket streams with zero cold-start delay (deploy_gcp.sh).", font_size=Pt(8.8))
@@ -474,6 +474,13 @@ add_bullet_paragraph(tf10, "Tiered B2B Enterprise SaaS", "Tier 1 Regional ($25k/
 # ==============================================================================
 slide11 = prs.slides.add_slide(blank_layout)
 slide11.shapes.add_picture(SLIDE_BG_CLOSING, Inches(0), Inches(0), Inches(10.0), Inches(5.625))
+
+# ==============================================================================
+# Remove First Slide (Template "Submission Guidelines" instruction page)
+# ==============================================================================
+rId = prs.slides._sldIdLst[0].rId
+prs.part.drop_rel(rId)
+del prs.slides._sldIdLst[0]
 
 # Save presentation
 prs.save(DST_PPTX)

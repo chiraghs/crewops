@@ -11,7 +11,7 @@ Every year, commercial aviation and maritime logistics operators lose over **$8.
 
 When a disruption strikes, controllers in Operations Control Centers (OCCs) juggle 10+ legacy disconnected screens, radio channels, and paper rulebooks. They are forced to make snap decisions under extreme cognitive overload. A single mistake triggers catastrophic regulatory grounding fines, cascading delays, or patient mortality.
 
-**CrewOps** is the world’s first **Voice-First, Multi-Agent Autonomous OCC Platform**. By fusing **Google Gemini Live (24kHz real-time voice & audio streaming)** with an **Antigravity Multi-Agent Swarm** and a **Deterministic Zero-Hallucination Compliance Kernel**, CrewOps resolves multi-party disruptions in **under 200 milliseconds** with mathematical legality guarantees.
+**CrewOps** is the world’s first **Voice-Supported, Multi-Agent Autonomous OCC Platform**. By fusing **Google Gemini Live (24kHz real-time voice & audio streaming)** with an **Antigravity Multi-Agent Swarm** and a **Deterministic Zero-Hallucination Compliance Kernel**, CrewOps resolves multi-party disruptions **within 2 seconds** with mathematical legality guarantees.
 
 ---
 
