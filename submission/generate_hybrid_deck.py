@@ -516,7 +516,7 @@ HTML_CONTENT = """<!DOCTYPE html>
   </div>
 
   <!-- =========================================================================
-       SLIDE 7: LIVE SHOWCASE 1 (OCC Console & 72h Radar)
+       SLIDE 7: LIVE SHOWCASE 1 (OCC Console & Regulatory Policy Engine)
        ========================================================================= -->
   <div class="slide">
     <div class="template-header">
@@ -525,7 +525,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
     <div class="slide-header-box">
       <div class="slide-main-title">Live Platform Showcase</div>
-      <div class="slide-subtitle">OCC Command Console & 72-Hour Predictive Radar</div>
+      <div class="slide-subtitle">OCC Command Console & Enterprise Regulatory Policy Engine</div>
     </div>
 
     <div class="slide-content">
@@ -545,19 +545,19 @@ HTML_CONTENT = """<!DOCTYPE html>
         </div>
       </div>
 
-      <!-- Right Column: 72h Radar -->
+      <!-- Right Column: Regulatory Policy Engine -->
       <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
         <div style="font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 700; color: #059669; margin-bottom: 8px;">
-          2. 72-Hour Predictive Disruption Radar
+          2. Mission-Control Regulatory & Policy Engine
         </div>
         <div class="s-screenshot-frame" style="flex: 1;">
-          <img src="screenshots/screenshot_intelligence.png" alt="72h Predictive Radar">
+          <img src="screenshots/screenshot_admin.png" alt="Regulatory Policy Engine">
         </div>
         <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: 12.5px; line-height: 1.5; color: #334155;">
-          • <strong>Multi-Horizon Lookahead:</strong> Forecasts weather frontlines, monsoon storms & tidal locks 72h out.<br>
-          • <strong>Fatigue Risk Matrix:</strong> Flags cumulative 7-day (60h) and 28-day flight duty caps proactively.<br>
-          • <strong>Port Congestion Tracking:</strong> Simulates berth queue delays across container terminal hubs.<br>
-          • <strong>Strategic Pre-Recovery:</strong> Rebalances standby reserves before operational ground stops occur.
+          • <strong>Certified Statutory Presets:</strong> DGCA CAR Sec 7, Monsoon Guard, and High-Tempo Flexibility.<br>
+          • <strong>Tactical Precision Steppers:</strong> Exact [-] / [+] step adjustments replace imprecise sliders.<br>
+          • <strong>42 / 42 Conformance Scorecard:</strong> Live diagnostic test terminal verifying legality in 0.44ms.<br>
+          • <strong>Cryptographic Audit & Rollback:</strong> Immutable SHA-256 ledger with one-click instant reversion.
         </div>
       </div>
     </div>
@@ -569,7 +569,7 @@ HTML_CONTENT = """<!DOCTYPE html>
   </div>
 
   <!-- =========================================================================
-       SLIDE 8: LIVE SHOWCASE 2 (Timeline Gantt & Unified Roster)
+       SLIDE 8: LIVE SHOWCASE 2 (Timeline Gantt & 72h Disruption Radar)
        ========================================================================= -->
   <div class="slide">
     <div class="template-header">
@@ -578,7 +578,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
     <div class="slide-header-box">
       <div class="slide-main-title">Live Platform Showcase</div>
-      <div class="slide-subtitle">Operations Schedule Timeline & Unified Crew Roster</div>
+      <div class="slide-subtitle">Operations Schedule Timeline & 72-Hour Predictive Disruption Radar</div>
     </div>
 
     <div class="slide-content">
@@ -598,19 +598,19 @@ HTML_CONTENT = """<!DOCTYPE html>
         </div>
       </div>
 
-      <!-- Right Column: Roster Matrix -->
+      <!-- Right Column: 72h Radar -->
       <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
         <div style="font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 700; color: #059669; margin-bottom: 8px;">
-          4. Unified Crew & Reserve Availability Matrix
+          4. 72-Hour Predictive Disruption Radar
         </div>
         <div class="s-screenshot-frame" style="flex: 1;">
-          <img src="screenshots/screenshot_roster.png" alt="Unified Roster Matrix">
+          <img src="screenshots/screenshot_intelligence.png" alt="72h Predictive Radar">
         </div>
         <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: 12.5px; line-height: 1.5; color: #334155;">
-          • <strong>Unified Crew Availability:</strong> 150 active crew members, 39 pairings, and 16 standby reserves.<br>
-          • <strong>Rolling Duty Horizon:</strong> Live visual bars for 7-day (60h cap) and 28-day cumulative duty hours.<br>
-          • <strong>Airport Reserve Pools:</strong> Color-coded standby callout depths across all primary hub airports.<br>
-          • <strong>Dual-Domain Support:</strong> Seamlessly manages both commercial pilots and maritime shipboard officers.
+          • <strong>Multi-Horizon Lookahead:</strong> Forecasts weather frontlines, monsoon storms & tidal locks 72h out.<br>
+          • <strong>Fatigue Risk Matrix:</strong> Flags cumulative 7-day (60h) and 28-day flight duty caps proactively.<br>
+          • <strong>Port Congestion Tracking:</strong> Simulates berth queue delays across container terminal hubs.<br>
+          • <strong>Strategic Pre-Recovery:</strong> Rebalances standby reserves before operational ground stops occur.
         </div>
       </div>
     </div>
