@@ -1,0 +1,905 @@
+import os
+
+HTML_CONTENT = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CrewOps - Autonomous OCC Platform Pitch Deck</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap');
+    
+    @page {
+      size: 1920px 1080px;
+      margin: 0;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0B1118;
+      color: #0F172A;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .slide {
+      width: 1920px;
+      height: 1080px;
+      page-break-after: always;
+      position: relative;
+      background: #FFFFFF;
+      padding: 50px 70px 36px 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    /* Colors */
+    :root {
+      --primary-blue: #1A73E8;
+      --navy: #0F172A;
+      --forest: #059669;
+      --forest-dark: #065F46;
+      --amber: #D97706;
+      --crimson: #DC2626;
+      --dark: #0F172A;
+      --muted: #64748B;
+      --card-bg: #F8FAFC;
+      --card-border: #E2E8F0;
+      --green-bg: #ECFDF5;
+      --blue-bg: #EFF6FF;
+      --red-bg: #FEF2F2;
+      --amber-bg: #FFFBEB;
+      --purple-bg: #F5F3FF;
+    }
+
+    .top-brand-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .brand-logos {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #64748B;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-logos strong {
+      color: #1A73E8;
+    }
+
+    .header-bar {
+      margin-bottom: 18px;
+    }
+
+    .category-badge {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary-blue);
+      margin-bottom: 4px;
+    }
+
+    .slide-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+
+    .content-area {
+      flex: 1;
+      display: flex;
+      gap: 28px;
+      position: relative;
+    }
+
+    .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--card-border);
+      padding-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card-tag {
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .card-body {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #334155;
+    }
+
+    .screenshot-frame {
+      border-radius: 12px;
+      border: 1px solid #CBD5E1;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      background: #0B1118;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .screenshot-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Architecture Layer Card */
+    .arch-layer-card {
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .arch-layer-badge {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      width: 270px;
+      flex-shrink: 0;
+    }
+
+    .arch-layer-items {
+      flex: 1;
+      font-size: 14.5px;
+      line-height: 1.5;
+      color: #1E293B;
+      font-weight: 500;
+    }
+
+    .pill-badge {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #0F172A;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================================
+       SLIDE 1: COVER / TITLE
+       ========================================================================= -->
+  <div class="slide" style="background: linear-gradient(135deg, #FFFFFF 0%, #EFF6FF 100%);">
+    <div class="top-brand-bar">
+      <div class="brand-logos">
+        <span><strong>Google DeepMind</strong> | <strong>Google Cloud</strong></span>
+        <span>•</span>
+        <span>Startup Buildathon India 2026</span>
+      </div>
+      <div style="font-size: 12px; font-weight: 700; color: #1A73E8; background: rgba(26,115,232,0.1); padding: 4px 12px; border-radius: 20px;">
+        SOLO FOUNDER & ENGINEER: CHIRAG H S
+      </div>
+    </div>
+
+    <div style="margin: auto 0;">
+      <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+        <div style="width: 52px; height: 52px; border-radius: 14px; background: #1A73E8; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; box-shadow: 0 8px 16px rgba(26,115,232,0.3);">
+          ✈️
+        </div>
+        <div>
+          <div style="font-size: 15px; font-weight: 800; color: #1A73E8; letter-spacing: 0.08em; text-transform: uppercase;">
+            MISSION-CRITICAL OPERATIONS CONTROL CENTER (OCC)
+          </div>
+          <div style="font-size: 13px; color: #64748B;">
+            Commercial Aviation & Maritime Fleet Disruption Recovery
+          </div>
+        </div>
+      </div>
+
+      <h1 style="font-family: 'Outfit', sans-serif; font-size: 76px; font-weight: 800; color: #0F172A; line-height: 1.05; margin-bottom: 18px; letter-spacing: -0.03em;">
+        CrewOps
+      </h1>
+      <h2 style="font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 600; color: #1A73E8; margin-bottom: 22px; max-width: 1400px; line-height: 1.3;">
+        Autonomous Operations Control Center for Commercial Aviation & Maritime Logistics
+      </h2>
+      <p style="font-size: 20px; line-height: 1.6; color: #334155; max-width: 1350px; margin-bottom: 34px;">
+        Fusing <strong>Google Gemini Live (24kHz bidirectional voice streaming)</strong> with an <strong>Antigravity Multi-Agent Swarm</strong> and a <strong>Deterministic Zero-Hallucination Compliance Kernel</strong> to resolve complex multi-party disruptions <strong>within 2 seconds</strong> with mathematical legality guarantees.
+      </p>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <span class="pill-badge">⚡ Google Cloud Run (asia-south1)</span>
+        <span class="pill-badge">🎙️ Gemini Live 24kHz Audio Streaming</span>
+        <span class="pill-badge">🐝 Antigravity Multi-Agent Swarm</span>
+        <span class="pill-badge">⚖️ Zero-Hallucination Compliance Kernel</span>
+        <span class="pill-badge">📱 Gemma 2 & Gemini Nano Offline Edge</span>
+        <span class="pill-badge">📡 Multi-Channel ACARS & VHF Uplinks</span>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>CrewOps • Autonomous Operations Control Center Platform</div>
+      <div>Slide 1 of 11</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SLIDE 2: THE CHALLENGE & PROBLEM
+       ========================================================================= -->
+  <div class="slide">
+    <div class="top-brand-bar">
+      <div class="brand-logos">
+        <span><strong>Google DeepMind</strong> | <strong>Google Cloud</strong></span>
+        <span>•</span>
+        <span>Startup Buildathon India 2026</span>
+      </div>
+      <div style="font-size: 12px; font-weight: 600; color: #64748B;">
+        Problem Statement & Industry Pain
+      </div>
+    </div>
+
+    <div class="header-bar">
+      <div class="category-badge" style="color: #DC2626;">THE $8.4 BILLION DISRUPTION CRISIS</div>
+      <div class="slide-title">The Operational Fragility of Commercial Airlines & Maritime Fleets</div>
+    </div>
+
+    <div class="content-area">
+      <!-- Col 1 -->
+      <div class="card" style="flex: 1; background: #FEF2F2; border-color: #FECACA; justify-content: space-between;">
+        <div>
+          <div class="card-tag" style="color: #DC2626;">$8.4B AVOIDABLE ANNUAL LOSSES</div>
+          <div class="card-title">Cascading Disruption Costs</div>
+          <div class="card-body">
+            <p style="margin-bottom: 12px;"><strong>Severe Ground Penalties:</strong> Commercial airlines and maritime logistics operators bleed over <strong>$8.4 Billion</strong> annually in avoidable crew and dispatch turnaround delays ($5.2B in airline crew ground penalties, $3.2B in maritime port demurrage).</p>
+            <p><strong>Compound Bleed:</strong> A single Tier-1 carrier bleeds <strong>$60M–$120M</strong> each year from domino-effect misconnections, stranded passengers, and airport slot forfeiture.</p>
+          </div>
+        </div>
+        <div style="background: rgba(220,38,38,0.08); border-radius: 8px; padding: 14px; border: 1px dashed #FCA5A5; font-size: 13px; color: #991B1B;">
+          <strong>Impact:</strong> ₹18,000–₹35,000 lost per minute of tarmac delay per narrowbody aircraft.
+        </div>
+      </div>
+
+      <!-- Col 2 -->
+      <div class="card" style="flex: 1; background: #FFFBEB; border-color: #FDE68A; justify-content: space-between;">
+        <div>
+          <div class="card-tag" style="color: #D97706;">45 - 90 MINUTE RECOVERY LAG</div>
+          <div class="card-title">Extreme OCC Cognitive Overload</div>
+          <div class="card-body">
+            <p style="margin-bottom: 12px;"><strong>Manual Phone & Excel Chaos:</strong> When dense fog strikes Delhi (DEL) or storms close Mumbai (BOM), dispatchers must manually evaluate dozens of expiring duty clocks across 10+ disconnected screens and physical paper binders.</p>
+            <p><strong>Latency Blindspots:</strong> Legacy roster databases (Jeppesen, Sabre) take <strong>45 to 90 minutes</strong> per flight to re-pair rosters, causing entire banks of connecting flights to unravel.</p>
+          </div>
+        </div>
+        <div style="background: rgba(217,119,6,0.08); border-radius: 8px; padding: 14px; border: 1px dashed #FCD34D; font-size: 13px; color: #92400E;">
+          <strong>Bottleneck:</strong> Controllers juggle radio headsets, radar scopes, and manual spreadsheets simultaneously.
+        </div>
+      </div>
+
+      <!-- Col 3 -->
+      <div class="card" style="flex: 1; background: #EFF6FF; border-color: #BFDBFE; justify-content: space-between;">
+        <div>
+          <div class="card-tag" style="color: #1A73E8;">ZERO-TOLERANCE REGULATION</div>
+          <div class="card-title">Fatal Generic LLM Hallucinations</div>
+          <div class="card-body">
+            <p style="margin-bottom: 12px;"><strong>Catastrophic Safety Risk:</strong> Standard off-the-shelf LLMs hallucinate rest hours and miss statutory hard caps under <strong>DGCA Section & Amendments</strong> and IMO STCW 2010 Manila rules.</p>
+            <p><strong>Severe Legal Liability:</strong> A single illegal crew assignment risks immediate civil aviation grounding, aircraft impoundment, and massive regulatory fines. Safety-critical operations demand 100% mathematical guarantees.</p>
+          </div>
+        </div>
+        <div style="background: rgba(26,115,232,0.08); border-radius: 8px; padding: 14px; border: 1px dashed #93C5FD; font-size: 13px; color: #1E40AF;">
+          <strong>Solution:</strong> "The Model Translates, The Kernel Decides" — pure arithmetic containment.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>CrewOps • Autonomous Operations Control Center Platform</div>
+      <div>Slide 2 of 11</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SLIDE 3: HOLISTIC PLATFORM STRATEGY
+       ========================================================================= -->
+  <div class="slide">
+    <div class="top-brand-bar">
+      <div class="brand-logos">
+        <span><strong>Google DeepMind</strong> | <strong>Google Cloud</strong></span>
+        <span>•</span>
+        <span>Startup Buildathon India 2026</span>
+      </div>
+      <div style="font-size: 12px; font-weight: 600; color: #64748B;">
+        Holistic Platform Strategy
+      </div>
+    </div>
+
+    <div class="header-bar">
+      <div class="category-badge">HOLISTIC PLATFORM STRATEGY</div>
+      <div class="slide-title">The CrewOps Ecosystem: 4 Pillars of Operational Resilience</div>
+    </div>
+
+    <div class="content-area">
+      <!-- Pillar 1 -->
+      <div class="card" style="flex: 1; background: #EFF6FF; border-color: #BFDBFE;">
+        <div class="card-tag" style="color: #1A73E8;">PILLAR 1</div>
+        <div class="card-title">Voice-Supported Conversational Dispatch</div>
+        <div class="card-body">
+          <p style="margin-bottom: 10px;"><strong>Gemini Live 24kHz Streaming:</strong> Hands-free, low-latency audio via bidirectional WebSockets allows controllers to issue commands and query rosters while keeping their eyes locked on radar scopes.</p>
+          <p><strong>Natural Voice Interruption:</strong> Barge-in Voice Activity Detection (VAD) handles rapid back-and-forth dialogue under high-tempo OCC stress.</p>
+        </div>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="card" style="flex: 1; background: #ECFDF5; border-color: #A7F3D0;">
+        <div class="card-tag" style="color: #059669;">PILLAR 2</div>
+        <div class="card-title">72-Hour Predictive Disruption Radar</div>
+        <div class="card-body">
+          <p style="margin-bottom: 10px;"><strong>Multi-Horizon Lookahead:</strong> Forecasts weather frontlines, monsoon fog, and maritime tidal locks up to 72 hours in advance.</p>
+          <p><strong>Fatigue & Cap Projections:</strong> Flags approaching 7-day cumulative duty caps before flights become uncrewed, enabling proactive re-rostering.</p>
+        </div>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="card" style="flex: 1; background: #FFFBEB; border-color: #FDE68A;">
+        <div class="card-tag" style="color: #D97706;">PILLAR 3</div>
+        <div class="card-title">7-Step Configurable Decision Kernel</div>
+        <div class="card-body">
+          <p style="margin-bottom: 10px;"><strong>Deterministic 7-Step Solver:</strong> Synthesizes Airline Rules, Statutory Legality (DGCA Section & Amendments), Roster Availability, and Financial Cost Optimization.</p>
+          <p><strong>Zero Hallucinations:</strong> Pure Python arithmetic verifies legality in ~1.4ms, saving an average of <strong>-₹14,200</strong> per recovered pairing.</p>
+        </div>
+      </div>
+
+      <!-- Pillar 4 -->
+      <div class="card" style="flex: 1; background: #F5F3FF; border-color: #DDD6FE;">
+        <div class="card-tag" style="color: #7C3AED;">PILLAR 4</div>
+        <div class="card-title">Multi-Channel Automated Uplinks</div>
+        <div class="card-body">
+          <p style="margin-bottom: 10px;"><strong>Direct Cockpit & Vessel Uplinks:</strong> Instant automated dispatch across ARINC-620 ACARS (aircraft), Inmarsat-C Telex (vessels), and VHF Ch 16.</p>
+          <p><strong>Human-in-the-Loop Governance:</strong> Strict authorization gates ensure no command executes without the controller's explicit approval.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>CrewOps • Autonomous Operations Control Center Platform</div>
+      <div>Slide 3 of 11</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SLIDE 4: 5-TIER ENTERPRISE TOPOLOGY
+       ========================================================================= -->
+  <div class="slide">
+    <div class="top-brand-bar">
+      <div class="brand-logos">
+        <span><strong>Google DeepMind</strong> | <strong>Google Cloud</strong></span>
+        <span>•</span>
+        <span>Startup Buildathon India 2026</span>
+      </div>
+      <div style="font-size: 12px; font-weight: 600; color: #64748B;">
+        System Architecture: 5-Tier Design
+      </div>
+    </div>
+
+    <div class="header-bar">
+      <div class="category-badge">5-TIER CLOUD & EDGE INFRASTRUCTURE</div>
+      <div class="slide-title">System Architecture: End-to-End Enterprise Design</div>
+    </div>
+
+    <div class="content-area" style="flex-direction: column; gap: 14px; justify-content: center;">
+      <!-- Tier 1 -->
+      <div class="arch-layer-card" style="background: #EFF6FF; border-color: #BFDBFE;">
+        <div class="arch-layer-badge" style="color: #1A73E8;">
+          1. Presentation & Dispatch Layer
+        </div>
+        <div class="arch-layer-items">
+          • <strong>Next.js 15 Standalone OCC:</strong> App Router, TypeScript & Tailwind delivering 6 real-time operational views.<br>
+          • <strong>Modules:</strong> Live Crew Advisor • 24h Interactive Timeline Gantt • Unified Roster Matrix • 72h Disruption Radar • Admin Policy Console.
+        </div>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="arch-layer-card" style="background: #F5F3FF; border-color: #DDD6FE;">
+        <div class="arch-layer-badge" style="color: #7C3AED;">
+          2. Streaming & Intelligence Layer
+        </div>
+        <div class="arch-layer-items">
+          • <strong>Google Cloud Run (asia-south1):</strong> Managed FastAPI WebSocket server hosting Gemini Live 24kHz bidirectional audio streaming.<br>
+          • <strong>Intelligence:</strong> Gemini 2.0 Flash / Pro reasoning • Gemini Omni multimodal parser • Google DeepMind Lyria acoustic soundscapes.
+        </div>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="arch-layer-card" style="background: #ECFDF5; border-color: #A7F3D0;">
+        <div class="arch-layer-badge" style="color: #059669;">
+          3. Multi-Agent Orchestration Layer
+        </div>
+        <div class="arch-layer-items">
+          • <strong>Google Antigravity Swarm:</strong> 5-agent collaborative consensus loop over a shared digital event board.<br>
+          • <strong>Agents:</strong> Incident Commander (Detection) ➔ Compliance Kernel (Legality) ➔ Resource Optimizer (Cost) ➔ Dispatch Comms ➔ Containment Guard.
+        </div>
+      </div>
+
+      <!-- Tier 4 -->
+      <div class="arch-layer-card" style="background: #FFFBEB; border-color: #FDE68A;">
+        <div class="arch-layer-badge" style="color: #D97706;">
+          4. Deterministic Compliance Layer
+        </div>
+        <div class="arch-layer-items">
+          • <strong>Pure Python Kernel (Zero-LLM):</strong> 7-step configurable engine evaluating airline business rules, FDP limits, WOCL night caps, and rest buffers.<br>
+          • <strong>Optimization & Security:</strong> Bipartite Hungarian matching algorithm • Immutable SHA-256 evidence ledgers • Instant one-click rollback.
+        </div>
+      </div>
+
+      <!-- Tier 5 -->
+      <div class="arch-layer-card" style="background: #F0FDF4; border-color: #BBF7D0;">
+        <div class="arch-layer-badge" style="color: #15803D;">
+          5. Edge Cockpit & Fleet Layer
+        </div>
+        <div class="arch-layer-items">
+          • <strong>Offline Resilience:</strong> Google Gemma 2 (2B / 9B Instruct) & Gemini Nano deployed on Electronic Flight Bags (EFBs) & vessel bridge consoles.<br>
+          • <strong>Zero-Satellite Mode:</strong> Enables cockpit crew to compute legal duty periods locally during mid-ocean satellite blackout.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>CrewOps • Autonomous Operations Control Center Platform</div>
+      <div>Slide 4 of 11</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SLIDE 5: ENTERPRISE BLOCK DIAGRAM
+       ========================================================================= -->
+  <div class="slide">
+    <div class="top-brand-bar">
+      <div class="brand-logos">
+        <span><strong>Google DeepMind</strong> | <strong>Google Cloud</strong></span>
+        <span>•</span>
+        <span>Startup Buildathon India 2026</span>
+      </div>
+      <div style="font-size: 12px; font-weight: 600; color: #64748B;">
+        System Architecture Flow & Telemetry
+      </div>
+    </div>
+
+    <div class="header-bar">
+      <div class="category-badge">ENTERPRISE BLOCK DIAGRAM & DATA TELEMETRY</div>
+      <div class="slide-title">System Architecture Flow: End-to-End Pipeline & Integrations</div>
+    </div>
+
+    <div class="content-area" style="flex-direction: row; gap: 28px; align-items: stretch;">
+      <!-- Left: Architecture Diagram -->
+      <div class="screenshot-frame" style="flex: 1.4; padding: 12px; background: #0B1118;">
+        <img src="architecture_diagram.png" alt="CrewOps Architecture Flow Diagram" style="max-height: 700px; max-width: 100%; object-fit: contain;">
+      </div>
+
+      <!-- Right: Tiers Breakdown -->
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 14px; justify-content: space-between;">
+        <div class="card" style="flex: 1; background: #EFF6FF; border-color: #BFDBFE;">
+          <div class="card-tag" style="color: #1A73E8;">PRESENTATION & STREAMING</div>
+          <div class="card-title" style="font-size: 17px; margin-bottom: 6px;">Next.js 15 & Cloud Run Core</div>
+          <div class="card-body" style="font-size: 13.5px;">
+            • Continuous 24kHz audio streamed over bidirectional WebSockets via <strong>Google Gemini Live</strong>.<br>
+            • sub-16ms interactive UI rendering with automated serverless scaling on Google Cloud Run.
+          </div>
+        </div>
+
+        <div class="card" style="flex: 1; background: #ECFDF5; border-color: #A7F3D0;">
+          <div class="card-tag" style="color: #059669;">SWARM & DETERMINISTIC KERNEL</div>
+          <div class="card-title" style="font-size: 17px; margin-bottom: 6px;">Antigravity & Pure Python Engine</div>
+          <div class="card-body" style="font-size: 13.5px;">
+            • 5 collaborative subagents coordinate over a shared event board with zero hallucination risk.<br>
+            • 7-step decision pipeline solves complex pairing disruptions in <strong>&lt; 2 seconds</strong>.
+          </div>
+        </div>
+
+        <div class="card" style="flex: 1; background: #F0FDF4; border-color: #BBF7D0;">
+          <div class="card-tag" style="color: #15803D;">EDGE & OFFLINE COCKPIT</div>
+          <div class="card-title" style="font-size: 17px; margin-bottom: 6px;">Gemma 2 & Gemini Nano On-Device</div>
+          <div class="card-body" style="font-size: 13.5px;">
+            • Aircraft Electronic Flight Bags (EFBs) validate legality during satellite blackouts.<br>
+            • Multi-channel uplinks deliver approved rosters via ARINC-620 ACARS, Telex, and VHF Ch 16.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>CrewOps • Autonomous Operations Control Center Platform</div>
+      <div>Slide 5 of 11</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SLIDE 6: OCC CONSOLE SHOWCASE
+       ========================================================================= -->
+  <div class="slide">
+    <div class="top-brand-bar">
+      <div class="brand-logos">
+        <span><strong>Google DeepMind</strong> | <strong>Google Cloud</strong></span>
+        <span>•</span>
+        <span>Startup Buildathon India 2026</span>
+      </div>
+      <div style="font-size: 12px; font-weight: 600; color: #64748B;">
+        Live Product UI: OCC Command Console
+      </div>
+    </div>
+
+    <div class="header-bar">
+      <div class="category-badge">REAL-TIME OPERATIONAL INTELLIGENCE</div>
+      <div class="slide-title">OCC Command Console: Sub-2s Disruption Triage & Candidate Ranking</div>
+    </div>
+
+    <div class="content-area">
+      <div style="flex: 0 0 520px; display: flex; flex-direction: column; justify-content: center;">
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 700; color: #0F172A; margin-bottom: 16px;">
+          Sub-2s Triage with Deterministic Cost Optimization
+        </h3>
+        <ul style="font-size: 15px; line-height: 1.6; color: #334155; padding-left: 20px; margin-bottom: 20px;">
+          <li style="margin-bottom: 10px;"><strong>Instant Disruption Containment:</strong> Ingests live delay alerts across 147 active scheduled flights and flags uncrewed sectors instantly.</li>
+          <li style="margin-bottom: 10px;"><strong>Deterministic Pilot Ranking:</strong> Evaluates all active captains against DGCA Section & Amendments, ranking standby pilot <strong>C-3310</strong> with zero legal violations.</li>
+          <li style="margin-bottom: 10px;"><strong>-₹14,200 Cost Optimization:</strong> Bipartite Hungarian solver calculates deadheading, overtime, and hotel costs, yielding 43% net operational savings.</li>
+          <li><strong>One-Click ACARS Uplink:</strong> Human controller reviews the cryptographic evidence ledger and triggers immediate uplink delivery to aircraft cockpit.</li>
+        </ul>
+        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; padding: 12px 16px; font-size: 13.5px; color: #065F46;">
+          <strong>Audited Metric:</strong> Disruption triage latency reduced from 45 minutes to under 2 seconds with zero hallucinations.
+        </div>
+      </div>
+
+      <div class="screenshot-frame" style="flex: 1;">
+        <img src="screenshots/screenshot_console.png" alt="OCC Command Console Screenshot">
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>CrewOps • Autonomous Operations Control Center Platform</div>
+      <div>Slide 6 of 11</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SLIDE 7: VOICE-SUPPORTED DISPATCH & GOOGLE AI
+       ========================================================================= -->
+  <div class="slide">
+    <div class="top-brand-bar">
+      <div class="brand-logos">
+        <span><strong>Google DeepMind</strong> | <strong>Google Cloud</strong></span>
+        <span>•</span>
+        <span>Startup Buildathon India 2026</span>
+      </div>
+      <div style="font-size: 12px; font-weight: 600; color: #64748B;">
+        Google AI Model Integration
+      </div>
+    </div>
+
+    <div class="header-bar">
+      <div class="category-badge">GOOGLE AI MODEL INTEGRATION</div>
+      <div class="slide-title">Full-Spectrum Google AI Ecosystem: Cloud Reasoning to Edge Offline</div>
+    </div>
+
+    <div class="content-area" style="flex-direction: column; gap: 20px;">
+      <!-- Section 1 -->
+      <div class="card" style="background: #EFF6FF; border-color: #BFDBFE;">
+        <div class="card-tag" style="color: #1A73E8;">1. CLOUD REASONING & MULTIMODAL STREAMING ENGINES</div>
+        <div class="card-title" style="font-size: 20px;">Gemini Live, Gemini Omni & Gemini 2.0 Flash</div>
+        <div class="card-body" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 10px;">
+          <div>
+            <div style="font-weight: 700; color: #0F172A; margin-bottom: 4px;">Gemini Live (24kHz Voice)</div>
+            <p style="font-size: 14px; color: #334155;">Continuous bidirectional WebSocket audio streaming enables controllers to command emergency recoveries hands-free with headset VAD.</p>
+          </div>
+          <div>
+            <div style="font-weight: 700; color: #0F172A; margin-bottom: 4px;">Gemini Omni (Multimodal)</div>
+            <p style="font-size: 14px; color: #334155;">Processes streaming voice directives, dense tabular rosters, and live 2D radar/timeline maps simultaneously without information loss.</p>
+          </div>
+          <div>
+            <div style="font-weight: 700; color: #0F172A; margin-bottom: 4px;">Gemini 2.0 Flash / Pro</div>
+            <p style="font-size: 14px; color: #334155;">Translates natural language dispatch instructions into strictly typed function declarations for the deterministic compliance kernel.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="card" style="background: #ECFDF5; border-color: #A7F3D0;">
+        <div class="card-tag" style="color: #059669;">2. EDGE OFFLINE RESILIENCE & OPERATIONAL AUDIO (COCKPIT & FLEET)</div>
+        <div class="card-title" style="font-size: 20px;">Google Gemma 2, Gemini Nano & DeepMind Lyria</div>
+        <div class="card-body" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 10px;">
+          <div>
+            <div style="font-weight: 700; color: #0F172A; margin-bottom: 4px;">Google Gemma 2 (2B / 9B)</div>
+            <p style="font-size: 14px; color: #334155;">Open-weights SLM deployed directly on aircraft EFBs and vessel bridge consoles for localized compliance checks during satellite blackouts.</p>
+          </div>
+          <div>
+            <div style="font-weight: 700; color: #0F172A; margin-bottom: 4px;">Gemini Nano / Banana</div>
+            <p style="font-size: 14px; color: #334155;">Ultra-low-latency on-device SLM powering handheld mobile duty triage on pilot and crew tablets with zero cloud roundtrips.</p>
+          </div>
+          <div>
+            <div style="font-weight: 700; color: #0F172A; margin-bottom: 4px;">Google DeepMind Lyria</div>
+            <p style="font-size: 14px; color: #334155;">Procedural acoustic engine synthesizing 24kHz operational soundscapes: critical uncrewed earcons, ARINC ACARS chimes, and VHF squawks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>CrewOps • Autonomous Operations Control Center Platform</div>
+      <div>Slide 7 of 11</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SLIDE 8: TIMELINE GANTT & ROSTER
+       ========================================================================= -->
+  <div class="slide">
+    <div class="top-brand-bar">
+      <div class="brand-logos">
+        <span><strong>Google DeepMind</strong> | <strong>Google Cloud</strong></span>
+        <span>•</span>
+        <span>Startup Buildathon India 2026</span>
+      </div>
+      <div style="font-size: 12px; font-weight: 600; color: #64748B;">
+        Live Product UI: Visual Schedule Gantt
+      </div>
+    </div>
+
+    <div class="header-bar">
+      <div class="category-badge">OPERATIONAL SCHEDULE TIMELINE & ROSTER</div>
+      <div class="slide-title">24-Hour Visual Schedule Timeline Gantt & Reserve Availability</div>
+    </div>
+
+    <div class="content-area">
+      <div style="flex: 0 0 520px; display: flex; flex-direction: column; justify-content: center;">
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 700; color: #0F172A; margin-bottom: 16px;">
+          Visual Fleet Management with WOCL Night Tracking
+        </h3>
+        <ul style="font-size: 15px; line-height: 1.6; color: #334155; padding-left: 20px; margin-bottom: 20px;">
+          <li style="margin-bottom: 10px;"><strong>Interactive Gantt Schedule:</strong> Visualizes 24-hour fleet schedules across tails VT-DXA through VT-DXF with color-coded operational states.</li>
+          <li style="margin-bottom: 10px;"><strong>WOCL Night Duty Caps:</strong> Real-time tracking of Window of Circadian Low (02:00–06:00) duty incursions with automatic statutory buffer deductions.</li>
+          <li style="margin-bottom: 10px;"><strong>Live Airport Reserve Pools:</strong> Color-coded standby reserve matrix across DEL, BOM, BLR, CCU, and HYD hubs.</li>
+          <li><strong>Turnaround Optimization:</strong> Automatically adjusts aircraft turn buffers to absorb knock-on ground delay propagation.</li>
+        </ul>
+        <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 12px 16px; font-size: 13.5px; color: #1E40AF;">
+          <strong>Roster Capacity:</strong> Manages 150 active crew members, 39 pairings, and 16 standby reserves concurrently.
+        </div>
+      </div>
+
+      <div class="screenshot-frame" style="flex: 1;">
+        <img src="screenshots/screenshot_flights.png" alt="Schedule Timeline Gantt Screenshot">
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>CrewOps • Autonomous Operations Control Center Platform</div>
+      <div>Slide 8 of 11</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SLIDE 9: REGULATORY POLICY ENGINE
+       ========================================================================= -->
+  <div class="slide">
+    <div class="top-brand-bar">
+      <div class="brand-logos">
+        <span><strong>Google DeepMind</strong> | <strong>Google Cloud</strong></span>
+        <span>•</span>
+        <span>Startup Buildathon India 2026</span>
+      </div>
+      <div style="font-size: 12px; font-weight: 600; color: #64748B;">
+        Live Product UI: Regulatory Policy Engine
+      </div>
+    </div>
+
+    <div class="header-bar">
+      <div class="category-badge">DETERMINISTIC REGULATORY GOVERNANCE</div>
+      <div class="slide-title">Mission-Control Policy Engine: Zero-Violation Hard Gates</div>
+    </div>
+
+    <div class="content-area">
+      <div style="flex: 0 0 520px; display: flex; flex-direction: column; justify-content: center;">
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 700; color: #0F172A; margin-bottom: 16px;">
+          Certified Statutory Presets & 42-Assertion Test Matrix
+        </h3>
+        <ul style="font-size: 15px; line-height: 1.6; color: #334155; padding-left: 20px; margin-bottom: 20px;">
+          <li style="margin-bottom: 10px;"><strong>Certified Statutory Presets:</strong> One-click regulatory modes for DGCA CAR Section 7, Monsoon Weather Guard, and High-Tempo Flexibility.</li>
+          <li style="margin-bottom: 10px;"><strong>Tactical Precision Steppers:</strong> Exact step adjustments replace imprecise sliders with legal range spectrum barometers.</li>
+          <li style="margin-bottom: 10px;"><strong>42 / 42 Conformance Scorecard:</strong> Live diagnostic test terminal verifying rest buffers and duty caps in <strong>0.44ms</strong> with 100% pass rate.</li>
+          <li><strong>Cryptographic Audit & Rollback:</strong> Immutable SHA-256 policy ledger with instant one-click reversion to previous audited states.</li>
+        </ul>
+        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; padding: 12px 16px; font-size: 13.5px; color: #065F46;">
+          <strong>Zero Violation Guarantee:</strong> Hard gate rejects any dispatch command exceeding statutory limits.
+        </div>
+      </div>
+
+      <div class="screenshot-frame" style="flex: 1;">
+        <img src="screenshots/screenshot_admin.png" alt="Regulatory Policy Engine Screenshot">
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>CrewOps • Autonomous Operations Control Center Platform</div>
+      <div>Slide 9 of 11</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SLIDE 10: 72H PREDICTIVE RADAR
+       ========================================================================= -->
+  <div class="slide">
+    <div class="top-brand-bar">
+      <div class="brand-logos">
+        <span><strong>Google DeepMind</strong> | <strong>Google Cloud</strong></span>
+        <span>•</span>
+        <span>Startup Buildathon India 2026</span>
+      </div>
+      <div style="font-size: 12px; font-weight: 600; color: #64748B;">
+        Live Product UI: 72h Predictive Radar
+      </div>
+    </div>
+
+    <div class="header-bar">
+      <div class="category-badge">PREDICTIVE DISRUPTION RADAR</div>
+      <div class="slide-title">72-Hour Multi-Horizon Radar: Weather Fronts & Cumulative Fatigue</div>
+    </div>
+
+    <div class="content-area">
+      <div style="flex: 0 0 520px; display: flex; flex-direction: column; justify-content: center;">
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 700; color: #0F172A; margin-bottom: 16px;">
+          Multi-Horizon Lookahead: Preempting Disruption Cascades
+        </h3>
+        <ul style="font-size: 15px; line-height: 1.6; color: #334155; padding-left: 20px; margin-bottom: 20px;">
+          <li style="margin-bottom: 10px;"><strong>Predictive Weather Frontlines:</strong> Ingests high-resolution meteorological radar to forecast CAT-III fog and monsoon thunderstorms 72 hours out.</li>
+          <li style="margin-bottom: 10px;"><strong>Maritime Tidal Lock Gates:</strong> Models tidal window constraints for container feeder vessels entering shallow European and Indian ports.</li>
+          <li style="margin-bottom: 10px;"><strong>Cumulative Fatigue Curves:</strong> Identifies crew members approaching 7-day (60h) and 28-day statutory caps before flights depart.</li>
+          <li><strong>Proactive Schedule Re-Pairing:</strong> Shifts pairings days before ground stops trigger, avoiding last-minute hotel stays and cancellation fees.</li>
+        </ul>
+        <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 12px 16px; font-size: 13.5px; color: #92400E;">
+          <strong>Foresight Window:</strong> Converts reactive fire-fighting into planned, zero-delay strategic roster rebalancing.
+        </div>
+      </div>
+
+      <div class="screenshot-frame" style="flex: 1;">
+        <img src="screenshots/screenshot_intelligence.png" alt="72h Predictive Radar Screenshot">
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>CrewOps • Autonomous Operations Control Center Platform</div>
+      <div>Slide 10 of 11</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SLIDE 11: MEASURABLE OUTCOMES & BUSINESS MODEL
+       ========================================================================= -->
+  <div class="slide">
+    <div class="top-brand-bar">
+      <div class="brand-logos">
+        <span><strong>Google DeepMind</strong> | <strong>Google Cloud</strong></span>
+        <span>•</span>
+        <span>Startup Buildathon India 2026</span>
+      </div>
+      <div style="font-size: 12px; font-weight: 600; color: #64748B;">
+        Business Model & Measurable Impact
+      </div>
+    </div>
+
+    <div class="header-bar">
+      <div class="category-badge">MEASURABLE OUTCOMES & SCALING ROADMAP</div>
+      <div class="slide-title">Transformative Impact Benchmarks, Unit Economics & Market Opportunity</div>
+    </div>
+
+    <div class="content-area" style="flex-direction: column; gap: 16px;">
+      <!-- Benchmarks Row -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;">
+        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 12px; padding: 16px 20px;">
+          <div style="font-size: 11.5px; font-weight: 800; color: #059669; text-transform: uppercase; margin-bottom: 4px;">TRIAGE LATENCY</div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 800; color: #065F46; line-height: 1.1;">99.9% FASTER</div>
+          <div style="font-size: 13px; color: #059669; margin-top: 4px;">45 min Lag ➔ &lt; 2.0s Triage</div>
+        </div>
+
+        <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 12px; padding: 16px 20px;">
+          <div style="font-size: 11.5px; font-weight: 800; color: #1A73E8; text-transform: uppercase; margin-bottom: 4px;">LEGAL CONFORMANCE</div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 800; color: #1E40AF; line-height: 1.1;">100% PROVEN</div>
+          <div style="font-size: 13px; color: #1A73E8; margin-top: 4px;">42 / 42 Conformance Tests</div>
+        </div>
+
+        <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 12px; padding: 16px 20px;">
+          <div style="font-size: 11.5px; font-weight: 800; color: #D97706; text-transform: uppercase; margin-bottom: 4px;">COST OPTIMIZATION</div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 800; color: #92400E; line-height: 1.1;">-₹14,200 (43%)</div>
+          <div style="font-size: 13px; color: #D97706; margin-top: 4px;">Net Savings per Disrupted Sector</div>
+        </div>
+
+        <div style="background: #F5F3FF; border: 1px solid #DDD6FE; border-radius: 12px; padding: 16px 20px;">
+          <div style="font-size: 11.5px; font-weight: 800; color: #7C3AED; text-transform: uppercase; margin-bottom: 4px;">GROSS MARGINS</div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 800; color: #5B21B6; line-height: 1.1;">84%+ MARGIN</div>
+          <div style="font-size: 13px; color: #7C3AED; margin-top: 4px;">High-Margin Enterprise SaaS</div>
+        </div>
+      </div>
+
+      <!-- Bottom Details Row -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; flex: 1;">
+        <!-- Market Sizing -->
+        <div class="card" style="background: #F8FAFC; border-color: #E2E8F0;">
+          <div class="card-tag" style="color: #1A73E8;">MARKET OPPORTUNITY (TAM / SAM / SOM)</div>
+          <div class="card-title" style="font-size: 19px; margin-bottom: 8px;">Addressable Market Across Aviation & Maritime</div>
+          <div class="card-body" style="font-size: 14px; line-height: 1.6;">
+            <p style="margin-bottom: 8px;">• <strong>Total Addressable Market (TAM): $42.5 Billion</strong> — Mission-critical operations & dispatch management across commercial aviation ($12B), maritime fleet logistics ($6.5B), and freight intermodal transit.</p>
+            <p style="margin-bottom: 8px;">• <strong>Serviceable Available Market (SAM): $8.2 Billion</strong> — Mid-to-large tier commercial carriers with active 24/7 Operations Control Centers bound by strict statutory duty rest laws.</p>
+            <p>• <strong>Serviceable Obtainable Market (SOM): $280 Million (Years 1–3)</strong> — Beachhead: Regional & Low-Cost Carriers (LCCs) and short-sea container feeder operators in India, Southeast Asia, and Middle East hubs.</p>
+          </div>
+        </div>
+
+        <!-- Business Model -->
+        <div class="card" style="background: #F8FAFC; border-color: #E2E8F0;">
+          <div class="card-tag" style="color: #059669;">ENTERPRISE B2B SAAS MODEL & UNIT ECONOMICS</div>
+          <div class="card-title" style="font-size: 19px; margin-bottom: 8px;">Annual Recurring Revenue (ARR) & Payback</div>
+          <div class="card-body" style="font-size: 14px; line-height: 1.6;">
+            <p style="margin-bottom: 8px;">• <strong>Tier 1 (Regional / Mid-Market): $120,000 / year</strong> — Up to 50 active aircraft/vessels, 1 OCC hub, 5 dispatcher seats, full DGCA compliance suite.</p>
+            <p style="margin-bottom: 8px;">• <strong>Tier 2 (Large Enterprise Carrier): $350,000 / year</strong> — Up to 200 aircraft, multi-hub radar, 20 seats, continuous Gemini Live 24kHz voice copilot.</p>
+            <p style="margin-bottom: 8px;">• <strong>Tier 3 (Flagship / Global Conglomerate): $850,000+ / year</strong> — Unlimited fleet, multi-modal aviation & maritime, offline Gemma 2 edge instances.</p>
+            <p>• <strong>Compelling ROI:</strong> Preventing just <strong>4 crew timeouts per month</strong> saves over $100,000/month, recouping the entire annual license in <strong>under 60 days</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div>CrewOps • Autonomous Operations Control Center Platform</div>
+      <div>Slide 11 of 11</div>
+    </div>
+  </div>
+
+</body>
+</html>
+"""
+
+with open('/Volumes/DiskD/HACKATHONS/Hackathons 2.0 Nov 2026/Crew-ops/submission/deck_slides.html', 'w') as f:
+    f.write(HTML_CONTENT)
+
+print("Saved deck_slides.html successfully!")
