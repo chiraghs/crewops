@@ -300,13 +300,15 @@ tf7.clear()
 tf7.word_wrap = True
 tf7.margin_left = tf7.margin_right = tf7.margin_top = tf7.margin_bottom = 0
 
-add_header_paragraph(tf7, "FULL-SPECTRUM GOOGLE AI MODEL ECOSYSTEM (CLOUD TO EDGE)", color=GOOGLE_BLUE, space_before=Pt(0), font_size=Pt(11))
-add_bullet_paragraph(tf7, "Gemini 2.0 Flash & Gemini 1.5 Pro", "Primary cloud reasoning engines translating free-form speech and unstructured controller queries into verified compliance tool executions with low latency.", font_size=Pt(9.0))
-add_bullet_paragraph(tf7, "Gemini Omni", "Multimodal intelligence engine processing streaming voice directives, dense tabular rosters, and live 2D radar/timeline maps simultaneously.", font_size=Pt(9.0))
-add_bullet_paragraph(tf7, "Gemini Live", "Continuous 24kHz bidirectional WebSocket voice streaming engine enabling natural, interruptible conversational dialogue during high-tempo OCC emergencies.", font_size=Pt(9.0))
-add_bullet_paragraph(tf7, "Google Gemma 2 (2B / 9B Instruct)", "Open-weights models deployed on aircraft EFBs and vessel bridge consoles for localized, offline compliance validation when disconnected from cloud networks.", font_size=Pt(9.0))
-add_bullet_paragraph(tf7, "Gemini Nano / Nano Banana", "Ultra-low-latency on-device SLM powering handheld mobile triage on pilot/crew tablets with zero cloud roundtrips.", font_size=Pt(9.0))
-add_bullet_paragraph(tf7, "Google DeepMind Lyria", "Procedural acoustic audio engine (audio.py) synthesizing 24kHz operational soundscapes: critical uncrewed earcons, ARINC ACARS data chimes, and VHF Ch 16 squawks.", font_size=Pt(9.0))
+add_header_paragraph(tf7, "1. CLOUD REASONING & MULTIMODAL STREAMING ENGINES", color=GOOGLE_BLUE, space_before=Pt(0), font_size=Pt(10.5))
+add_bullet_paragraph(tf7, "Gemini 2.0 Flash & Gemini 1.5 Pro", "Primary cloud reasoning engines translating free-form speech and unstructured controller queries into verified compliance tool executions with low latency.", font_size=Pt(8.7), space_after=Pt(2.0))
+add_bullet_paragraph(tf7, "Gemini Omni", "Multimodal intelligence engine processing streaming voice directives, dense tabular rosters, and live 2D radar/timeline maps simultaneously.", font_size=Pt(8.7), space_after=Pt(2.0))
+add_bullet_paragraph(tf7, "Gemini Live", "Continuous 24kHz bidirectional WebSocket voice streaming engine enabling natural, interruptible conversational dialogue during high-tempo OCC emergencies.", font_size=Pt(8.7), space_after=Pt(2.0))
+
+add_header_paragraph(tf7, "2. EDGE OFFLINE RESILIENCE & OPERATIONAL AUDIO (COCKPIT & VESSEL)", color=GOOGLE_GREEN, space_before=Pt(7), font_size=Pt(10.5))
+add_bullet_paragraph(tf7, "Google Gemma 2 (2B / 9B Instruct)", "Open-weights models deployed on aircraft EFBs and vessel bridge consoles for localized, offline compliance validation when disconnected from cloud networks.", font_size=Pt(8.7), space_after=Pt(2.0))
+add_bullet_paragraph(tf7, "Gemini Nano / Nano Banana", "Ultra-low-latency on-device SLM powering handheld mobile triage on pilot/crew tablets with zero cloud roundtrips.", font_size=Pt(8.7), space_after=Pt(2.0))
+add_bullet_paragraph(tf7, "Google DeepMind Lyria", "Procedural acoustic audio engine (audio.py) synthesizing 24kHz operational soundscapes: critical uncrewed earcons, ARINC ACARS data chimes, and VHF Ch 16 squawks.", font_size=Pt(8.7), space_after=Pt(2.0))
 
 # ==============================================================================
 # Slide 8: Live Product UI Showcase 1 (OCC Console & 72h Predictive Radar)
