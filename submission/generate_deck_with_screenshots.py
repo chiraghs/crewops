@@ -218,52 +218,26 @@ r.font.size = Pt(8.2)
 r.font.color.rgb = DARK_TEXT
 
 # ==============================================================================
-# Slide 5: Solution Architecture (2-Column with Admin Engine Screenshot)
+# Slide 5: Solution Architecture (Full Architecture Diagram)
 # ==============================================================================
 slide5 = prs.slides[4]
 slide5.shapes[1].width = Inches(8.8)
+
+# Clear any text in placeholder textbox
 tb5 = slide5.shapes[2]
-tb5.left = Inches(0.48)
-tb5.top = Inches(1.65)
-tb5.width = Inches(4.9)
-tb5.height = Inches(3.7)
-tf5 = tb5.text_frame
-tf5.clear()
-tf5.word_wrap = True
-tf5.margin_left = tf5.margin_right = tf5.margin_top = tf5.margin_bottom = 0
+tb5.text_frame.clear()
+tb5.left = Inches(0)
+tb5.top = Inches(0)
+tb5.width = Inches(0.01)
+tb5.height = Inches(0.01)
 
-add_header_paragraph(tf5, "MULTI-TIERED ENTERPRISE TOPOLOGY", color=GOOGLE_BLUE, space_before=Pt(0), font_size=Pt(10.5))
-add_bullet_paragraph(tf5, "Presentation Tier (Next.js 15 Standalone OCC)", "Next.js 15 (App Router, TypeScript, Tailwind CSS) delivering 6 real-time operational views: Live Crew Advisor, 24h Interactive Timeline Gantt, Unified Roster, 72h Intelligence Radar, and Admin Console.", font_size=Pt(8.5))
-add_bullet_paragraph(tf5, "Streaming & Intelligence Tier (Google Cloud Run)", "Managed FastAPI & WebSocket server hosting Gemini Live 24kHz audio streaming with Voice Activity Detection (VAD) and sub-50ms REST API dispatch.", font_size=Pt(8.5))
-add_bullet_paragraph(tf5, "Orchestration Tier (Google Antigravity Swarm)", "5-agent collaborative consensus loop ensuring separation of concerns: Incident Commander -> Compliance Kernel -> Resource Optimizer -> Dispatch Comms -> Containment Guard.", font_size=Pt(8.5))
-add_bullet_paragraph(tf5, "Deterministic Compliance Tier (Pure Python Kernel)", "7-step configurable engine evaluating airline business rules, FDP limits, mandatory rest buffers, rolling caps, and financial overtime optimization.", font_size=Pt(8.5))
-add_bullet_paragraph(tf5, "Edge Cockpit & Vessel Tier (Offline Resilience)", "Google Gemma 2 (2B/9B) & Gemini Nano models enable aircraft Electronic Flight Bags (EFBs) and shipboard bridge terminals to compute legal duty hours locally during satellite blackouts.", font_size=Pt(8.5))
-
-# Add Screenshot of Admin Console on Right
+# Add Full-Width Architecture Diagram (replacing bullet points)
 pic5 = slide5.shapes.add_picture(
-    os.path.join(SCREENSHOT_DIR, "screenshot_admin.png"),
-    Inches(5.55), Inches(1.68), Inches(3.98), Inches(2.49)
+    os.path.join(BASE_DIR, "architecture_diagram.png"),
+    Inches(0.48), Inches(1.78), Inches(9.04), Inches(3.55)
 )
 pic5.line.color.rgb = BORDER_COLOR
 pic5.line.width = Pt(1)
-
-# Caption under pic5
-tb_cap5 = slide5.shapes.add_textbox(Inches(5.55), Inches(4.25), Inches(3.98), Inches(1.0))
-tf_cap5 = tb_cap5.text_frame
-tf_cap5.word_wrap = True
-tf_cap5.margin_left = tf_cap5.margin_right = tf_cap5.margin_top = tf_cap5.margin_bottom = 0
-p = tf_cap5.paragraphs[0]
-r = p.add_run()
-r.text = "▲ Regulatory & Policy Engine: "
-r.font.name = FONT_TITLE
-r.font.size = Pt(8.5)
-r.font.bold = True
-r.font.color.rgb = GOOGLE_BLUE
-r = p.add_run()
-r.text = "Interactive parameter tuning for DGCA CAR Sec 7 & IMO STCW 2010 rules with 42/42 deterministic regression tests passing in <50ms."
-r.font.name = FONT_BODY
-r.font.size = Pt(8.2)
-r.font.color.rgb = DARK_TEXT
 
 # ==============================================================================
 # Slide 6: Google AI Tools
