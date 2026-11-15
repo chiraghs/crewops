@@ -2588,3 +2588,293 @@ input, select { font: inherit; color: inherit; }
 .live-item{padding:3px 9px;border-radius:11px;font-size:.68rem;cursor:pointer;
   border:1px solid var(--brand-orange);background:rgba(214,138,48,.10);color:var(--ink-primary)}
 .live-item:hover{filter:brightness(1.1)}
+
+/* ==========================================================================
+   ENTERPRISE REGULATORY & POLICY ENGINE STYLING
+   ========================================================================== */
+.enterprise-admin-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.ent-ribbon-card {
+    background: var(--surface-1);
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.ent-ribbon-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #10b981, #0284c7, #6366f1);
+}
+
+.ent-breadcrumb-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.68rem;
+    font-family: var(--font-mono);
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.ent-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.ent-badge-pill.green {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: #10b981;
+}
+
+.ent-badge-pill.blue {
+    background: rgba(2, 132, 199, 0.12);
+    border: 1px solid rgba(2, 132, 199, 0.35);
+    color: #38bdf8;
+}
+
+.ent-badge-pill.amber {
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    color: #fbbf24;
+}
+
+.ent-badge-pill.red {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #f87171;
+}
+
+.ent-status-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--hairline);
+    font-size: 0.72rem;
+    color: var(--ink-secondary);
+}
+
+.ent-status-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+}
+
+.ent-rule-card {
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.ent-rule-card:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.ent-rule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.ent-rule-code {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--brand-green-strong);
+    background: rgba(16, 185, 129, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.ent-rule-citation {
+    font-size: 0.66rem;
+    font-family: var(--font-mono);
+    color: var(--ink-muted);
+    margin-top: 2px;
+    display: block;
+}
+
+.ent-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--hairline);
+}
+
+.ent-stat-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.ent-stat-lbl {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+}
+
+.ent-stat-val {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: var(--ink-primary);
+    margin-top: 1px;
+}
+
+.ent-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.ent-slider-input {
+    flex: 1;
+    accent-color: var(--brand-green-strong);
+    cursor: pointer;
+}
+
+.ent-num-stepper {
+    width: 65px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--hairline);
+    background: var(--surface-1);
+    color: var(--ink-primary);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-align: right;
+}
+
+.ent-impact-pill {
+    margin-top: 8px;
+    font-size: 0.68rem;
+    color: var(--ink-secondary);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Conformance Test Runner & Diagnostic Terminal */
+.ent-conformance-card {
+    background: var(--surface-1);
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+}
+
+.ent-test-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.ent-test-cat-pill {
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ent-terminal-box {
+    background: #090d16;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: #38bdf8;
+    max-height: 160px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.ent-terminal-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.ent-terminal-line .t-time { color: #64748b; }
+.ent-terminal-line .t-pass { color: #10b981; font-weight: 700; }
+.ent-terminal-line .t-hash { color: #94a3b8; }
+
+/* Ledger Table */
+.ent-ledger-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.74rem;
+    margin-top: 8px;
+}
+
+.ent-ledger-table th {
+    text-align: left;
+    padding: 8px 10px;
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--ink-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.ent-ledger-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--hairline);
+    color: var(--ink-secondary);
+}
+
+.ent-ledger-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--ink-primary);
+}

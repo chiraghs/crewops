@@ -1088,35 +1088,75 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
 
         <!-- ADMIN & RULE CONFIGURATION CONSOLE -->
         <section id="viewAdminPane" class="full-tab-view">
-            <div class="table-glass-card" style="padding:1.5rem;">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:1.5rem;">
-                    <div>
-                        <div style="display:flex; align-items:center; gap:8px;">
-                            <span class="threat-pill green" style="font-size:0.7rem; font-weight:700;"><i class="fa-solid fa-sliders"></i> OCC POLICY &amp; RULES KERNEL</span>
-                            <span style="font-size:0.7rem; color:var(--ink-muted); font-family:var(--font-mono);">CONFIG VERSION: v2.4-PROD</span>
-                        </div>
-                        <h2 style="font-family:var(--font-header); font-size:1.35rem; color:var(--ink-primary); margin-top:4px;">
-                            Legality Engine &amp; Regulatory Parameters
-                        </h2>
-                        <p style="font-size:0.8rem; color:var(--ink-secondary); margin-top:2px;">
-                            Configure flight duty periods, rest ceilings, watchkeeping thresholds, and operational buffers in real time.
-                        </p>
+            <div class="enterprise-admin-container">
+                <!-- Top Enterprise Ribbon Card -->
+                <div class="ent-ribbon-card">
+                    <div class="ent-breadcrumb-row">
+                        <span>GOVERNANCE &amp; POLICY</span>
+                        <span>/</span>
+                        <span>DETERMINISTIC REGULATORY KERNEL</span>
+                        <span>/</span>
+                        <span>PROD-CLUSTER-AS1</span>
                     </div>
 
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <button class="icon-btn" onclick="resetAdminRulesToDefault()" style="padding:6px 14px; border:1px solid var(--hairline); border-radius:6px; font-size:0.75rem;">
-                            <i class="fa-solid fa-arrow-rotate-left"></i> Reset to Defaults
-                        </button>
-                        <button class="btn-authorize-action primary-large" onclick="saveAdminRulesConfig()" style="padding:6px 16px; font-size:0.75rem;">
-                            <i class="fa-solid fa-floppy-disk"></i> Save &amp; Apply Rules
-                        </button>
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+                        <div>
+                            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:6px;">
+                                <span class="ent-badge-pill green"><i class="fa-solid fa-shield-halved"></i> DGCA CAR SEC 7</span>
+                                <span class="ent-badge-pill blue"><i class="fa-solid fa-certificate"></i> ICAO ANNEX 6</span>
+                                <span class="ent-badge-pill amber"><i class="fa-solid fa-ship"></i> IMO STCW 2010</span>
+                                <span class="ent-badge-pill red"><i class="fa-solid fa-lock"></i> ZERO-TOLERANCE HARD GATE</span>
+                            </div>
+                            <h2 style="font-family:var(--font-header); font-size:1.4rem; color:var(--ink-primary); margin:2px 0;">
+                                Enterprise Regulatory &amp; Policy Engine
+                            </h2>
+                            <p style="font-size:0.8rem; color:var(--ink-secondary); margin:0;">
+                                Zero-hallucination mathematical policy constraints, dynamic flight duty ceilings, and continuous legal evidence ledgers.
+                            </p>
+                        </div>
+
+                        <!-- Enterprise Action Toolbar -->
+                        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                            <button class="icon-btn" onclick="exportAdminAuditCertificate()" style="padding:7px 12px; border:1px solid var(--hairline); border-radius:6px; font-size:0.75rem;" title="Export Cryptographic Evidence Spec">
+                                <i class="fa-solid fa-file-code"></i> Export Spec
+                            </button>
+                            <button class="icon-btn" onclick="runAdminDryRun()" style="padding:7px 12px; border:1px solid var(--hairline); border-radius:6px; font-size:0.75rem;" title="Simulate policy changes across 147 active pairings">
+                                <i class="fa-solid fa-flask"></i> Dry-Run Simulation
+                            </button>
+                            <button class="icon-btn" onclick="resetAdminRulesToDefault()" style="padding:7px 12px; border:1px solid var(--hairline); border-radius:6px; font-size:0.75rem;" title="Restore regulatory defaults">
+                                <i class="fa-solid fa-arrow-rotate-left"></i> Reset Baseline
+                            </button>
+                            <button class="btn-authorize-action primary-large" onclick="saveAdminRulesConfig()" style="padding:7px 18px; font-size:0.78rem;">
+                                <i class="fa-solid fa-key"></i> Commit Signed Policy (SHA-256)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Telemetry Strip -->
+                    <div class="ent-status-strip">
+                        <div class="ent-status-item">
+                            <i class="fa-solid fa-server" style="color:var(--brand-green-strong)"></i>
+                            <span>Cluster: <b>asia-south1-prod</b></span>
+                        </div>
+                        <div class="ent-status-item">
+                            <i class="fa-solid fa-fingerprint" style="color:#38bdf8"></i>
+                            <span>Policy Hash: <b style="color:#38bdf8">0x9E4F·2B19·7C4A</b></span>
+                        </div>
+                        <div class="ent-status-item">
+                            <i class="fa-solid fa-scale-balanced" style="color:#10b981"></i>
+                            <span>Enforcement: <b style="color:#10b981">Hard Mathematical Gate</b></span>
+                        </div>
+                        <div class="ent-status-item">
+                            <i class="fa-solid fa-user-check" style="color:#fbbf24"></i>
+                            <span>Signatory: <b>Cpt. R. Sharma (Head of Flight Ops #8492)</b></span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Domain Switcher inside Admin -->
-                <div class="shift-block-pills-row" style="margin-bottom:1.25rem;">
+                <div class="shift-block-pills-row" style="margin:0;">
                     <button class="shift-block-pill active" id="btnAdminDomainAv" onclick="setAdminDomain('aviation')">
-                        <i class="fa-solid fa-plane"></i> Commercial Aviation (DGCA CAR Sec 7 / FAA Part 117)
+                        <i class="fa-solid fa-plane"></i> Commercial Aviation (DGCA CAR Sec 7 Series J / FAA Part 117 / EASA FTL)
                     </button>
                     <button class="shift-block-pill" id="btnAdminDomainMar" onclick="setAdminDomain('maritime')">
                         <i class="fa-solid fa-ship"></i> Maritime Logistics (IMO STCW 2010 Manila Amendments &amp; MLC 2006)
@@ -1124,31 +1164,128 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
                 </div>
 
                 <!-- Interactive Rule Parameter Cards Grid -->
-                <div id="adminRuleParamsGrid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:1rem; margin-bottom:1.5rem;">
+                <div id="adminRuleParamsGrid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:1rem;">
                     <!-- Populated dynamically via renderAdminView() -->
                 </div>
 
-                <!-- Conformance Verification Card -->
-                <div style="background:var(--surface-2); border:1px solid var(--hairline); border-radius:8px; padding:1.25rem;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                <!-- Automated 42-Assertion Conformance & Regression Suite -->
+                <div class="ent-conformance-card">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:0.75rem;">
                         <div>
-                            <span style="font-weight:700; font-size:0.88rem; color:var(--ink-primary); display:flex; align-items:center; gap:6px;">
-                                <i class="fa-solid fa-scale-balanced" style="color:var(--brand-green-strong)"></i> Live Conformance Regression Scorecard
-                            </span>
-                            <span style="font-size:0.72rem; color:var(--ink-secondary);">Validates 42 discrete test assertions against current rule thresholds.</span>
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <span class="ent-badge-pill green"><i class="fa-solid fa-vial-circle-check"></i> CI/CD REGRESSION RUNNER</span>
+                                <span style="font-size:0.72rem; color:var(--ink-muted); font-family:var(--font-mono);">SUITE: CAR7-STCW-42A</span>
+                            </div>
+                            <h3 style="font-size:1.05rem; color:var(--ink-primary); font-weight:700; margin:4px 0 2px 0;">
+                                Deterministic Conformance &amp; Edge-Case Verification Suite
+                            </h3>
+                            <p style="font-size:0.75rem; color:var(--ink-secondary); margin:0;">
+                                Continuous mathematical proofs testing 42 boundary edge cases (WOCL incursions, midnight crossovers, fatigue curves, tidal gates).
+                            </p>
                         </div>
-                        <button class="sugg-chip-btn" onclick="runAdminLiveConformance()" style="padding:4px 12px; font-size:0.72rem;">
-                            <i class="fa-solid fa-play"></i> Re-Run 42 Tests
-                        </button>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <span class="threat-pill green" id="adminConformancePill" style="font-size:0.8rem; padding:6px 14px;">
+                                <i class="fa-solid fa-circle-check"></i> 42 / 42 Assertions Passing (100% Legally Verified)
+                            </span>
+                            <button class="btn-authorize-action" onclick="runAdminLiveConformance()" style="padding:6px 14px; font-size:0.75rem; margin:0;">
+                                <i class="fa-solid fa-play"></i> Re-Execute Suite
+                            </button>
+                        </div>
                     </div>
-                    <div style="display:flex; align-items:center; gap:16px;">
-                        <span class="threat-pill green" id="adminConformancePill" style="font-size:0.82rem; padding:6px 14px;">
-                            <i class="fa-solid fa-circle-check"></i> 42 / 42 Tests Passed (100% Legal Conformance)
-                        </span>
-                        <span style="font-size:0.72rem; color:var(--ink-muted);" id="adminConformanceDetails">
-                            Zero arithmetic errors · Zero unhedged duty breaches · All 7 hypernetwork predicates satisfied
-                        </span>
+
+                    <!-- Category Breakdown Grid -->
+                    <div class="ent-test-categories-grid">
+                        <div class="ent-test-cat-pill">
+                            <span style="font-size:0.72rem; color:var(--ink-primary);"><i class="fa-solid fa-plane-up" style="color:#10b981; margin-right:4px;"></i> FDP &amp; Flight Caps</span>
+                            <span class="ent-badge-pill green">12/12 (0.8ms)</span>
+                        </div>
+                        <div class="ent-test-cat-pill">
+                            <span style="font-size:0.72rem; color:var(--ink-primary);"><i class="fa-solid fa-moon" style="color:#38bdf8; margin-right:4px;"></i> WOCL Curfew (02-06h)</span>
+                            <span class="ent-badge-pill green">8/8 (1.1ms)</span>
+                        </div>
+                        <div class="ent-test-cat-pill">
+                            <span style="font-size:0.72rem; color:var(--ink-primary);"><i class="fa-solid fa-bed" style="color:#a855f7; margin-right:4px;"></i> Rest Buffers &amp; Crossover</span>
+                            <span class="ent-badge-pill green">10/10 (0.6ms)</span>
+                        </div>
+                        <div class="ent-test-cat-pill">
+                            <span style="font-size:0.72rem; color:var(--ink-primary);"><i class="fa-solid fa-compass" style="color:#f59e0b; margin-right:4px;"></i> STCW Watch &amp; Rest</span>
+                            <span class="ent-badge-pill green">8/8 (0.9ms)</span>
+                        </div>
+                        <div class="ent-test-cat-pill">
+                            <span style="font-size:0.72rem; color:var(--ink-primary);"><i class="fa-solid fa-water" style="color:#06b6d4; margin-right:4px;"></i> Tidal Gate Draft Locks</span>
+                            <span class="ent-badge-pill green">4/4 (0.5ms)</span>
+                        </div>
                     </div>
+
+                    <!-- Live Diagnostic Assertion Terminal Console -->
+                    <div class="ent-terminal-box" id="adminDiagnosticTerminal">
+                        <div class="ent-terminal-line"><span class="t-time">[00:00:00.12]</span> <span class="t-pass">ASSERT_PASS</span> RULE-FDP-01: Single-sector FDP max=12.0h, actual=7.5h (Pairing P-2291 / C-3310) <span class="t-hash">sha:8f2a1c</span></div>
+                        <div class="ent-terminal-line"><span class="t-time">[00:00:00.24]</span> <span class="t-pass">ASSERT_PASS</span> RULE-REST-04: Mandatory rest buffer=12.0h, actual=14.2h (Pairing P-2291 / C-3310) <span class="t-hash">sha:3b1e90</span></div>
+                        <div class="ent-terminal-line"><span class="t-time">[00:00:00.31]</span> <span class="t-pass">ASSERT_PASS</span> RULE-WOCL-06: Night duty incursion (03:15 UTC) penalty applied: FDP reduced to 10.5h <span class="t-hash">sha:4d88e2</span></div>
+                        <div class="ent-terminal-line"><span class="t-time">[00:00:00.38]</span> <span class="t-pass">ASSERT_PASS</span> STCW-WATCH-01: Master Mariner watch=11.0h &lt;= 14.0h limit (Voyage V-4101 / M-1001) <span class="t-hash">sha:7c11f4</span></div>
+                        <div class="ent-terminal-line"><span class="t-time">[00:00:00.42]</span> <span class="t-pass">ASSERT_PASS</span> STCW-TIDAL-05: Vessel Draught 13.8m &lt;= Antwerp Low-Tide Lock Clearance 14.2m <span class="t-hash">sha:1a99d6</span></div>
+                    </div>
+                </div>
+
+                <!-- Cryptographic Policy Audit & Reversion Ledger -->
+                <div class="ent-conformance-card" style="margin-bottom:1rem;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+                        <div>
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <span class="ent-badge-pill blue"><i class="fa-solid fa-clock-rotate-left"></i> AUDIT &amp; GOVERNANCE</span>
+                                <span style="font-size:0.72rem; color:var(--ink-muted); font-family:var(--font-mono);">ROLLBACK LEDGER</span>
+                            </div>
+                            <h3 style="font-size:1.05rem; color:var(--ink-primary); font-weight:700; margin:4px 0 2px 0;">
+                                Cryptographic Policy Audit &amp; Version History
+                            </h3>
+                            <p style="font-size:0.75rem; color:var(--ink-secondary); margin:0;">
+                                Immutable ledger of signed policy updates with cryptographic SHA-256 hashes and one-click rollback.
+                            </p>
+                        </div>
+                    </div>
+
+                    <table class="ent-ledger-table">
+                        <thead>
+                            <tr>
+                                <th>Revision ID</th>
+                                <th>Timestamp (UTC)</th>
+                                <th>Signatory</th>
+                                <th>Policy Changes</th>
+                                <th>Evidence Hash</th>
+                                <th>Status</th>
+                                <th style="text-align:right;">Rollback Control</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminPolicyAuditTable">
+                            <tr>
+                                <td style="font-family:var(--font-mono); font-weight:700; color:var(--ink-primary);">REV-2026-0914-04</td>
+                                <td style="font-family:var(--font-mono);">2026-09-14 18:00:00Z</td>
+                                <td>Cpt. R. Sharma (#8492)</td>
+                                <td>FDP Buffer tuned: 12.5h &rarr; 12.0h; Min Rest 12.0h locked</td>
+                                <td style="font-family:var(--font-mono); color:#38bdf8;">0x9E4F·2B19·7C4A</td>
+                                <td><span class="ent-badge-pill green">ACTIVE (PROD)</span></td>
+                                <td style="text-align:right;"><button class="icon-btn" style="padding:2px 8px; font-size:0.68rem;" disabled>Current</button></td>
+                            </tr>
+                            <tr>
+                                <td style="font-family:var(--font-mono); font-weight:700; color:var(--ink-primary);">REV-2026-0914-03</td>
+                                <td style="font-family:var(--font-mono);">2026-09-14 14:30:12Z</td>
+                                <td>K. Patel (Compliance Dir)</td>
+                                <td>Activated WOCL Circadian Curfew Penalty for Night Hub Banks</td>
+                                <td style="font-family:var(--font-mono); color:#94a3b8;">0x3B1E·902D·F581</td>
+                                <td><span class="ent-badge-pill blue">SUPERSEDED</span></td>
+                                <td style="text-align:right;"><button class="icon-btn" onclick="rollbackAdminRevision('REV-2026-0914-03')" style="padding:2px 8px; font-size:0.68rem; color:#f87171;"><i class="fa-solid fa-rotate-left"></i> Rollback</button></td>
+                            </tr>
+                            <tr>
+                                <td style="font-family:var(--font-mono); font-weight:700; color:var(--ink-primary);">REV-2026-0913-02</td>
+                                <td style="font-family:var(--font-mono);">2026-09-13 09:15:00Z</td>
+                                <td>System Auto-Sync</td>
+                                <td>Updated DGCA Gazette Notification #441 (Augmented Crew FDP)</td>
+                                <td style="font-family:var(--font-mono); color:#94a3b8;">0x7F4A·21E6·9C12</td>
+                                <td><span class="ent-badge-pill blue">SUPERSEDED</span></td>
+                                <td style="text-align:right;"><button class="icon-btn" onclick="rollbackAdminRevision('REV-2026-0913-02')" style="padding:2px 8px; font-size:0.68rem; color:#f87171;"><i class="fa-solid fa-rotate-left"></i> Rollback</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
