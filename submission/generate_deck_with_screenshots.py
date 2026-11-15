@@ -183,12 +183,13 @@ tf4.word_wrap = True
 tf4.margin_left = tf4.margin_right = tf4.margin_top = tf4.margin_bottom = 0
 
 add_header_paragraph(tf4, "CREWOPS: AUTONOMOUS OCC PLATFORM", color=GOOGLE_GREEN, space_before=Pt(0), font_size=Pt(10.5))
-add_bullet_paragraph(tf4, "Core Paradigm", "'The Model Translates, The Kernel Decides.' CrewOps resolves multi-party operational disruptions within 2 seconds with mathematical zero-hallucination compliance guarantees.", font_size=Pt(8.5))
-add_bullet_paragraph(tf4, "Voice-Supported Conversational Dispatch", "Continuous 24kHz bidirectional WebSocket audio via Google Gemini Live enables dispatchers to query complex rosters and command emergency recoveries hands-free while monitoring radar.", font_size=Pt(8.5))
-add_bullet_paragraph(tf4, "Antigravity Multi-Agent Swarm", "Five specialized autonomous agents coordinate over a shared event board: Incident Commander, Compliance Kernel, Resource Optimizer, Dispatch Comms, and Containment Guard.", font_size=Pt(8.5))
-add_bullet_paragraph(tf4, "Zero-Hallucination Compliance Kernel", "Deterministic solvers verify 100% legal conformance against DGCA Section & Amendments with mathematical evidence ledgers.", font_size=Pt(8.5))
-add_bullet_paragraph(tf4, "72-Hour Predictive Disruption Radar", "Multi-horizon lookahead forecasting weather frontlines, tidal lock windows, and approaching cumulative fatigue caps before flights/voyages become uncrewed.", font_size=Pt(8.5))
-add_bullet_paragraph(tf4, "Multi-Channel Emergency Uplinks", "One-click automated message delivery across ARINC-620 ACARS (aircraft), Inmarsat-C Telex (vessels), VHF Marine Channel 16, and secure SMS.", font_size=Pt(8.5))
+add_bullet_paragraph(tf4, "Core Paradigm", "'The Model Translates, The Kernel Decides.' CrewOps resolves multi-party operational disruptions within 2 seconds with mathematical zero-hallucination compliance guarantees.", font_size=Pt(8.1), space_after=Pt(1.8))
+add_bullet_paragraph(tf4, "Voice-Supported Conversational Dispatch", "Continuous 24kHz bidirectional WebSocket audio via Google Gemini Live enables dispatchers to query complex rosters and command emergency recoveries hands-free while monitoring radar.", font_size=Pt(8.1), space_after=Pt(1.8))
+add_bullet_paragraph(tf4, "7-Step Configurable Decision Engine", "Delivers ranked recovery suggestions synthesizing Airline Operating Rules, Statutory Limits, Roster Availability, and Financial Cost Optimization (-₹14,200 savings).", font_size=Pt(8.1), space_after=Pt(1.8))
+add_bullet_paragraph(tf4, "Antigravity Multi-Agent Swarm", "Five specialized autonomous agents coordinate over a shared event board: Incident Commander, Compliance Kernel, Resource Optimizer, Dispatch Comms, and Containment Guard.", font_size=Pt(8.1), space_after=Pt(1.8))
+add_bullet_paragraph(tf4, "Zero-Hallucination Compliance Kernel", "Deterministic solvers verify 100% legal conformance against DGCA Section & Amendments with mathematical evidence ledgers.", font_size=Pt(8.1), space_after=Pt(1.8))
+add_bullet_paragraph(tf4, "72-Hour Predictive Disruption Radar", "Multi-horizon lookahead forecasting weather frontlines, tidal lock windows, and approaching cumulative fatigue caps before flights/voyages become uncrewed.", font_size=Pt(8.1), space_after=Pt(1.8))
+add_bullet_paragraph(tf4, "Multi-Channel Emergency Uplinks", "One-click automated message delivery across ARINC-620 ACARS (aircraft), Inmarsat-C Telex (vessels), VHF Marine Channel 16, and secure SMS.", font_size=Pt(8.1), space_after=Pt(1.8))
 
 # Add Screenshot of Console on Right
 pic4 = slide4.shapes.add_picture(
@@ -235,7 +236,7 @@ add_header_paragraph(tf5, "MULTI-TIERED ENTERPRISE TOPOLOGY", color=GOOGLE_BLUE,
 add_bullet_paragraph(tf5, "Presentation Tier (Next.js 15 Standalone OCC)", "Next.js 15 (App Router, TypeScript, Tailwind CSS) delivering 6 real-time operational views: Live Crew Advisor, 24h Interactive Timeline Gantt, Unified Roster, 72h Intelligence Radar, and Admin Console.", font_size=Pt(8.5))
 add_bullet_paragraph(tf5, "Streaming & Intelligence Tier (Google Cloud Run)", "Managed FastAPI & WebSocket server hosting Gemini Live 24kHz audio streaming with Voice Activity Detection (VAD) and sub-50ms REST API dispatch.", font_size=Pt(8.5))
 add_bullet_paragraph(tf5, "Orchestration Tier (Google Antigravity Swarm)", "5-agent collaborative consensus loop ensuring separation of concerns: Incident Commander -> Compliance Kernel -> Resource Optimizer -> Dispatch Comms -> Containment Guard.", font_size=Pt(8.5))
-add_bullet_paragraph(tf5, "Deterministic Compliance Tier (Pure Python Kernel)", "Zero-hallucination mathematical solvers evaluating flight duty periods (FDP), mandatory 12h rest buffers, 60h 7-day caps, and bipartite Hungarian candidate cost optimization.", font_size=Pt(8.5))
+add_bullet_paragraph(tf5, "Deterministic Compliance Tier (Pure Python Kernel)", "7-step configurable engine evaluating airline business rules, FDP limits, mandatory rest buffers, rolling caps, and financial overtime optimization.", font_size=Pt(8.5))
 add_bullet_paragraph(tf5, "Edge Cockpit & Vessel Tier (Offline Resilience)", "Google Gemma 2 (2B/9B) & Gemini Nano models enable aircraft Electronic Flight Bags (EFBs) and shipboard bridge terminals to compute legal duty hours locally during satellite blackouts.", font_size=Pt(8.5))
 
 # Add Screenshot of Admin Console on Right
@@ -342,7 +343,7 @@ tf = tb_bl8.text_frame
 tf.word_wrap = True
 tf.margin_left = tf.margin_top = tf.margin_right = tf.margin_bottom = 0
 add_bullet_paragraph(tf, "Sub-2s Real-Time Triage", "Instant containment across 147 flights & 84 voyages.", font_size=Pt(8.2), space_after=Pt(1.5))
-add_bullet_paragraph(tf, "Gemini Live Audio", "Continuous 24kHz hands-free conversational voice dispatch.", font_size=Pt(8.2), space_after=Pt(1.5))
+add_bullet_paragraph(tf, "7-Step Decision Engine", "Balances airline rules, live rosters & financial costs.", font_size=Pt(8.2), space_after=Pt(1.5))
 add_bullet_paragraph(tf, "Cost Optimization", "Hungarian solver yields -₹14,200 savings per recovered pairing.", font_size=Pt(8.2), space_after=Pt(1.5))
 add_bullet_paragraph(tf, "Multi-Channel Uplinks", "One-click ARINC ACARS, Inmarsat-C Telex & VHF dispatch.", font_size=Pt(8.2), space_after=Pt(1.5))
 

@@ -55,6 +55,11 @@ When a disruption strikes, controllers in Operations Control Centers (OCCs) jugg
 ```
 
 ### The Iron Rule: *"The Model Translates, The Kernel Decides"*
+* **7-Step Configurable Decision Engine**: Rather than generic greedy heuristics, suggestions are generated across a 7-step optimization pipeline that balances:
+  1. **Airline Business & Operating Rules**: Configurable corporate parameters (minimum turn times, fleet buffers, hub priorities).
+  2. **Statutory Rest & Duty Legality**: Deterministic evaluation of flight duty periods (FDP), Window of Circadian Low (WOCL) night caps, and rest requirements.
+  3. **Roster Availability & Standby Pools**: Real-time standby availability, airport reachability buffers, and deadhead positioning legs.
+  4. **Financial Cost Optimization**: Evaluates overtime pay, deadhead ticket costs, and accommodation savings (saving an average of -₹14,200 per recovered pairing).
 * **No numbers pass through an LLM**: Duty clocks, flight hours, rest intervals, and overtime costs are evaluated by the deterministic kernel in ~1.4 milliseconds.
 * **Evidence Ledger & Numeric Containment**: Every single digit outputted in speech or text is cryptographically traced to source ledger records. Any deviation falls back instantly to audited deterministic templates.
 
