@@ -3022,6 +3022,12 @@
         const p = cfg.params;
 
         if (dom === 'aviation') {
+            const fdpPct = Math.min(100, Math.max(0, ((p.base_fdp_hours - 8) / (16 - 8)) * 100));
+            const dutyPct = Math.min(100, Math.max(0, ((p.max_duty_7d_hours - 40) / (75 - 40)) * 100));
+            const fltPct = Math.min(100, Math.max(0, ((p.max_flight_28d_hours - 60) / (120 - 60)) * 100));
+            const restPct = Math.min(100, Math.max(0, ((p.min_rest_hours - 8) / (18 - 8)) * 100));
+            const bufPct = Math.min(100, Math.max(0, ((p.reserve_callout_buffer_minutes - 30) / (240 - 30)) * 100));
+
             grid.innerHTML = `
                 <!-- RULE-FDP-01 -->
                 <div class="ent-rule-card">
@@ -3051,13 +3057,39 @@
                                 <span class="ent-stat-val" style="color:#10b981;">-${(12.5 - p.base_fdp_hours).toFixed(1)} hrs</span>
                             </div>
                         </div>
+
+                        <!-- One-Click Certified Regulatory Presets -->
+                        <div style="font-size:0.64rem; font-family:var(--font-mono); color:var(--ink-muted); margin-top:6px;">STATUTORY PRESETS:</div>
+                        <div class="ent-preset-row">
+                            <button class="ent-preset-btn ${p.base_fdp_hours === 10 ? 'active' : ''}" onclick="setAdminParamExact('base_fdp_hours', 10)">10.0h (Strict/WOCL)</button>
+                            <button class="ent-preset-btn ${p.base_fdp_hours === 11.5 ? 'active' : ''}" onclick="setAdminParamExact('base_fdp_hours', 11.5)">11.5h (High-Buffer)</button>
+                            <button class="ent-preset-btn ${p.base_fdp_hours === 12 ? 'active' : ''}" onclick="setAdminParamExact('base_fdp_hours', 12)">12.0h (Airline Std)</button>
+                            <button class="ent-preset-btn ${p.base_fdp_hours === 12.5 ? 'active' : ''}" onclick="setAdminParamExact('base_fdp_hours', 12.5)">12.5h (DGCA Cap)</button>
+                        </div>
                     </div>
                     <div>
-                        <div class="ent-slider-row">
-                            <input type="range" class="ent-slider-input" min="8" max="16" step="0.5" value="${p.base_fdp_hours}" oninput="updateAdminParam('base_fdp_hours', this.value); document.getElementById('valFdp').value = this.value; document.getElementById('dispValFdp').textContent = this.value + ' hrs';">
-                            <input type="number" id="valFdp" class="ent-num-stepper" value="${p.base_fdp_hours}" step="0.5" onchange="updateAdminParam('base_fdp_hours', this.value); document.getElementById('dispValFdp').textContent = this.value + ' hrs';">
-                            <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted);">hrs</span>
+                        <!-- Tactical Precision Stepper Control -->
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                            <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--ink-secondary);">Fine Adjustment:</span>
+                            <div class="ent-stepper-control">
+                                <button class="ent-step-btn" onclick="stepAdminParam('base_fdp_hours', -0.5, 8, 16)"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" id="valFdp" class="ent-num-stepper" value="${p.base_fdp_hours}" step="0.5" onchange="setAdminParamExact('base_fdp_hours', this.value)">
+                                <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted); margin-right:4px;">hrs</span>
+                                <button class="ent-step-btn" onclick="stepAdminParam('base_fdp_hours', 0.5, 8, 16)"><i class="fa-solid fa-plus"></i></button>
+                            </div>
                         </div>
+
+                        <!-- Legal Range Spectrum Barometer -->
+                        <div class="ent-barometer-track">
+                            <div class="ent-barometer-needle" style="left: ${fdpPct}%;"></div>
+                        </div>
+                        <div class="ent-barometer-labels">
+                            <span>8.0h (Min)</span>
+                            <span style="color:#10b981;">12.0h (Standard)</span>
+                            <span style="color:#ef4444;">12.5h (Hard Cap)</span>
+                            <span>16.0h</span>
+                        </div>
+
                         <div class="ent-impact-pill">
                             <i class="fa-solid fa-circle-check" style="color:#10b981;"></i>
                             <span>Evaluated on 147 active sectors · <b>0 violations</b> · 3 within 45m buffer</span>
@@ -3093,13 +3125,39 @@
                                 <span class="ent-stat-val" style="color:#10b981;">-${(60.0 - p.max_duty_7d_hours).toFixed(1)} hrs</span>
                             </div>
                         </div>
+
+                        <!-- One-Click Certified Regulatory Presets -->
+                        <div style="font-size:0.64rem; font-family:var(--font-mono); color:var(--ink-muted); margin-top:6px;">STATUTORY PRESETS:</div>
+                        <div class="ent-preset-row">
+                            <button class="ent-preset-btn ${p.max_duty_7d_hours === 48 ? 'active' : ''}" onclick="setAdminParamExact('max_duty_7d_hours', 48)">48.0h (Union Std)</button>
+                            <button class="ent-preset-btn ${p.max_duty_7d_hours === 54 ? 'active' : ''}" onclick="setAdminParamExact('max_duty_7d_hours', 54)">54.0h (Balanced)</button>
+                            <button class="ent-preset-btn ${p.max_duty_7d_hours === 58 ? 'active' : ''}" onclick="setAdminParamExact('max_duty_7d_hours', 58)">58.0h (High-Util)</button>
+                            <button class="ent-preset-btn ${p.max_duty_7d_hours === 60 ? 'active' : ''}" onclick="setAdminParamExact('max_duty_7d_hours', 60)">60.0h (Hard Cap)</button>
+                        </div>
                     </div>
                     <div>
-                        <div class="ent-slider-row">
-                            <input type="range" class="ent-slider-input" min="40" max="75" step="1" value="${p.max_duty_7d_hours}" oninput="updateAdminParam('max_duty_7d_hours', this.value); document.getElementById('valDuty7d').value = this.value; document.getElementById('dispValDuty7d').textContent = this.value + ' hrs';">
-                            <input type="number" id="valDuty7d" class="ent-num-stepper" value="${p.max_duty_7d_hours}" step="1" onchange="updateAdminParam('max_duty_7d_hours', this.value); document.getElementById('dispValDuty7d').textContent = this.value + ' hrs';">
-                            <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted);">hrs</span>
+                        <!-- Tactical Precision Stepper Control -->
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                            <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--ink-secondary);">Fine Adjustment:</span>
+                            <div class="ent-stepper-control">
+                                <button class="ent-step-btn" onclick="stepAdminParam('max_duty_7d_hours', -1, 40, 75)"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" id="valDuty7d" class="ent-num-stepper" value="${p.max_duty_7d_hours}" step="1" onchange="setAdminParamExact('max_duty_7d_hours', this.value)">
+                                <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted); margin-right:4px;">hrs</span>
+                                <button class="ent-step-btn" onclick="stepAdminParam('max_duty_7d_hours', 1, 40, 75)"><i class="fa-solid fa-plus"></i></button>
+                            </div>
                         </div>
+
+                        <!-- Legal Range Spectrum Barometer -->
+                        <div class="ent-barometer-track">
+                            <div class="ent-barometer-needle" style="left: ${dutyPct}%;"></div>
+                        </div>
+                        <div class="ent-barometer-labels">
+                            <span>40.0h</span>
+                            <span style="color:#10b981;">54.0h (Target)</span>
+                            <span style="color:#ef4444;">60.0h (Statutory Cap)</span>
+                            <span>75.0h</span>
+                        </div>
+
                         <div class="ent-impact-pill">
                             <i class="fa-solid fa-circle-check" style="color:#10b981;"></i>
                             <span>Evaluated on 150 active crew · <b>0 breaches</b> · Max utilization 52.4h (C-1042)</span>
@@ -3135,13 +3193,39 @@
                                 <span class="ent-stat-val" style="color:#10b981;">-${(100.0 - p.max_flight_28d_hours).toFixed(1)} hrs</span>
                             </div>
                         </div>
+
+                        <!-- One-Click Certified Regulatory Presets -->
+                        <div style="font-size:0.64rem; font-family:var(--font-mono); color:var(--ink-muted); margin-top:6px;">STATUTORY PRESETS:</div>
+                        <div class="ent-preset-row">
+                            <button class="ent-preset-btn ${p.max_flight_28d_hours === 80 ? 'active' : ''}" onclick="setAdminParamExact('max_flight_28d_hours', 80)">80.0h (Low Fatigue)</button>
+                            <button class="ent-preset-btn ${p.max_flight_28d_hours === 90 ? 'active' : ''}" onclick="setAdminParamExact('max_flight_28d_hours', 90)">90.0h (Airline Std)</button>
+                            <button class="ent-preset-btn ${p.max_flight_28d_hours === 95 ? 'active' : ''}" onclick="setAdminParamExact('max_flight_28d_hours', 95)">95.0h (Peak Season)</button>
+                            <button class="ent-preset-btn ${p.max_flight_28d_hours === 100 ? 'active' : ''}" onclick="setAdminParamExact('max_flight_28d_hours', 100)">100.0h (Hard Cap)</button>
+                        </div>
                     </div>
                     <div>
-                        <div class="ent-slider-row">
-                            <input type="range" class="ent-slider-input" min="60" max="120" step="5" value="${p.max_flight_28d_hours}" oninput="updateAdminParam('max_flight_28d_hours', this.value); document.getElementById('valFlt28d').value = this.value; document.getElementById('dispValFlt28d').textContent = this.value + ' hrs';">
-                            <input type="number" id="valFlt28d" class="ent-num-stepper" value="${p.max_flight_28d_hours}" step="5" onchange="updateAdminParam('max_flight_28d_hours', this.value); document.getElementById('dispValFlt28d').textContent = this.value + ' hrs';">
-                            <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted);">hrs</span>
+                        <!-- Tactical Precision Stepper Control -->
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                            <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--ink-secondary);">Fine Adjustment:</span>
+                            <div class="ent-stepper-control">
+                                <button class="ent-step-btn" onclick="stepAdminParam('max_flight_28d_hours', -5, 60, 120)"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" id="valFlt28d" class="ent-num-stepper" value="${p.max_flight_28d_hours}" step="5" onchange="setAdminParamExact('max_flight_28d_hours', this.value)">
+                                <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted); margin-right:4px;">hrs</span>
+                                <button class="ent-step-btn" onclick="stepAdminParam('max_flight_28d_hours', 5, 60, 120)"><i class="fa-solid fa-plus"></i></button>
+                            </div>
                         </div>
+
+                        <!-- Legal Range Spectrum Barometer -->
+                        <div class="ent-barometer-track">
+                            <div class="ent-barometer-needle" style="left: ${fltPct}%;"></div>
+                        </div>
+                        <div class="ent-barometer-labels">
+                            <span>60.0h</span>
+                            <span style="color:#10b981;">90.0h (Std)</span>
+                            <span style="color:#ef4444;">100.0h (Hard Cap)</span>
+                            <span>120.0h</span>
+                        </div>
+
                         <div class="ent-impact-pill">
                             <i class="fa-solid fa-circle-check" style="color:#10b981;"></i>
                             <span>All flight lines 100% compliant · Mean 28d accumulation 68.5h</span>
@@ -3177,13 +3261,39 @@
                                 <span class="ent-stat-val" style="color:#10b981;">+${(p.min_rest_hours - 12.0).toFixed(1)} hrs</span>
                             </div>
                         </div>
+
+                        <!-- One-Click Certified Regulatory Presets -->
+                        <div style="font-size:0.64rem; font-family:var(--font-mono); color:var(--ink-muted); margin-top:6px;">STATUTORY PRESETS:</div>
+                        <div class="ent-preset-row">
+                            <button class="ent-preset-btn ${p.min_rest_hours === 12 ? 'active' : ''}" onclick="setAdminParamExact('min_rest_hours', 12)">12.0h (DGCA Min)</button>
+                            <button class="ent-preset-btn ${p.min_rest_hours === 13 ? 'active' : ''}" onclick="setAdminParamExact('min_rest_hours', 13)">13.0h (+1h Buffer)</button>
+                            <button class="ent-preset-btn ${p.min_rest_hours === 14 ? 'active' : ''}" onclick="setAdminParamExact('min_rest_hours', 14)">14.0h (+2h Buffer)</button>
+                            <button class="ent-preset-btn ${p.min_rest_hours === 16 ? 'active' : ''}" onclick="setAdminParamExact('min_rest_hours', 16)">16.0h (Long-Haul)</button>
+                        </div>
                     </div>
                     <div>
-                        <div class="ent-slider-row">
-                            <input type="range" class="ent-slider-input" min="8" max="18" step="0.5" value="${p.min_rest_hours}" oninput="updateAdminParam('min_rest_hours', this.value); document.getElementById('valRest').value = this.value; document.getElementById('dispValRest').textContent = this.value + ' hrs';">
-                            <input type="number" id="valRest" class="ent-num-stepper" value="${p.min_rest_hours}" step="0.5" onchange="updateAdminParam('min_rest_hours', this.value); document.getElementById('dispValRest').textContent = this.value + ' hrs';">
-                            <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted);">hrs</span>
+                        <!-- Tactical Precision Stepper Control -->
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                            <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--ink-secondary);">Fine Adjustment:</span>
+                            <div class="ent-stepper-control">
+                                <button class="ent-step-btn" onclick="stepAdminParam('min_rest_hours', -0.5, 8, 18)"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" id="valRest" class="ent-num-stepper" value="${p.min_rest_hours}" step="0.5" onchange="setAdminParamExact('min_rest_hours', this.value)">
+                                <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted); margin-right:4px;">hrs</span>
+                                <button class="ent-step-btn" onclick="stepAdminParam('min_rest_hours', 0.5, 8, 18)"><i class="fa-solid fa-plus"></i></button>
+                            </div>
                         </div>
+
+                        <!-- Legal Range Spectrum Barometer -->
+                        <div class="ent-barometer-track" style="background: linear-gradient(90deg, #ef4444 0%, #ef4444 40%, #f59e0b 40%, #f59e0b 50%, #10b981 50%, #10b981 100%);">
+                            <div class="ent-barometer-needle" style="left: ${restPct}%;"></div>
+                        </div>
+                        <div class="ent-barometer-labels">
+                            <span>8.0h</span>
+                            <span style="color:#ef4444;">12.0h (Min Floor)</span>
+                            <span style="color:#10b981;">14.0h (+2h Safe)</span>
+                            <span>18.0h</span>
+                        </div>
+
                         <div class="ent-impact-pill">
                             <i class="fa-solid fa-circle-check" style="color:#10b981;"></i>
                             <span>Evaluated on all base turnarounds · C-3310 has 14.2h rest buffer (Verified)</span>
@@ -3219,13 +3329,39 @@
                                 <span class="ent-stat-val" style="color:#38bdf8;">DEL / BLR / BOM</span>
                             </div>
                         </div>
+
+                        <!-- One-Click Certified Regulatory Presets -->
+                        <div style="font-size:0.64rem; font-family:var(--font-mono); color:var(--ink-muted); margin-top:6px;">RESPONSE PROFILES:</div>
+                        <div class="ent-preset-row">
+                            <button class="ent-preset-btn ${p.reserve_callout_buffer_minutes === 45 ? 'active' : ''}" onclick="setAdminParamExact('reserve_callout_buffer_minutes', 45)">45m (Hot-Standby)</button>
+                            <button class="ent-preset-btn ${p.reserve_callout_buffer_minutes === 60 ? 'active' : ''}" onclick="setAdminParamExact('reserve_callout_buffer_minutes', 60)">60m (Express Hub)</button>
+                            <button class="ent-preset-btn ${p.reserve_callout_buffer_minutes === 90 ? 'active' : ''}" onclick="setAdminParamExact('reserve_callout_buffer_minutes', 90)">90m (Standard)</button>
+                            <button class="ent-preset-btn ${p.reserve_callout_buffer_minutes === 120 ? 'active' : ''}" onclick="setAdminParamExact('reserve_callout_buffer_minutes', 120)">120m (Extended)</button>
+                        </div>
                     </div>
                     <div>
-                        <div class="ent-slider-row">
-                            <input type="range" class="ent-slider-input" min="30" max="240" step="15" value="${p.reserve_callout_buffer_minutes}" oninput="updateAdminParam('reserve_callout_buffer_minutes', this.value); document.getElementById('valBuf').value = this.value; document.getElementById('dispValBuf').textContent = this.value + ' mins';">
-                            <input type="number" id="valBuf" class="ent-num-stepper" value="${p.reserve_callout_buffer_minutes}" step="15" onchange="updateAdminParam('reserve_callout_buffer_minutes', this.value); document.getElementById('dispValBuf').textContent = this.value + ' mins';">
-                            <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted);">mins</span>
+                        <!-- Tactical Precision Stepper Control -->
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                            <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--ink-secondary);">Fine Adjustment:</span>
+                            <div class="ent-stepper-control">
+                                <button class="ent-step-btn" onclick="stepAdminParam('reserve_callout_buffer_minutes', -15, 30, 240)"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" id="valBuf" class="ent-num-stepper" value="${p.reserve_callout_buffer_minutes}" step="15" onchange="setAdminParamExact('reserve_callout_buffer_minutes', this.value)">
+                                <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted); margin-right:4px;">mins</span>
+                                <button class="ent-step-btn" onclick="stepAdminParam('reserve_callout_buffer_minutes', 15, 30, 240)"><i class="fa-solid fa-plus"></i></button>
+                            </div>
                         </div>
+
+                        <!-- Legal Range Spectrum Barometer -->
+                        <div class="ent-barometer-track">
+                            <div class="ent-barometer-needle" style="left: ${bufPct}%;"></div>
+                        </div>
+                        <div class="ent-barometer-labels">
+                            <span>30m</span>
+                            <span style="color:#10b981;">60m (Target)</span>
+                            <span style="color:#f59e0b;">120m (Notice)</span>
+                            <span>240m</span>
+                        </div>
+
                         <div class="ent-impact-pill">
                             <i class="fa-solid fa-circle-check" style="color:#10b981;"></i>
                             <span>16 standbys online · C-3310 reachability: 60m (Well within notice)</span>
@@ -3261,12 +3397,19 @@
                                 <span class="ent-stat-val" style="color:#10b981;">Automatic</span>
                             </div>
                         </div>
+
+                        <!-- One-Click Certified Regulatory Presets -->
+                        <div style="font-size:0.64rem; font-family:var(--font-mono); color:var(--ink-muted); margin-top:6px;">MODE SELECTOR:</div>
+                        <div class="ent-preset-row">
+                            <button class="ent-preset-btn ${p.wocl_curfew_enabled ? 'active' : ''}" onclick="setAdminParamExact('wocl_curfew_enabled', true)">Enforce WOCL (-1.5h Penalty)</button>
+                            <button class="ent-preset-btn ${!p.wocl_curfew_enabled ? 'active' : ''}" onclick="setAdminParamExact('wocl_curfew_enabled', false)">Day-Only Relaxed (No Penalty)</button>
+                        </div>
                     </div>
                     <div>
                         <div style="margin-top:12px; display:flex; align-items:center; justify-content:space-between; background:rgba(0,0,0,0.2); padding:8px 12px; border-radius:6px; border:1px solid var(--hairline);">
                             <span style="font-size:0.78rem; color:var(--ink-primary); font-weight:600;">Enforce Automatic WOCL FDP Reductions</span>
                             <label class="switch" style="position:relative; display:inline-block; width:38px; height:20px; margin:0;">
-                                <input type="checkbox" ${p.wocl_curfew_enabled ? 'checked' : ''} onchange="updateAdminParam('wocl_curfew_enabled', this.checked)">
+                                <input type="checkbox" ${p.wocl_curfew_enabled ? 'checked' : ''} onchange="setAdminParamExact('wocl_curfew_enabled', this.checked)">
                                 <span style="position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background-color:${p.wocl_curfew_enabled ? '#10b981' : '#475569'}; border-radius:20px; transition:.3s;"></span>
                             </label>
                         </div>
@@ -3278,6 +3421,11 @@
                 </div>
             `;
         } else {
+            const watchPct = Math.min(100, Math.max(0, ((p.max_watch_24h_hours - 8) / (16 - 8)) * 100));
+            const rest7dPct = Math.min(100, Math.max(0, ((p.min_rest_7d_hours - 60) / (95 - 60)) * 100));
+            const rest24Pct = Math.min(100, Math.max(0, ((p.min_rest_24h_hours - 8) / (14 - 8)) * 100));
+            const reliefPct = Math.min(100, Math.max(0, ((p.relief_notice_buffer_minutes - 60) / (360 - 60)) * 100));
+
             grid.innerHTML = `
                 <!-- STCW-WATCH-01 -->
                 <div class="ent-rule-card">
@@ -3307,13 +3455,35 @@
                                 <span class="ent-stat-val" style="color:#10b981;">-${(14.0 - p.max_watch_24h_hours).toFixed(1)} hrs</span>
                             </div>
                         </div>
+
+                        <div style="font-size:0.64rem; font-family:var(--font-mono); color:var(--ink-muted); margin-top:6px;">STATUTORY PRESETS:</div>
+                        <div class="ent-preset-row">
+                            <button class="ent-preset-btn ${p.max_watch_24h_hours === 10 ? 'active' : ''}" onclick="setAdminParamExact('max_watch_24h_hours', 10)">10.0h (Low Fatigue)</button>
+                            <button class="ent-preset-btn ${p.max_watch_24h_hours === 12 ? 'active' : ''}" onclick="setAdminParamExact('max_watch_24h_hours', 12)">12.0h (Standard 4-on/8-off)</button>
+                            <button class="ent-preset-btn ${p.max_watch_24h_hours === 14 ? 'active' : ''}" onclick="setAdminParamExact('max_watch_24h_hours', 14)">14.0h (STCW Hard Cap)</button>
+                        </div>
                     </div>
                     <div>
-                        <div class="ent-slider-row">
-                            <input type="range" class="ent-slider-input" min="8" max="16" step="0.5" value="${p.max_watch_24h_hours}" oninput="updateAdminParam('max_watch_24h_hours', this.value); document.getElementById('valWatch24').value = this.value; document.getElementById('dispValWatch24').textContent = this.value + ' hrs';">
-                            <input type="number" id="valWatch24" class="ent-num-stepper" value="${p.max_watch_24h_hours}" step="0.5" onchange="updateAdminParam('max_watch_24h_hours', this.value); document.getElementById('dispValWatch24').textContent = this.value + ' hrs';">
-                            <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted);">hrs</span>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                            <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--ink-secondary);">Fine Adjustment:</span>
+                            <div class="ent-stepper-control">
+                                <button class="ent-step-btn" onclick="stepAdminParam('max_watch_24h_hours', -0.5, 8, 16)"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" id="valWatch24" class="ent-num-stepper" value="${p.max_watch_24h_hours}" step="0.5" onchange="setAdminParamExact('max_watch_24h_hours', this.value)">
+                                <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted); margin-right:4px;">hrs</span>
+                                <button class="ent-step-btn" onclick="stepAdminParam('max_watch_24h_hours', 0.5, 8, 16)"><i class="fa-solid fa-plus"></i></button>
+                            </div>
                         </div>
+
+                        <div class="ent-barometer-track">
+                            <div class="ent-barometer-needle" style="left: ${watchPct}%;"></div>
+                        </div>
+                        <div class="ent-barometer-labels">
+                            <span>8.0h</span>
+                            <span style="color:#10b981;">12.0h (Standard)</span>
+                            <span style="color:#ef4444;">14.0h (STCW Cap)</span>
+                            <span>16.0h</span>
+                        </div>
+
                         <div class="ent-impact-pill">
                             <i class="fa-solid fa-circle-check" style="color:#10b981;"></i>
                             <span>Evaluated on 84 feeder voyages · Master M-1001 watch=11.0h (Legal)</span>
@@ -3349,13 +3519,35 @@
                                 <span class="ent-stat-val" style="color:#10b981;">+${(p.min_rest_7d_hours - 77.0).toFixed(1)} hrs</span>
                             </div>
                         </div>
+
+                        <div style="font-size:0.64rem; font-family:var(--font-mono); color:var(--ink-muted); margin-top:6px;">STATUTORY PRESETS:</div>
+                        <div class="ent-preset-row">
+                            <button class="ent-preset-btn ${p.min_rest_7d_hours === 77 ? 'active' : ''}" onclick="setAdminParamExact('min_rest_7d_hours', 77)">77.0h (STCW Min)</button>
+                            <button class="ent-preset-btn ${p.min_rest_7d_hours === 84 ? 'active' : ''}" onclick="setAdminParamExact('min_rest_7d_hours', 84)">84.0h (+7h Safe Buffer)</button>
+                            <button class="ent-preset-btn ${p.min_rest_7d_hours === 90 ? 'active' : ''}" onclick="setAdminParamExact('min_rest_7d_hours', 90)">90.0h (High-Rest)</button>
+                        </div>
                     </div>
                     <div>
-                        <div class="ent-slider-row">
-                            <input type="range" class="ent-slider-input" min="60" max="95" step="1" value="${p.min_rest_7d_hours}" oninput="updateAdminParam('min_rest_7d_hours', this.value); document.getElementById('valRest7d').value = this.value; document.getElementById('dispValRest7d').textContent = this.value + ' hrs';">
-                            <input type="number" id="valRest7d" class="ent-num-stepper" value="${p.min_rest_7d_hours}" step="1" onchange="updateAdminParam('min_rest_7d_hours', this.value); document.getElementById('dispValRest7d').textContent = this.value + ' hrs';">
-                            <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted);">hrs</span>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                            <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--ink-secondary);">Fine Adjustment:</span>
+                            <div class="ent-stepper-control">
+                                <button class="ent-step-btn" onclick="stepAdminParam('min_rest_7d_hours', -1, 60, 95)"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" id="valRest7d" class="ent-num-stepper" value="${p.min_rest_7d_hours}" step="1" onchange="setAdminParamExact('min_rest_7d_hours', this.value)">
+                                <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted); margin-right:4px;">hrs</span>
+                                <button class="ent-step-btn" onclick="stepAdminParam('min_rest_7d_hours', 1, 60, 95)"><i class="fa-solid fa-plus"></i></button>
+                            </div>
                         </div>
+
+                        <div class="ent-barometer-track" style="background: linear-gradient(90deg, #ef4444 0%, #ef4444 48%, #f59e0b 48%, #f59e0b 68%, #10b981 68%, #10b981 100%);">
+                            <div class="ent-barometer-needle" style="left: ${rest7dPct}%;"></div>
+                        </div>
+                        <div class="ent-barometer-labels">
+                            <span>60.0h</span>
+                            <span style="color:#ef4444;">77.0h (Min Floor)</span>
+                            <span style="color:#10b981;">84.0h (+7h Target)</span>
+                            <span>95.0h</span>
+                        </div>
+
                         <div class="ent-impact-pill">
                             <i class="fa-solid fa-circle-check" style="color:#10b981;"></i>
                             <span>120 watchkeepers evaluated · 0 MLC violations · Compliance 100%</span>
@@ -3391,13 +3583,35 @@
                                 <span class="ent-stat-val" style="color:#10b981;">+${(p.min_rest_24h_hours - 10.0).toFixed(1)} hrs</span>
                             </div>
                         </div>
+
+                        <div style="font-size:0.64rem; font-family:var(--font-mono); color:var(--ink-muted); margin-top:6px;">STATUTORY PRESETS:</div>
+                        <div class="ent-preset-row">
+                            <button class="ent-preset-btn ${p.min_rest_24h_hours === 10 ? 'active' : ''}" onclick="setAdminParamExact('min_rest_24h_hours', 10)">10.0h (STCW Min)</button>
+                            <button class="ent-preset-btn ${p.min_rest_24h_hours === 11 ? 'active' : ''}" onclick="setAdminParamExact('min_rest_24h_hours', 11)">11.0h (+1h Buffer)</button>
+                            <button class="ent-preset-btn ${p.min_rest_24h_hours === 12 ? 'active' : ''}" onclick="setAdminParamExact('min_rest_24h_hours', 12)">12.0h (Comfort Zone)</button>
+                        </div>
                     </div>
                     <div>
-                        <div class="ent-slider-row">
-                            <input type="range" class="ent-slider-input" min="8" max="14" step="0.5" value="${p.min_rest_24h_hours}" oninput="updateAdminParam('min_rest_24h_hours', this.value); document.getElementById('valRest24').value = this.value; document.getElementById('dispValRest24').textContent = this.value + ' hrs';">
-                            <input type="number" id="valRest24" class="ent-num-stepper" value="${p.min_rest_24h_hours}" step="0.5" onchange="updateAdminParam('min_rest_24h_hours', this.value); document.getElementById('dispValRest24').textContent = this.value + ' hrs';">
-                            <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted);">hrs</span>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                            <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--ink-secondary);">Fine Adjustment:</span>
+                            <div class="ent-stepper-control">
+                                <button class="ent-step-btn" onclick="stepAdminParam('min_rest_24h_hours', -0.5, 8, 14)"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" id="valRest24" class="ent-num-stepper" value="${p.min_rest_24h_hours}" step="0.5" onchange="setAdminParamExact('min_rest_24h_hours', this.value)">
+                                <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted); margin-right:4px;">hrs</span>
+                                <button class="ent-step-btn" onclick="stepAdminParam('min_rest_24h_hours', 0.5, 8, 14)"><i class="fa-solid fa-plus"></i></button>
+                            </div>
                         </div>
+
+                        <div class="ent-barometer-track" style="background: linear-gradient(90deg, #ef4444 0%, #ef4444 33%, #f59e0b 33%, #f59e0b 50%, #10b981 50%, #10b981 100%);">
+                            <div class="ent-barometer-needle" style="left: ${rest24Pct}%;"></div>
+                        </div>
+                        <div class="ent-barometer-labels">
+                            <span>8.0h</span>
+                            <span style="color:#ef4444;">10.0h (Min Floor)</span>
+                            <span style="color:#10b981;">11.0h (Target)</span>
+                            <span>14.0h</span>
+                        </div>
+
                         <div class="ent-impact-pill">
                             <i class="fa-solid fa-circle-check" style="color:#10b981;"></i>
                             <span>Continuous sleep protection active across all port stays</span>
@@ -3433,13 +3647,35 @@
                                 <span class="ent-stat-val" style="color:#06b6d4;">RTM / HAM / ANR</span>
                             </div>
                         </div>
+
+                        <div style="font-size:0.64rem; font-family:var(--font-mono); color:var(--ink-muted); margin-top:6px;">RESPONSE PROFILES:</div>
+                        <div class="ent-preset-row">
+                            <button class="ent-preset-btn ${p.relief_notice_buffer_minutes === 60 ? 'active' : ''}" onclick="setAdminParamExact('relief_notice_buffer_minutes', 60)">60m (Express Pilot)</button>
+                            <button class="ent-preset-btn ${p.relief_notice_buffer_minutes === 120 ? 'active' : ''}" onclick="setAdminParamExact('relief_notice_buffer_minutes', 120)">120m (Standard)</button>
+                            <button class="ent-preset-btn ${p.relief_notice_buffer_minutes === 180 ? 'active' : ''}" onclick="setAdminParamExact('relief_notice_buffer_minutes', 180)">180m (High Weather)</button>
+                        </div>
                     </div>
                     <div>
-                        <div class="ent-slider-row">
-                            <input type="range" class="ent-slider-input" min="60" max="360" step="30" value="${p.relief_notice_buffer_minutes}" oninput="updateAdminParam('relief_notice_buffer_minutes', this.value); document.getElementById('valReliefBuf').value = this.value; document.getElementById('dispValReliefBuf').textContent = this.value + ' mins';">
-                            <input type="number" id="valReliefBuf" class="ent-num-stepper" value="${p.relief_notice_buffer_minutes}" step="30" onchange="updateAdminParam('relief_notice_buffer_minutes', this.value); document.getElementById('dispValReliefBuf').textContent = this.value + ' mins';">
-                            <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted);">mins</span>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                            <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--ink-secondary);">Fine Adjustment:</span>
+                            <div class="ent-stepper-control">
+                                <button class="ent-step-btn" onclick="stepAdminParam('relief_notice_buffer_minutes', -30, 60, 360)"><i class="fa-solid fa-minus"></i></button>
+                                <input type="number" id="valReliefBuf" class="ent-num-stepper" value="${p.relief_notice_buffer_minutes}" step="30" onchange="setAdminParamExact('relief_notice_buffer_minutes', this.value)">
+                                <span style="font-size:0.75rem; font-family:var(--font-mono); color:var(--ink-muted); margin-right:4px;">mins</span>
+                                <button class="ent-step-btn" onclick="stepAdminParam('relief_notice_buffer_minutes', 30, 60, 360)"><i class="fa-solid fa-plus"></i></button>
+                            </div>
                         </div>
+
+                        <div class="ent-barometer-track">
+                            <div class="ent-barometer-needle" style="left: ${reliefPct}%;"></div>
+                        </div>
+                        <div class="ent-barometer-labels">
+                            <span>60m</span>
+                            <span style="color:#10b981;">120m (Target)</span>
+                            <span style="color:#f59e0b;">240m (Outer)</span>
+                            <span>360m</span>
+                        </div>
+
                         <div class="ent-impact-pill">
                             <i class="fa-solid fa-circle-check" style="color:#10b981;"></i>
                             <span>14 harbor pilots in pool · Standby M-3010 reachability: 75m</span>
@@ -3450,10 +3686,54 @@
         }
     }
 
-    function updateAdminParam(key, val) {
+    function setAdminParamExact(key, val) {
         const dom = STATE.adminDomain || 'aviation';
         if (!ADMIN_RULES_CACHE || !ADMIN_RULES_CACHE[dom]) return;
         ADMIN_RULES_CACHE[dom].params[key] = (typeof val === 'boolean') ? val : parseFloat(val);
+        renderAdminView();
+        showToast(`⚡ Set ${key} to ${val}`);
+    }
+
+    function stepAdminParam(key, delta, min, max) {
+        const dom = STATE.adminDomain || 'aviation';
+        if (!ADMIN_RULES_CACHE || !ADMIN_RULES_CACHE[dom]) return;
+        const current = ADMIN_RULES_CACHE[dom].params[key] || 0;
+        let nextVal = current + delta;
+        if (min !== undefined && nextVal < min) nextVal = min;
+        if (max !== undefined && nextVal > max) nextVal = max;
+        nextVal = Math.round(nextVal * 10) / 10;
+        ADMIN_RULES_CACHE[dom].params[key] = nextVal;
+        renderAdminView();
+    }
+
+    function applyRegulatoryProfile(profile) {
+        const dom = STATE.adminDomain || 'aviation';
+        if (!ADMIN_RULES_CACHE || !ADMIN_RULES_CACHE[dom]) return;
+        const p = ADMIN_RULES_CACHE[dom].params;
+
+        if (profile === 'monsoon') {
+            p.base_fdp_hours = 11.0;
+            p.min_rest_hours = 14.0;
+            p.wocl_curfew_enabled = true;
+            p.reserve_callout_buffer_minutes = 90;
+            showToast('🌧️ Applied Monsoon / Severe Weather Protection Profile: FDP reduced to 11h, Rest expanded to 14h.');
+        } else if (profile === 'flexibility') {
+            p.base_fdp_hours = 12.5;
+            p.min_rest_hours = 12.0;
+            p.wocl_curfew_enabled = false;
+            p.reserve_callout_buffer_minutes = 60;
+            showToast('⚡ Applied High-Tempo Flexibility Profile: FDP set to statutory max 12.5h, 60m standby notice.');
+        } else {
+            p.base_fdp_hours = 12.0;
+            p.min_rest_hours = 12.0;
+            p.wocl_curfew_enabled = true;
+            p.reserve_callout_buffer_minutes = 60;
+            p.max_duty_7d_hours = 60;
+            p.max_flight_28d_hours = 100;
+            showToast('🛡️ Applied DGCA Standard Baseline: 12.0h FDP, 12.0h Rest, WOCL Curfew Enforced.');
+        }
+        renderAdminView();
+        runAdminLiveConformance();
     }
 
     async function saveAdminRulesConfig() {

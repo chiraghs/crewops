@@ -2878,3 +2878,105 @@ input, select { font: inherit; color: inherit; }
     background: rgba(255, 255, 255, 0.02);
     color: var(--ink-primary);
 }
+
+/* ==========================================================================
+   ENTERPRISE PRECISION CONTROLS (REPLACING SLIDERS)
+   ========================================================================== */
+.ent-preset-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0;
+}
+
+.ent-preset-btn {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.66rem;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--hairline);
+    color: var(--ink-secondary);
+    transition: all 0.15s ease;
+}
+
+.ent-preset-btn:hover {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.4);
+    color: var(--ink-primary);
+}
+
+.ent-preset-btn.active {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #10b981;
+    color: #10b981;
+    font-weight: 700;
+}
+
+.ent-stepper-control {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 3px 6px;
+    border-radius: 6px;
+    border: 1px solid var(--hairline);
+}
+
+.ent-step-btn {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    border: 1px solid var(--hairline);
+    background: var(--surface-1);
+    color: var(--ink-primary);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all 0.15s ease;
+}
+
+.ent-step-btn:hover {
+    background: var(--surface-2);
+    border-color: #10b981;
+    color: #10b981;
+}
+
+.ent-step-btn:active {
+    transform: scale(0.92);
+}
+
+/* Legal Range Barometer */
+.ent-barometer-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #10b981 0%, #10b981 72%, #f59e0b 72%, #f59e0b 88%, #ef4444 88%, #ef4444 100%);
+    position: relative;
+    margin: 8px 0 3px 0;
+}
+
+.ent-barometer-needle {
+    position: absolute;
+    top: -4px;
+    width: 3px;
+    height: 14px;
+    background: #ffffff;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.9), 0 0 2px #000;
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: left 0.2s ease;
+}
+
+.ent-barometer-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.58rem;
+    font-family: var(--font-mono);
+    color: var(--ink-muted);
+}

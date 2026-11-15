@@ -1153,6 +1153,17 @@ ACK REQD VIA ACARS CPDLC OR FREQ 131.850 MHZ</div>
                     </div>
                 </div>
 
+                <!-- Quick Regulatory Profile Bar -->
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; background:rgba(0,0,0,0.25); border:1px solid var(--hairline); border-radius:8px; padding:8px 14px;">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-size:0.7rem; font-family:var(--font-mono); font-weight:700; color:var(--ink-secondary); text-transform:uppercase;"><i class="fa-solid fa-bolt" style="color:#f59e0b;"></i> Regulatory Profiles:</span>
+                        <button class="ent-preset-btn active" onclick="applyRegulatoryProfile('standard')"><i class="fa-solid fa-shield-halved" style="color:#10b981; margin-right:4px;"></i> DGCA Standard Baseline</button>
+                        <button class="ent-preset-btn" onclick="applyRegulatoryProfile('monsoon')"><i class="fa-solid fa-cloud-showers-heavy" style="color:#38bdf8; margin-right:4px;"></i> Monsoon / Weather Guard</button>
+                        <button class="ent-preset-btn" onclick="applyRegulatoryProfile('flexibility')"><i class="fa-solid fa-gauge-high" style="color:#f59e0b; margin-right:4px;"></i> High-Tempo Flexibility</button>
+                    </div>
+                    <span style="font-size:0.68rem; color:var(--ink-muted); font-family:var(--font-mono);">Certified Presets · 100% Zero-Slider Precision</span>
+                </div>
+
                 <!-- Domain Switcher inside Admin -->
                 <div class="shift-block-pills-row" style="margin:0;">
                     <button class="shift-block-pill active" id="btnAdminDomainAv" onclick="setAdminDomain('aviation')">
