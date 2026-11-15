@@ -444,7 +444,7 @@ add_bullet_paragraph(tf10, "Operational Impact", "Reduces disruption resolution 
 add_header_paragraph(tf10, "GOOGLE CLOUD PRODUCTION INFRASTRUCTURE & BUSINESS MODEL", color=GOOGLE_BLUE, space_before=Pt(5), font_size=Pt(10.5))
 add_bullet_paragraph(tf10, "Google Cloud Run (Managed Serverless)", "Containerized deployment in asia-south1 with 2 vCPU / 2GiB, handling auto-scaling WebSocket streams with zero cold-start delay (deploy_gcp.sh).", font_size=Pt(8.8))
 add_bullet_paragraph(tf10, "Google Cloud Build CI/CD", "Automated containerization pipeline (cloudbuild.yaml) building production-ready images for Google Artifact Registry.", font_size=Pt(8.8))
-add_bullet_paragraph(tf10, "Tiered B2B Enterprise SaaS", "Tier 1 Regional ($25k/mo), Tier 2 Mid-Market ($60k/mo), Tier 3 Global Flagship ($120k/mo). Target addressable market of $1.85B SOM across top 120 airlines and 80 shipping lines.", font_size=Pt(8.8))
+add_bullet_paragraph(tf10, "Tiered B2B Enterprise SaaS", "Tier 1 Regional ($120k/yr), Tier 2 Mid-Market ($350k/yr), Tier 3 Flagship ($850k/yr). TAM: $42.5B, SAM: $8.2B, SOM: $280M (Years 1–3). 84%+ gross margin, 60-day customer payback period.", font_size=Pt(8.8))
 
 # ==============================================================================
 # Slide 11: Closing / Thank You (Added Slide with original background)
