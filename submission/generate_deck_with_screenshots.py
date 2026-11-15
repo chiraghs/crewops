@@ -159,8 +159,8 @@ tf3.clear()
 tf3.word_wrap = True
 tf3.margin_left = tf3.margin_right = tf3.margin_top = tf3.margin_bottom = 0
 
-add_header_paragraph(tf3, "THE $78 BILLION OPERATIONAL FRAGILITY CRISIS", color=GOOGLE_RED, space_before=Pt(0), font_size=Pt(11))
-add_bullet_paragraph(tf3, "Massive Industry Disruption Costs", "Commercial airlines and maritime shipping operators lose over $78B annually to unexpected operational disruptions: sudden crew illness, technical groundings, slot curfews, and port tidal locks ($33.2B IATA airline delay costs, $18.5B maritime demurrage).", font_size=Pt(9.2))
+add_header_paragraph(tf3, "THE $8.4 BILLION PREVENTABLE OPERATIONAL CRISIS", color=GOOGLE_RED, space_before=Pt(0), font_size=Pt(11))
+add_bullet_paragraph(tf3, "High-Impact Industry Disruption Costs", "Commercial airlines and maritime shipping operators lose over $8.4B annually in avoidable crew and turnaround delays ($5.2B in avoidable airline crew delay costs, $3.2B in maritime port demurrage). A single airline bleeds $60M–$120M yearly from cascading crew fragmentation.", font_size=Pt(9.2))
 add_bullet_paragraph(tf3, "Extreme Cognitive Overload on OCC Controllers", "Operations Control Center dispatchers are forced to juggle 10+ legacy disconnected terminals, physical rulebook binders, and voice radio channels under intense time-to-departure pressure.", font_size=Pt(9.2))
 
 add_header_paragraph(tf3, "WHY EXISTING SOLUTIONS & GENERIC LLMS FAIL CATASTROPHICALLY", color=GOOGLE_RED, space_before=Pt(6), font_size=Pt(11))

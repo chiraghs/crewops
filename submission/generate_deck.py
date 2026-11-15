@@ -134,8 +134,8 @@ slide3 = prs.slides[2]
 tf3 = setup_content_box(slide3.shapes[2])
 slide3.shapes[1].width = Inches(8.8)
 
-add_header_paragraph(tf3, "THE $78 BILLION OPERATIONAL FRAGILITY CRISIS", color=GOOGLE_RED, space_before=Pt(0))
-add_bullet_paragraph(tf3, "Massive Industry Disruption Costs", "Commercial airlines and maritime shipping operators lose over $78B annually to unexpected operational disruptions: sudden crew illness, technical groundings, slot curfews, and port tidal locks ($33.2B IATA airline delay costs, $18.5B maritime demurrage).")
+add_header_paragraph(tf3, "THE $8.4 BILLION PREVENTABLE OPERATIONAL CRISIS", color=GOOGLE_RED, space_before=Pt(0))
+add_bullet_paragraph(tf3, "High-Impact Industry Disruption Costs", "Commercial airlines and maritime shipping operators lose over $8.4B annually in avoidable crew and turnaround delays ($5.2B in avoidable airline crew delay costs, $3.2B in maritime port demurrage). A single airline bleeds $60M–$120M yearly from cascading crew fragmentation.")
 add_bullet_paragraph(tf3, "Extreme Cognitive Overload on OCC Controllers", "Operations Control Center dispatchers are forced to juggle 10+ legacy disconnected terminals, physical rulebook binders, and voice radio channels under intense time-to-departure pressure.")
 
 add_header_paragraph(tf3, "WHY EXISTING SOLUTIONS & GENERIC LLMS FAIL CATASTROPHICALLY", color=GOOGLE_RED, space_before=Pt(6))

@@ -183,6 +183,6 @@ requirements.txt           # Python dependencies
 ## 🏆 Hackathon Value Proposition
 
 For the **"Build your startup with Google AI and Google Cloud"** nationwide buildathon:
-* **Massive Enterprise Market**: Addresses a global $78B operational fragility and disruption delay problem across commercial airlines and maritime shipping lines.
+* **Massive Enterprise Market**: Addresses an addressable $8.4B operational fragility and disruption delay problem across commercial airlines and maritime shipping lines.
 * **Full Google AI Stack**: Seamlessly harmonizes Gemini 2.0 Flash, Gemini Omni, Gemini Live, Gemma 2, Gemini Nano, and DeepMind Lyria with Google Antigravity swarms and Google Cloud Run.
 * **Zero-Hallucination Safety Moat**: "The Model Translates, The Kernel Decides" ensures that mathematical legality, rest periods, and safety caps are mathematically guaranteed before any crew assignment is dispatched.

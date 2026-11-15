@@ -7,7 +7,7 @@
 
 ## 1. Executive Summary
 
-Every year, high-stakes industries—**Aviation, Maritime, Intermodal Freight, Healthcare Triage, and Industrial Energy**—lose over **$78 Billion** to unexpected operational disruptions: sudden staff sickness, technical delays, weather closures, and regulatory shift breaches.
+Every year, commercial aviation and maritime logistics operators lose over **$8.4 Billion** in directly avoidable crew and dispatch turnaround delays ($5.2B in airline crew delay ground penalties, $3.2B in maritime port demurrage). A single tier-1 airline bleeds $60M–$120M annually from cascading operational fragmentation.
 
 When a disruption strikes, controllers in Operations Control Centers (OCCs) juggle 10+ legacy disconnected screens, radio channels, and paper rulebooks. They are forced to make snap decisions under extreme cognitive overload. A single mistake triggers catastrophic regulatory grounding fines, cascading delays, or patient mortality.
 
@@ -15,7 +15,7 @@ When a disruption strikes, controllers in Operations Control Centers (OCCs) jugg
 
 ---
 
-## 2. The Problem: The $78B Operational Fragility Crisis
+## 2. The Problem: The $8.4B Preventable Operational Disruption Crisis
 
 | Industry | Primary Disruption Source | Direct Annual Financial Loss | Human & Safety Risk |
 | :--- | :--- | :--- | :--- |
